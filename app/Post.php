@@ -17,6 +17,6 @@ class Post extends Model
 
     public function type_of_diseases()
     {
-        return $this->belongsToMany(TypeOfDisease::class, 'type_post', 'post_id', 'type_of_diseases_id');
+        return $this->belongsToMany(TypeOfDisease::class, 'detail_posts', 'post_id', 'type_of_diseases_id');
     }
 }
