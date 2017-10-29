@@ -1,0 +1,193 @@
+@font-face {
+    font-family: 'Raleway-Light-vi.ttf';
+    src: url('../fonts/Raleway-Light-vi.ttf');
+}
+
+@font-face {
+    font-family: 'lato-light.ttf';
+    src: url('../fonts/lato-light.ttf');
+}
+
+@font-face {
+    font-family: 'lato-medium.ttf';
+    src: url('../fonts/lato-medium.ttf');
+}
+
+/* Begin Fonts */
+body {
+	font-family: 'lato-medium.ttf';
+}
+h1, h2, h4, h5, h6 {
+	font-family: 'lato-medium.ttf';
+	font-weight: 300;
+	margin-bottom: 10px;
+}
+h3{
+	font-family: 'lato-medium.ttf';
+	margin-bottom: 15px;
+	margin-top: 10px;
+}
+p {
+	font-family: 'lato-medium.ttf';
+	font-size: 16px;
+	line-height: 30px;
+}
+.navbar-nav > li > a {
+	font-family: 'lato-medium.ttf';
+}
+/* End Fonts */
+
+
+
+
+.dropdown-menu {
+min-width: 200px;
+}
+.dropdown-menu.columns-2 {
+min-width: 400px;
+}
+.dropdown-menu.columns-3 {
+min-width: 600px;
+}
+.dropdown-menu li a {
+padding: 5px 15px;
+}
+.multi-column-dropdown {
+list-style: none;
+padding-top: 5px;
+padding-right: 0px;
+padding-bottom: 5px;
+padding-left: 0px;
+}
+.multi-column-dropdown li a {
+display: block;
+clear: both;
+line-height: 1.428571429;
+color: #333;
+white-space: normal;
+padding-top: 5px;
+padding-right: 15px;
+padding-bottom: 5px;
+padding-left: 15px;
+}
+.multi-column-dropdown li a:hover {
+text-decoration: none;
+color: #262626;
+background-color: #f5f5f5;
+}
+@media (max-width: 767px) {
+.dropdown-menu.multi-column {
+min-width: 240px !important;
+overflow-x: hidden;
+}
+}
+
+
+
+.menu-top{
+	background-color:#;color:#fff;height: auto;
+}
+
+
+
+    /* Remove the navbar's default margin-bottom and rounded borders */
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+  .carousel-inner img {
+      width: 100%; /* Set width to 100% */
+      margin: auto;
+      min-height:200px;
+  }
+
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none;
+    }
+  }
+
+
+  /* Note: Try to remove the following lines to see the effect of CSS positioning */
+  .affix {
+      top: 0;
+      width: 100%;
+  }
+
+  .affix + .container-fluid {
+      padding-top: 70px;
+  }
+
+.dropdown-menu {
+  min-width: 200px;
+}
+.dropdown-menu.columns-2 {
+  min-width: 400px;
+}
+.dropdown-menu.columns-3 {
+  min-width: 600px;
+}
+.dropdown-menu li a {
+  padding: 5px 15px;
+}
+.multi-column-dropdown {
+  list-style: none;
+  padding-top: 5px;
+  padding-right: 0px;
+  padding-bottom: 5px;
+  padding-left: 0px;
+}
+.multi-column-dropdown li a {
+  display: block;
+  clear: both;
+  line-height: 1.428571429;
+  color: #333;
+  white-space: normal;
+  padding-top: 5px;
+  padding-right: 15px;
+  padding-bottom: 5px;
+  padding-left: 15px;
+}
+.multi-column-dropdown li a:hover {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+ @media (max-width: 767px) {
+ .dropdown-menu.multi-column {
+ min-width: 240px !important;
+ overflow-x: hidden;
+}
+}
+
+
+/*-----Login-------*/
+
+body{
+	padding-top: 10px;
+}
+/* General sizing */
+ul.dropdown-lr {
+  width: 270px;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+
+/* mobile fix */
+@media (max-width: 768px) {
+	.dropdown-lr label {
+		color: #000000;
+	}
+}
+li.dropdown:hover ul.dropdown-menu {
+  display: block;
+}
+
