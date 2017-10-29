@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Article;
 use App\Role;
 use App\Field;
+use App\Comment;
 
 class User extends Authenticatable
 {
@@ -22,7 +23,7 @@ class User extends Authenticatable
     protected $primaryKey = "id";
 
     protected $fillable = [
-        'name', 'email', 'password', 'gender', 'date_of_birth', 'address', 'phone', 'role_id'
+        'name', 'email', 'password','avatar', 'gender', 'date_of_birth', 'address', 'phone', 'role_id'
     ];
 
     public function articles()
@@ -38,6 +39,11 @@ class User extends Authenticatable
     public function fields()
     {
         return $this->belongsToMany(Field::class, 'specialties','user_id', 'field_id');
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
     }
 
     /**
