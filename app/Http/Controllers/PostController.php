@@ -14,8 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::all();
-        return view('posts.index')->with("posts", $posts);
+
+        $posts = Post::all();
+        return view("posts.index")->with("posts", $posts);
     }
 
     /**
@@ -45,10 +46,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    public function show(Post $post)
     {
-        //
+        return view('posts.show')->with('post', $post);
     }
+
 
     /**
      * Show the form for editing the specified resource.

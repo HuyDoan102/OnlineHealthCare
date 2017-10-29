@@ -19,3 +19,16 @@ Route::resource('posts', 'PostController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource("posts", "PostController");
+
+$admin_config = [
+    "prefix"     => "admin",
+    "namespace"  => "Admin",
+    "as"         => "admin.",
+    "middleware" => "admin"
+];
+
+Route::group($admin_config, function () {
+    Route::resource("dashboard", "DashboardController");
+});
