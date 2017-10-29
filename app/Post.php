@@ -12,7 +12,7 @@ class Post extends Model
     protected $primaryKey = "id";
 
     protected $fillable = [
-        'title', 'content', 'source', 'status'
+        'title', 'content', 'source', 'status', 'image', 'view'
     ];
 
     public function type_of_diseases()
