@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.partials.admin')
 
-@section('content')
+@section('admin')
 <div class="container">
     <table class="table table-striped">
       <thead>
