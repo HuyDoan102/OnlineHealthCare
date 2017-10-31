@@ -20,6 +20,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/BMI', 'BMIController@index')->name('');
+
 Route::resource("posts", "PostController");
 
 $admin_config = [
