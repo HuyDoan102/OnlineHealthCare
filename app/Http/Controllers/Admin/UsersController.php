@@ -16,7 +16,6 @@ class UsersController extends Controller
     public function index()
     {
         $users = User::all();
-        // die(var_dump($users));
         return view("admin.users.index")->with("users", $users);
     }
 
@@ -27,7 +26,6 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view("admin.user.modalCreate");
     }
 
     /**
@@ -49,7 +47,6 @@ class UsersController extends Controller
      */
     public function show(User $user)
     {
-        return view("admin.users.show")->with("user", $user);
     }
 
     /**
@@ -81,8 +78,10 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user)
     {
-        //
+        echo "string";
+        $user->delete();
+        return redirect()->route("admin.users.index");
     }
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="shortcut icon" href="/images/logo.png" />
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
     <div class=" container-scroller">
@@ -144,7 +145,7 @@
 
 </body>
 </html>
-<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+
 <script src="/node_modules/tether/dist/js/tether.min.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/node_modules/chart.js/dist/Chart.min.js"></script>
@@ -154,5 +155,4 @@
 <script src="/js/misc.js"></script>
 <script src="/js/chart.js"></script>
 <script src="/js/maps.js"></script>
-
 
