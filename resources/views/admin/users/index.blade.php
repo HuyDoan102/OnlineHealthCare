@@ -19,6 +19,7 @@
                                     <th>Address</th>
                                     <th>Phone</th>
                                     <th>Role</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -40,8 +41,6 @@
                                             data-phone="{{ $user->phone }}" data-role="{{ $user->role->name }}">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                    </td>
-                                    <td>
                                         <a href="#" class="btn btn-danger btn-sm"
                                             data-toggle="modal" data-target="#modalDelete"
                                             data-id="{{ $user->id }}">
@@ -50,8 +49,8 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                                @include("admin.users.modalShow")
-                                @include("admin.users.modalDelete")
+                                @include("admin.users.show")
+                                @include("admin.users.delete")
                             </tbody>
                         </table>
                     </div>
