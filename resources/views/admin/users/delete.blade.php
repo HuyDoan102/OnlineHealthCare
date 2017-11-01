@@ -6,12 +6,12 @@
             <div class="modal-body">
                 <h5 class="modal-title">Do you want to delete this user ?</h5>
                 <form action="{{ route("admin.users.destroy", $user->id) }}" method="POST">
-                    {{ csrf_field() }}
                     {{ method_field("DELETE") }}
+                    {{ csrf_field() }}
                     <input type="hidden" class="form-control" id="delete_id" name="id">
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                        <input type="submit" class="btn btn-primary" value="Yes">
+                        <input type="submit" class="btn btn-danger" value="Yes">
                     </div>
                 </form>
             </div>

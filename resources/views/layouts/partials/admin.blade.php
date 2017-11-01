@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="shortcut icon" href="/images/logo.png" />
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+
 </head>
 <body>
     <div class=" container-scroller">
@@ -57,50 +58,37 @@
                             </a>
                         </li>
 
-                        {{-- <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                                <!-- <i class="fa fa-address-book"></i> -->
-                                <img src="images/icons/9.png" alt="">
-                                <span class="menu-title">Sample Pages<i class="fa fa-sort-down"></i></span>
-                            </a>
-                            <div class="collapse" id="collapseExample">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="samples/blank_page.html">
-                                            Blank Page
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li> --}}
-
                         <li class="nav-item">
-                            <a class="nav-link" href="/admin/users">
+                            <a class="nav-link" href="{{ route("admin.users.index") }}">
                                 <img src="/images/user.png" alt="">
                                 <span class="menu-title">Users</span>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/forms.html">
+                            <a class="nav-link" href="{{ route("admin.roles.index") }}">
                                 <!-- <i class="fa fa-wpforms"></i> -->
                                 <img src="/images/role.jpg" alt="">
                                 <span class="menu-title">Roles</span>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/buttons.html">
+                            <a class="nav-link" href="{{ route("admin.posts.index") }}">
                                 <!-- <i class="fa fa-calculator"></i> -->
                                 <img src="/images/post.png" alt="">
                                 <span class="menu-title">Posts</span>
                             </a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/tables.html">
+                            <a class="nav-link" href="">
                                 <!-- <i class="fa fa-table"></i> -->
                                 <img src="/images/feedback.jpg" alt="">
                                 <span class="menu-title">Feedbacks</span>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="pages/charts.html">
                                 <!-- <i class="fa fa-bar-chart"></i> -->
@@ -108,6 +96,7 @@
                                 <span class="menu-title">Articles</span>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="pages/icons.html">
                                 <!-- <i class="fa fa-font"></i> -->
@@ -115,6 +104,7 @@
                                 <span class="menu-title">Diseases</span>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="pages/typography.html">
                                 <!-- <i class="fa fa-bold"></i> -->
@@ -122,6 +112,7 @@
                                 <span class="menu-title">Fields</span>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="pages/typography.html">
                                 <!-- <i class="fa fa-bold"></i> -->
@@ -129,6 +120,7 @@
                                 <span class="menu-title">Type of Diseases</span>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="#">
                                 <!-- <i class="fa fa-bold"></i> -->
