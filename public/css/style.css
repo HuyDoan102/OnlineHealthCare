@@ -6793,3 +6793,7 @@ table.center-aligned-table tr {
 .title-modal {
     text-align: center;
 }
+
+.image-post{
+    width: 100px;
+}
