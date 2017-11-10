@@ -18,7 +18,6 @@ Route::get('/','HomeController@index');
 Route::resource('posts', 'PostController');
 Auth::routes();
 
-Route::resource("posts", "PostController");
 
 $admin_config = [
     "prefix"     => "admin",
@@ -28,5 +27,9 @@ $admin_config = [
 ];
 
 Route::group($admin_config, function () {
-    Route::resource("dashboard", "DashboardController");
+    Route::resource("dashboard", "DashboardsController");
+    Route::resource("posts", "PostController");
+    Route::resource("users", "UsersController");
+    Route::resource("roles", "RolesController");
 });
+
