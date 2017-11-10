@@ -18,7 +18,8 @@
     <link href="{{ asset('css/easy-responsive-tabs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/JiSlider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/user.css') }}" rel="stylesheet">
     <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
     {{-- jquery --}}
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
@@ -127,13 +128,13 @@
                         <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a class="login" href="{{ route('login') }}">Đăng nhập</a></li>
                         <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a class="login reg" href="{{ route('register') }}">Đăng ký</a></li>
                         @else
-                        <li class="dropdown">
+                        <li class="dropdown" id="logout">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
+                            <ul  class="dropdown-menu" role="menu">
+                                <li id="formlogout">
                                     <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">Logout</a>

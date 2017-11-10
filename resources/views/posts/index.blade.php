@@ -11,7 +11,7 @@
     <tbody>
         <div class="text-left">
           <br>
-          <a href="index.php">TRANG CHỦ</a>  >>  HÔ HẤP
+          <a href="/">TRANG CHỦ</a>  >>  HÔ HẤP
       </div><br>
         @for($i=count($posts)-1;$i>=0;$i--)
         <tr>

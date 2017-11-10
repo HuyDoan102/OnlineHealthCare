@@ -18,7 +18,7 @@ Route::get('/','HomeController@index');
 Route::resource('posts', 'PostController');
 Auth::routes();
 
-
+// Route::resource("posts", "PostController");
 $admin_config = [
     "prefix"     => "admin",
     "namespace"  => "Admin",
