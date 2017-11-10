@@ -17,7 +17,7 @@
 			<div class="card-body">
 				
 				<div class="col-sm-4">
-					<img src="img/{{$post->image}}" width="400" height="300">
+					<img src="../img/{{$post->image}}" width="400" height="300">
 				</div>
 
 				<div class="col-sm-8">

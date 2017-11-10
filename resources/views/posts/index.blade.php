@@ -13,26 +13,26 @@
           <br>
           <a href="index.php">TRANG CHỦ</a>  >>  HÔ HẤP
       </div><br>
-        @foreach($posts as $index => $post)
+        @for($i=count($posts)-1;$i>=0;$i--)
         <tr>
           <div class="container">
 
             <div class="row">
               <div class="col-sm-4">
-                  <img src="img/{{$post->image}}" width="300" height="200">
+                  <a href="{{ route('posts.show', $posts[$i]->id) }}"><img src="img/{{$posts[$i]->image}}" width="300" height="200"></a>
               </div>
               <div class="col-sm-8">
-                <h4 class="card-header"><a href="{{ route("posts.show", $post->id) }}">{{ $post->title }}</a></h4>
+                <h4 class="card-header"><a href="{{ route("posts.show", $posts[$i]->id) }}">{{ $posts[$i]->title }}</a></h4>
 
-                {{ $post->created_at }}
+                {{ $posts[$i]->created_at }}
               <div class="card-body" >
-                {{mb_substr($post->content,0,100-2,'UTF-8').'...' }}
+                {{mb_substr($posts[$i]->content,0,100-2,'UTF-8').'...' }}
               </div>
               </div>
             </div><br>
           </div>   
       </tr>
-      @endforeach
+      @endfor
 
       <div class="container text-center">
       <ul class="pagination">

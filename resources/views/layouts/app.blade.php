@@ -12,9 +12,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/popuo-box.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/easy-responsive-tabs.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/JiSlider.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
     {{-- jquery --}}
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -88,43 +93,39 @@
 
         google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-
+    <script>
+        $(document).ready(function(){
+            $(".dropdown").hover(            
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                    $(this).toggleClass('open');        
+                },
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                    $(this).toggleClass('open');       
+                }
+                );
+        });
+    </script>
 </head>
 <body>
+
     <div id="app">
-       <div class="container text-center menu-top " id="header">
+       <div class="header">
+        <div class="container-fluid">
+            <div class="header-grid">
+                <div class="logo-nav-left">
+                    <a href="{{ url('/') }}">
+                        <a href="index.php"><img class="img-responsive" src="/img/logo.png" alt="Logo" width="100" height="30"></a>
+                    </a>
+                </div>
+                <div class="header-grid-left">
 
-            <div class="col-sm-6">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                <a href="index.php"><img class="img-responsive" src="img/logo.png" alt="Logo" width="150" height="30"></a>
-                </a>
-            </div>
-{{-- 
-            <div class="col-sm-4">
-
-            </div> --}}
-
-            <div class="col-sm-3">
-                <form class="navbar-form navbar-left">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div class="col-sm-3 ">
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right"> 
+                    <ul> 
                     <!-- Authentication Links -->
                         @guest
-                        <li><a href="{{ route('login') }}">Đăng nhập</a></li>
-                        <li><a href="{{ route('register') }}">Đăng ký</a></li>
+                        <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a class="login" href="{{ route('login') }}">Đăng nhập</a></li>
+                        <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a class="login reg" href="{{ route('register') }}">Đăng ký</a></li>
                         @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -145,92 +146,116 @@
                         @endguest
                     </ul>
                 </div>
-            </div> 
-        </div><!-- end header -->
-        <div class="container" id="menu">
-            <nav class="navbar navbar-default" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="logo-nav">
+                
+                <div class="logo-nav-left1">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">Menu
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/">Trang chủ</a></li>
+                                <li class="agileits dropdown">
+                                    <a href="#" data-toggle="dropdown" aria-expanded="true">Chuẩn đoán</a>
+                                    <ul class="dropdown-menu agile_short_dropdown">
+                                        <li><a href="about.html">tính bmi</a></li>
+                                        <li><a href="app.html">chuẩn đoán</a></li>
+                                    </ul>
+                                </li>
+                                <li class="agileits dropdown">
+                                    <a href="" data-toggle="dropdown" aria-expanded="true">Bệnh lý</a>
+                                    <ul class="dropdown-menu agile_short_dropdown">
+                                        <li><a href="{{ route("posts.index") }}">hô hấp</a></li>
+                                        <li><a href="packs.html">tiêu hóa và tụy</a></li>
+                                        <li><a href="pay.html">da và phần phụ</a></li>
+                                        <li><a href="products.html">tai mũi họng</a></li>
+                                        <li><a href="packs.html">bệnh do tác nhân vật lý</a></li>
+                                        <li><a href="pay.html">sinh lý nam nữ</a></li>
+                                        <li><a href="products.html">tim mạch</a></li>
+                                        <li><a href="packs.html">cơ xương khớp</a></li>
+                                        <li><a href="pay.html">nội tiết, đường máu</a></li>
+                                        <li><a href="products.html">truyền nhiễm</a></li>
+                                        <li><a href="packs.html">răng miệng</a></li>
+                                        <li><a href="pay.html">ngộ độc</a></li>
+                                    </ul>
+                                </li>
+                                <li class="agileits dropdown">
+                                    <a href="#" data-toggle="dropdown" aria-expanded="true">Mẹ và bé</a>
+                                    <ul class="dropdown-menu agile_short_dropdown">
+                                        <li><a href="pay.html">Nuôi con khỏe</a></li>
+                                        <li><a href="pay.html">Dinh dưỡng cho mẹ</a></li>
+                                        <li><a href="pay.html">Góc của mẹ</a></li>
+                                    </ul>
+                                </li>
+                                <li class="agileits dropdown">
+                                    <a href="#" data-toggle="dropdown" aria-expanded="true">Bác sĩ</a>
+                                    <ul class="dropdown-menu agile_short_dropdown">
+                                        <li><a href="pay.html">khoa nhi</a></li>
+                                        <li><a href="pay.html">khoa tiêu hóa - gan mật</a></li>
+                                        <li><a href="pay.html">nha khoa</a></li>
+                                        <li><a href="pay.html">khoa tim mạch</a></li>
+                                        <li><a href="pay.html">khoa phụ sản</a></li>
+                                        <li><a href="pay.html">khoa niệu và nam khoa</a></li>
+                                        <li><a href="pay.html">khoa tai mũi họng</a></li>
+                                        <li><a href="pay.html">khoa nội thần kinh</a></li>
+                                        <li><a href="pay.html">khoa nội tổng quát</a></li>
+                                        <li><a href="pay.html">chuẩn đoán hình ảnh</a></li>
+                                        <li><a href="pay.html">khoa xương khớp</a></li>
+                                        <li><a href="pay.html">khoa nội tiết</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="blog.html">Diễn đàn</a></li>
+                                <li><a href="report.html">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                    </nav>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="index.php">TRANG CHỦ</a></li>
-                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">CHUẨN ĐOÁN<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="tinhBMI.php">Tính BMI</a></li>
-                                <li><a href="chuanDoan.php">Chuẩn đoán</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> BỆNH LÝ <b class="caret"></b></a>
-                            <ul class="dropdown-menu multi-column columns-2">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="hoHap.php">Hô hấp</a></li>
-                                            <li><a href="tieuHoa.php">Tiêu hóa </a></li>
-                                            <li><a href="da.php">Da và phần phụ</a></li>
-                                            <li><a href="taiMuiHong.php">Tai mũi họng</a></li>
-                                            <li><a href="sinhLyNamNu.php">Sinh lý nam nữ</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <ul class="multi-column-dropdown">
-                                            <li><a href="timMach.php">Tim mạch</a></li>
-                                            <li><a href="coXuongKhop.php">Cơ xương khớp</a></li>
-                                            <li><a href="mau.php">Nội tiết, đường máu</a></li>
-                                            <li><a href="truyenNhiem.php">Truyền nhiễm</a></li>
-                                            <li><a href="rangMieng.php">Răng miệng</a></li>
-                                            <li><a href="ngoDoc.php">Ngộ độc</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </ul>
-                        </li>
-
-                        <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">BÁC SĨ<b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="bs_khoaNhi.php">Khoa nhi</a></li>
-                                <li><a href="bs_khoaTieuHoa.php">Khoa tiêu hóa - Gan mật</a></li>
-                                <li><a href="bs_nhaKhoa.php">Nha khoa</a></li>
-                                <li><a href="bs_khoaTimMach.php">Khoa tim mạch</a></li>
-                                <li><a href="bs_khoaPhuSan.php">Khoa phụ sản</a></li>
-                                <li><a href="bs_khoaSinhLy.php">Khoa Sinh Ly Nam Nu</a></li>
-                                <li><a href="bs_khoaTaiMuiHong.php">Khoa tai mũi họng</a></li>
-                                <li><a href="bs_khoaThanKinh.php">Khoa thần kinh</a></li>
-                                <li><a href="bs_khoaXuongKhop.php">Khoa xương khớp</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="#">DIỄN ĐÀN</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div> <!-- end menu -->
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div><!-- end header -->
 
         @yield('content')
 
-        <div id="footer">
-            <div class="container text-center" id="map">
-                <h3>HIỆU THUỐC XUNG QUANH BẠN</h3><br>
-                <div id="googleMap" style="width: auto; height: 300px;">Google Map</div>
+       <div class="footer">
+        <div class="container">
+            <div class="w3ls-section w3_agileits-services" id="services">
+                <h4 class="w3ls-inner-title">hiệu thuốc xung quanh bạn</h4><br><br>  
+                <div>
+                    <div id="googleMap" style="width: auto; height: 300px;">Google Map</div>
+                </div>
             </div>
-            <footer class="container-fluid text-center">
-                <div class="col-sm-3">
-                    <span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;&nbsp;&nbsp;Địa chỉ
-                </div>
-                <div class="col-sm-3">
-                    <span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;&nbsp;&nbsp;000 - 000 - 000
-                </div>
+        </div>
 
-                <div class="col-sm-3">
-                    <span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;&nbsp;website@healthcare.com
-                </div>
+        <div class=" footer-grid wthree_footer_copy container-fluid text-center w3_footer_grid_bottom contact">
+            <ul>
+                <ul>            
+                    <div class="col-sm-3">
+                        <li><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;&nbsp;&nbsp;Địa chỉ</li> 
+                    </div>
 
-                <div class="col-sm-3">
-                    <span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;&nbsp;&nbsp;healthcare
-                </div>
+                    <div class="col-sm-3">
+                        <li><span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;&nbsp;&nbsp;000 - 000 - 000</li>
+                    </div>
 
-            </footer>
+                    <div class="col-sm-3">
+                        <li><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;&nbsp;website@healthcare.com</li> 
+                    </div>
+
+                    <div class="col-sm-3">
+                        <li><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;&nbsp;&nbsp;healthcare</li> 
+                    </div>
+                </ul>
+            </div>
         </div>
     </div>
 <!-- Scripts -->
