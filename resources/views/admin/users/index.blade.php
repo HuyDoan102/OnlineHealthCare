@@ -39,24 +39,26 @@
                                             data-id="{{ $user->id }}" data-name="{{ $user->name }}"
                                             data-email="{{ $user->email }}" data-address="{{ $user->address }}"
                                             data-phone="{{ $user->phone }}" data-role="{{ $user->role->name }}">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        <a href="#" class="btn btn-danger btn-sm"
-                                            data-toggle="modal" data-target="#modalDelete"
-                                            data-id="{{ $user->id }}">
-                                            <i class="fa fa-trash-o"></i>
-                                        </a>
+                                            <i class="fa fa-eye"></i></a>
+
+                                            <a href=""javascript:void(0)" url="{{ route( 'admin.users.destroy', [ 'user' => $user->id ] ) }}"
+                                                class="delete btn btn-danger btn-sm"
+                                                data-toggle="modal" data-target="#modalDetele">
+                                                <i class="fa fa-trash-o"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
-                                @include("admin.users.show")
-                                @include("admin.users.delete")
                             </tbody>
                         </table>
+
+                        @include("admin.users.delete")
+                        @include("admin.users.show")
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

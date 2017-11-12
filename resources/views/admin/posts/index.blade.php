@@ -8,8 +8,7 @@
                 <div class="card-block">
                     <h5 class="card-title mb-4">
                         <span>Posts Management</span>
-                        <a href="#" data-toggle="modal" data-target="#modalCreate"
-                        class="btn btn-primary"><i class="fa fa-plus-circle"></i></a>
+                        <a href="{{ route("admin.posts.create") }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></a>
                     </h5>
                     <div class="table-responsive">
                         <table class="table center-aligned-table">
