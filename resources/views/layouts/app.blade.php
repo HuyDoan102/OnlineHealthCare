@@ -18,7 +18,6 @@
     <link href="{{ asset('css/easy-responsive-tabs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/JiSlider.css') }}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/user.css') }}" rel="stylesheet">
     <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
     {{-- jquery --}}
