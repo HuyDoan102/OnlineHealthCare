@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Feedback;
+use App\Feedbacks;
 
 class FeedbackController extends Controller
 {
@@ -15,7 +15,8 @@ class FeedbackController extends Controller
      */
     public function index()
     {
-        return view("feedbacks.index");
+        return view("feedbacks.create");   
+        
     }
 
     /**
@@ -25,7 +26,6 @@ class FeedbackController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -36,7 +36,11 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payload = $request->all();
+        $feedbacks = new Feedbacks();
+        $feedbacks->create($payload);
+        return redirect()->route("feedbacks.index");
+
     }
 
     /**
