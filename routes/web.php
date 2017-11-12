@@ -1,3 +1,5 @@
+
+
 <?php
 
 /*
@@ -11,16 +13,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/','HomeController@index');
+Route::resource('posts', 'PostController');
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::resource("posts", "PostController");
 
 Route::get("/bmi", "BMIController@index");
 
@@ -34,5 +30,9 @@ $admin_config = [
 ];
 
 Route::group($admin_config, function () {
-    Route::resource("dashboard", "DashboardController");
+    Route::resource("dashboard", "DashboardsController");
+    Route::resource("posts", "PostController");
+    Route::resource("users", "UsersController");
+    Route::resource("roles", "RolesController");
 });
+

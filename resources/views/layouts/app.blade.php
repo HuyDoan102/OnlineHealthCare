@@ -12,43 +12,120 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    
+    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/popuo-box.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/easy-responsive-tabs.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/JiSlider.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
     {{-- jquery --}}
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript">
+        var gmap = new google.maps.LatLng(10.765974,106.689422);
+        var marker;
+        function initialize()
+        {
+            var mapProp = {
+                center:new google.maps.LatLng(10.765974,106.689422),
+                zoom:16,
+                mapTypeId:google.maps.MapTypeId.ROADMAP
+            };
 
+            var map=new google.maps.Map(document.getElementById("googleMap")
+                ,mapProp);
+
+            var styles = [
+            {
+                featureType: 'road.arterial',
+                elementType: 'all',
+                stylers: [
+                { hue: '#fff' },
+                { saturation: 100 },
+                { lightness: -48 },
+                { visibility: 'on' }
+                ]
+            },{
+                featureType: 'road',
+                elementType: 'all',
+                stylers: [
+
+                ]
+            },
+            {
+                featureType: 'water',
+                elementType: 'geometry.fill',
+                stylers: [
+                { color: '#adc9b8' }
+                ]
+            },{
+                featureType: 'landscape.natural',
+                elementType: 'all',
+                stylers: [
+                { hue: '#809f80' },
+                { lightness: -35 }
+                ]
+            }
+            ];
+
+            var styledMapType = new google.maps.StyledMapType(styles);
+            map.mapTypes.set('Styled', styledMapType);
+
+            marker = new google.maps.Marker({
+                map:map,
+                draggable:true,
+                animation: google.maps.Animation.DROP,
+                position: gmap
+            });
+            google.maps.event.addListener(marker, 'click', toggleBounce);
+        }
+
+        function toggleBounce() {
+
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+            }
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <script>
+        $(document).ready(function(){
+            $(".dropdown").hover(            
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                    $(this).toggleClass('open');        
+                },
+                function() {
+                    $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                    $(this).toggleClass('open');       
+                }
+                );
+        });
+    </script>
 </head>
 <body>
+
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+       <div class="header">
+        <div class="container-fluid">
+            <div class="header-grid">
+                <div class="logo-nav-left">
+                    <a href="{{ url('/') }}">
+                        <a href="index.php"><img class="img-responsive" src="/img/logo.png" alt="Logo" width="100" height="30"></a>
                     </a>
                 </div>
+                <div class="header-grid-left">
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
+                    <ul> 
+                    <!-- Authentication Links -->
                         @guest
-                        <li><a href="{{ route('login') }}">Đăng nhập</a></li>
-                        <li><a href="{{ route('register') }}">Đăng ký</a></li>
+                        <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a class="login" href="{{ route('login') }}">Đăng nhập</a></li>
+                        <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a class="login reg" href="{{ route('register') }}">Đăng ký</a></li>
                         @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -59,28 +136,130 @@
                                 <li>
                                     <a href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
+                                    document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        @endguest
+                    </ul>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="logo-nav">
+                
+                <div class="logo-nav-left1">
+                    <nav class="navbar navbar-default">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">Menu
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="/">Trang chủ</a></li>
+                                <li class="agileits dropdown">
+                                    <a href="#" data-toggle="dropdown" aria-expanded="true">Chuẩn đoán</a>
+                                    <ul class="dropdown-menu agile_short_dropdown">
+                                        <li><a href="about.html">tính bmi</a></li>
+                                        <li><a href="app.html">chuẩn đoán</a></li>
+                                    </ul>
+                                </li>
+                                <li class="agileits dropdown">
+                                    <a href="" data-toggle="dropdown" aria-expanded="true">Bệnh lý</a>
+                                    <ul class="dropdown-menu agile_short_dropdown">
+                                        <li><a href="{{ route("posts.index") }}">hô hấp</a></li>
+                                        <li><a href="packs.html">tiêu hóa và tụy</a></li>
+                                        <li><a href="pay.html">da và phần phụ</a></li>
+                                        <li><a href="products.html">tai mũi họng</a></li>
+                                        <li><a href="packs.html">bệnh do tác nhân vật lý</a></li>
+                                        <li><a href="pay.html">sinh lý nam nữ</a></li>
+                                        <li><a href="products.html">tim mạch</a></li>
+                                        <li><a href="packs.html">cơ xương khớp</a></li>
+                                        <li><a href="pay.html">nội tiết, đường máu</a></li>
+                                        <li><a href="products.html">truyền nhiễm</a></li>
+                                        <li><a href="packs.html">răng miệng</a></li>
+                                        <li><a href="pay.html">ngộ độc</a></li>
+                                    </ul>
+                                </li>
+                                <li class="agileits dropdown">
+                                    <a href="#" data-toggle="dropdown" aria-expanded="true">Mẹ và bé</a>
+                                    <ul class="dropdown-menu agile_short_dropdown">
+                                        <li><a href="pay.html">Nuôi con khỏe</a></li>
+                                        <li><a href="pay.html">Dinh dưỡng cho mẹ</a></li>
+                                        <li><a href="pay.html">Góc của mẹ</a></li>
+                                    </ul>
+                                </li>
+                                <li class="agileits dropdown">
+                                    <a href="#" data-toggle="dropdown" aria-expanded="true">Bác sĩ</a>
+                                    <ul class="dropdown-menu agile_short_dropdown">
+                                        <li><a href="pay.html">khoa nhi</a></li>
+                                        <li><a href="pay.html">khoa tiêu hóa - gan mật</a></li>
+                                        <li><a href="pay.html">nha khoa</a></li>
+                                        <li><a href="pay.html">khoa tim mạch</a></li>
+                                        <li><a href="pay.html">khoa phụ sản</a></li>
+                                        <li><a href="pay.html">khoa niệu và nam khoa</a></li>
+                                        <li><a href="pay.html">khoa tai mũi họng</a></li>
+                                        <li><a href="pay.html">khoa nội thần kinh</a></li>
+                                        <li><a href="pay.html">khoa nội tổng quát</a></li>
+                                        <li><a href="pay.html">chuẩn đoán hình ảnh</a></li>
+                                        <li><a href="pay.html">khoa xương khớp</a></li>
+                                        <li><a href="pay.html">khoa nội tiết</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="blog.html">Diễn đàn</a></li>
+                                <li><a href="report.html">Liên hệ</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div><!-- end header -->
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                    @endguest
+        @yield('content')
+
+       <div class="footer">
+        <div class="container">
+            <div class="w3ls-section w3_agileits-services" id="services">
+                <h4 class="w3ls-inner-title">hiệu thuốc xung quanh bạn</h4><br><br>  
+                <div>
+                    <div id="googleMap" style="width: auto; height: 300px;">Google Map</div>
+                </div>
+            </div>
+        </div>
+
+        <div class=" footer-grid wthree_footer_copy container-fluid text-center w3_footer_grid_bottom contact">
+            <ul>
+                <ul>            
+                    <div class="col-sm-3">
+                        <li><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;&nbsp;&nbsp;Địa chỉ</li> 
+                    </div>
+
+                    <div class="col-sm-3">
+                        <li><span class="glyphicon glyphicon-earphone"></span>&nbsp;&nbsp;&nbsp;&nbsp;000 - 000 - 000</li>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <li><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;&nbsp;website@healthcare.com</li> 
+                    </div>
+
+                    <div class="col-sm-3">
+                        <li><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;&nbsp;&nbsp;healthcare</li> 
+                    </div>
                 </ul>
             </div>
         </div>
-    </nav>
-
-    @yield('content')
-</div>
-
+    </div>
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
-
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script>
@@ -89,9 +268,10 @@
         dateFormat: 'yy-mm-dd',
         changeMonth: true,
         changeYear: true
-  });
+    });
 });
 </script>
+
 
 </body>
 </html>
