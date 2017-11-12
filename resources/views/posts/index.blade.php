@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <table class="table table-striped">
       <thead>
@@ -11,7 +12,7 @@
     <tbody>
         <div class="text-left">
           <br>
-          <a href="index.php">TRANG CHỦ</a>  >>  HÔ HẤP
+          <a href="/">TRANG CHỦ</a>  >>  HÔ HẤP
       </div><br>
         @for($i=count($posts)-1;$i>=0;$i--)
         <tr>

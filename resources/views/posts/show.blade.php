@@ -6,7 +6,7 @@
 	<div class="container" id="post">
 			<br>
 			<div class="text-left">
-				<a href="index.php">TRANG CHỦ</a>  >>  <a href="{{ route("posts.index") }}">BỆNH LÝ</a>  >>  HÔ HẤP
+				<a href="/">TRANG CHỦ</a>  >>  <a href="{{ route("posts.index") }}">BỆNH LÝ</a>  >>  {{ $post->title }}
 			</div><br>
 			
 			<div>

@@ -18,6 +18,9 @@ Route::get('/','HomeController@index');
 Route::resource('posts', 'PostController');
 Auth::routes();
 
+Route::get("/bmi", "BMIController@index");
+
+Route::resource("feedbacks", "FeedbackController");
 
 $admin_config = [
     "prefix"     => "admin",
