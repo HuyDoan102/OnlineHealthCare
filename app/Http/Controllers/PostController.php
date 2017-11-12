@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::all(); //hiển thị all trong database ra $posts 
+        $posts=Post::latest()->get(); //hiển thị all trong database ra $posts
         return view("posts.index")->with("posts", $posts);
     }
 
