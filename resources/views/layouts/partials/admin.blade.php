@@ -8,7 +8,10 @@
     <link rel="stylesheet" href="/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="shortcut icon" href="/images/logo.png" />
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    {{-- <script src="/node_modules/jquery/dist/jquery.min.js"></script> --}}
+    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> --}}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
 
 </head>
 <body>
@@ -62,14 +65,6 @@
                             <a class="nav-link" href="{{ route("admin.users.index") }}">
                                 <img src="/images/user.png" alt="">
                                 <span class="menu-title">Users</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route("admin.roles.index") }}">
-                                <!-- <i class="fa fa-wpforms"></i> -->
-                                <img src="/images/role.jpg" alt="">
-                                <span class="menu-title">Roles</span>
                             </a>
                         </li>
 

@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use App\Role;
+
 class RegisterController extends Controller
 {
     /*
@@ -77,5 +79,10 @@ class RegisterController extends Controller
             'role_id' => $data['role_id'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+    public function showRegistrationForm()
+    {
+        $roles = Role::all();
+        return view('auth.register')->with("roles", $roles);
     }
 }
