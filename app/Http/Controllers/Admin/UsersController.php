@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Role;
 
 class UsersController extends Controller
 {
@@ -57,7 +58,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -80,7 +81,6 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        echo "string";
         $user->delete();
         return redirect()->route("admin.users.index");
     }
