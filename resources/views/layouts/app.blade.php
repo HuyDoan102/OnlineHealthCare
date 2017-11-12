@@ -167,7 +167,7 @@
                                 <li class="agileits dropdown">
                                     <a href="#" data-toggle="dropdown" aria-expanded="true">Chuẩn đoán</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
-                                        <li><a href="about.html">tính bmi</a></li>
+                                        <li><a href="{{ route("bmi") }}">tính bmi</a></li>
                                         <li><a href="app.html">chuẩn đoán</a></li>
                                     </ul>
                                 </li>
@@ -214,7 +214,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="blog.html">Diễn đàn</a></li>
-                                <li><a href="report.html">Liên hệ</a></li>
+                                <li><a href="{{ route("feedbacks.index") }}">Liên hệ</a></li>
                             </ul>
                         </div>
                     </nav>
