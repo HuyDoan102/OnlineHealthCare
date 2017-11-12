@@ -18,7 +18,7 @@ Route::get('/','HomeController@index');
 Route::resource('posts', 'PostController');
 Auth::routes();
 
-Route::get("/bmi", "BMIController@index");
+Route::get("/bmi", "BMIController@index")->name('bmi');
 
 Route::resource("feedbacks", "FeedbackController");
 
