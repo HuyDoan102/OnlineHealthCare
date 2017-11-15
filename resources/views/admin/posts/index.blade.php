@@ -24,7 +24,7 @@
                                     <th>Content</th>
                                     <th>Source</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th style="width: 120px">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -36,41 +36,43 @@
                                         $size = 10;
                                     @endphp
                                     @if (strlen($post->title) <= $size)
-                                    <td>{{ $post->title }}</td>
+                                        <td>{{ $post->title }}</td>
                                     @else
-                                    <td>{{ mb_substr($post->title,0, $size,'UTF-8') . '...' }}</td>
+                                        <td>{{ mb_substr($post->title,0, $size,'UTF-8') . '...' }}</td>
                                     @endif
 
                                     @php
                                         $length = 30;
                                     @endphp
                                     @if (strlen($post->content) <= $length)
-                                    <td>{{ $post->content }}</td>
+                                        <td>{{ $post->content }}</td>
                                     @else
-                                    <td>{{ mb_substr($post->content,0, $length,'UTF-8') . '...' }}</td>
+                                        <td>{{ mb_substr($post->content,0, $length,'UTF-8') . '...' }}</td>
                                     @endif
                                     <td>{{ $post->source }}</td>
                                     <td>
                                         {{ $post->status == 0 ? "not approval" : "approval" }}
                                     </td>
-                                    <th>
+                                    <td>
                                         <a href="#" class="btn btn-primary btn-sm"
-                                        data-toggle="modal" data-target="#modalShow" data-id="{{ $post->id }}"
-                                        data-title="{{ $post->title }}" data-content="{{ $post->content }}"
-                                        data-source="{{ $post->source }}" data-created_at="{{ $post->created_at }}"
-                                        data-status="{{ $post->status }}" data-view="{{ $post->view }}">
-                                        <i class="fa fa-eye"></i></a>
-                                        <a href="#" class="btn btn-primary btn-sm"
-                                        data-toggle="modal" data-target="#modalEdit"
-                                        data-id="{{ $post->id }}" data-name="{{ $post->title }}">
-                                        <i class="fa fa-pencil-square-o"></i></a>
-                                        <a href="#" class="btn btn-danger btn-sm"
-                                        data-toggle="modal" data-target="#modalDelete"
-                                        data-id="{{ $post->id }}">
-                                        <i class="fa fa-trash-o"></i></a>
-                                    </th>
+                                            data-toggle="modal" data-target="#modalShow" data-id="{{ $post->id }}"
+                                            data-title="{{ $post->title }}" data-content="{{ $post->content }}"
+                                            data-source="{{ $post->source }}" data-created_at="{{ $post->created_at }}"
+                                            data-status="{{ $post->status }}" data-view="{{ $post->view }}">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a href="{{ route("admin.posts.edit", $post->id) }}" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" url="{{ route( 'admin.posts.destroy', [ 'post' => $post->id ] ) }}" class="delete btn btn-danger btn-sm"
+                                            data-toggle="modal" data-target="#deletePost"
+                                            data-id="{{ $post->id }}">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 @endforeach
+                                @include("admin.posts.delete")
                                 @include("admin.posts.show")
                             </tbody>
                         </table>

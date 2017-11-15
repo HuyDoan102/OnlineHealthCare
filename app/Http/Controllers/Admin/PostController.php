@@ -67,9 +67,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit')->with('post', $post);
     }
 
     /**
@@ -79,9 +79,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $oldImage = $post->image;
+        $payload = $request->only(['title', 'content', 'source', 'status']);
+
+        if ($request->hasFile('image')) {
+            if (file_exists(public_path('/images/' . $oldImage))) {
+                unlink(public_path('/images/' . $oldImage));
+            }
+            $photoName = time() . '.' . $request->image->getClientOriginalExtension(); //set photo time.đuôi_ảnh
+            $request->image->move(public_path('/images'), $photoName);
+            $payload["image"] = $photoName;
+        }
+        $post->update($payload);
+        return redirect()->route('admin.posts.index');
     }
 
     /**
@@ -90,8 +102,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route("admin.posts.index");
     }
 }
