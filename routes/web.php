@@ -1,3 +1,5 @@
+
+
 <?php
 
 /*
@@ -11,13 +13,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/','HomeController@index');
+Route::resource('posts', 'PostController');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get("/bmi", "BMIController@index")->name('bmi');
+
+Route::resource("feedbacks", "FeedbackController");
 
 $admin_config = [
     "prefix"     => "admin",
@@ -35,3 +38,4 @@ Route::group($admin_config, function () {
     Route::get("articles/search", "ArticlesController@search")->name('articles.search');
     Route::resource("articles", "ArticlesController");
 });
+

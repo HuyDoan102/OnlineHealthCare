@@ -56,10 +56,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show(Post $post)
     {
         return view('posts.show')->with('post', $post);
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -118,4 +120,5 @@ class PostController extends Controller
             return view("admin.posts.index")->with("posts", $posts);
         }
     }
+
 }
