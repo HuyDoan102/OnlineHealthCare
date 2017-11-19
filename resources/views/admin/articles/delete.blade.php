@@ -1,9 +1,9 @@
-c<div class="modal fade" id="modalDetele" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteArticle" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-body">
                 <!-- Modal content-->
-                <h2 class="title-modal">User</h2>
+                <h2 class="title-modal">Articles</h2>
 
                 <form action="" class="formdelete" method="POST" style="display: none;">
                     {{ csrf_field() }}

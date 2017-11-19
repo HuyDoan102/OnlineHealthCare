@@ -30,7 +30,7 @@
                                     <th>Title</th>
                                     <th>Content</th>
                                     <th>Creator</th>
-                                    <th width="80px">Action</th>
+                                    <th width="120px">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,7 +42,7 @@
                                     <td>{{ $article->id }}</td>
                                     <td>{{ $article->title }}</td>
                                     <td>{{ $article->content }}</td>
-                                    <td>{{ $article->user_id }}</td>
+                                    <td>{{ $article->user->name }}</td>
                                     <td>
                                         <a href="#" class="btn btn-primary btn-sm"
                                             data-toggle="modal" data-target="#modalShow"
@@ -50,15 +50,19 @@
                                             data-content="{{ $article->content }}" data-creator="{{ $article->user_id }}">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        {{-- <a href="javascript:void(0)" url="{{ route( 'admin.article.destroy', [ 'article' => $article->id ] ) }}" class="delete btn btn-danger btn-sm"
-                                            data-toggle="modal" data-target="#modalDetele">
+                                        <a href="{{ route("admin.articles.edit", $article->id) }}" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-pencil-square-o"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" url="{{ route( 'admin.articles.destroy', [ 'article' => $article->id ] ) }}" class="delete btn btn-danger btn-sm"
+                                            data-toggle="modal" data-target="#deleteArticle">
                                             <i class="fa fa-trash-o"></i>
-                                        </a> --}}
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        @include('admin.articles.delete')
                         <div class="text-center">
                             {{ $articles->links() }}
                         </div>
