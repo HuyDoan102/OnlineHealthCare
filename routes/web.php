@@ -1,3 +1,5 @@
+
+
 <?php
 
 /*
@@ -11,25 +13,28 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/','HomeController@index');
+Route::resource('posts', 'PostController');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource("articles", "ArticlesController");
+Route::get("/bmi", "BMIController@index")->name('bmi');
+
 
 $admin_config = [
     "prefix"     => "admin",
     "namespace"  => "Admin",
     "as"         => "admin.",
-    "middleware" => "admin"
+    "middleware" => "admin",
 ];
 
 Route::group($admin_config, function () {
     Route::resource("dashboard", "DashboardsController");
+    Route::get("posts/search", "PostController@search")->name('posts.search');
     Route::resource("posts", "PostController");
+    Route::get("users/search", "UsersController@search")->name('users.search');
     Route::resource("users", "UsersController");
-    Route::resource("roles", "RolesController");
+    Route::get("articles/search", "ArticlesController@search")->name('articles.search');
+    Route::resource("articles", "ArticlesController");
 });
+

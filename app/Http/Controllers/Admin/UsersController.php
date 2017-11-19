@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Role;
 
 class UsersController extends Controller
 {
@@ -15,7 +17,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(10);
         return view("admin.users.index")->with("users", $users);
     }
 
@@ -26,6 +28,7 @@ class UsersController extends Controller
      */
     public function create()
     {
+        return view('admin.users.create');
     }
 
     /**
@@ -57,7 +60,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -80,8 +83,18 @@ class UsersController extends Controller
      */
     public function destroy(User $user)
     {
-        echo "string";
         $user->delete();
         return redirect()->route("admin.users.index");
+    }
+
+    public function search(Request $request)
+    {
+        if(empty($request->userSearch)) {
+            return redirect()->route('admin.users.index');
+        } else {
+            $users = User::where('users.name', 'like', $request->userSearch . '%')
+            ->paginate(10)->withPath('search?userSearch=' . $request->userSearch);
+            return view("admin.users.index")->with("users", $users);
+        }
     }
 }
