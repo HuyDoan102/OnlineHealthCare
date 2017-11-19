@@ -1,49 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="body">
+<div id="body">
     <!-- banner -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
+            @foreach ($slides as $index => $slideItem)
+                <li data-target="#myCarousel" data-slide-to="{{ $index }}" class="{{ $index == 0 ? 'active' : '' }}"></li>
+            @endforeach
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
-            @for($i=count($posts)-1;$i>count($posts)-4;$i--)
-                @if($i=count($posts)-1)
-                    <div class="item active">
-                        <img src="img/{{ $posts[$i]->image }}" alt="Image">               
-                        <div class="carousel-caption">
-                            <h3>Slide 1</h3>
-                            <p>{{ $posts[$i]->title }}</p>
-                        </div>      
+            @foreach ($slides as $index => $slideItem)
+                <div class="item {{ $index == 0 ? 'active' : '' }}">
+                    <img src="img/{{ $slideItem->image }}" alt="Image">
+                    <div class="carousel-caption">
+                        <h3>{{ $slideItem->title }}</h3>
+                        <p>{{ mb_substr($slideItem->content, 0, 100, 'UTF-8') }}...</p>
                     </div>
-                @endif
-
-                @if($i=count($posts)-2)
-                    <div class="item ">
-                        <img src="img/{{ $posts[$i]->image }}" alt="Image">               
-                        <div class="carousel-caption">
-                            <h3>Slide 2</h3>
-                            <p>{{ $posts[$i]->title }}</p>
-                        </div>      
-                    </div>
-                @endif
-
-                @if($i=count($posts)-3)
-                    <div class="item">
-                        <img src="img/{{ $posts[$i]->image }}" alt="Image">               
-                        <div class="carousel-caption">
-                            <h3>Slide 3</h3>
-                            <p>{{ $posts[$i]->title }}</p>
-                        </div>      
-                    </div>
-                @endif
-            @endfor
+                </div>
+            @endforeach
         </div>
 
         <!-- Left and right controls -->
@@ -62,28 +40,27 @@
         <div class="team agileits-w3layouts" id="team"><br><br>
             <h4 class="w3ls-inner-title">Bệnh lý</h4>
             <div class="team-w3ls">
-                
-                @for($i=count($posts)-1;$i>count($posts)-7;$i--)
-                <div class="col-md-6 col-sm-6 col-xs-6 team-grid w3_agileits">
-                    <a href="{{ route("posts.show", $posts[$i]->id) }}"><img class="col-md-3 img-w3l t1-wthree img-responsive" src="img/{{ $posts[$i]->image }}" alt=""></a>
-                    <div class="col-md-9 team-w3ls-txt">
-                        <a href="{{ route("posts.show", $posts[$i]->id) }}"><h5 class="h-t">{{$posts[$i]->title }}</h5></a>
-                        <p>{{ mb_substr($posts[$i]->content,0,100-2,'UTF-8').'...' }}</p>
-                    </div>  
-                    <div class="clearfix"> </div>
-                </div>
-                @endfor
+                @foreach ($diseases as $item)
+                    <div class="col-md-6 col-sm-6 col-xs-6 team-grid w3_agileits">
+                        <a href="{{ route("posts.show", $item->id) }}"><img class="col-md-3 img-w3l t1-wthree img-responsive" src="img/{{ $item->image }}" alt=""></a>
+                        <div class="col-md-9 team-w3ls-txt">
+                            <a href="{{ route("posts.show", $item->id) }}"><h5 class="h-t">{{$item->title }}</h5></a>
+                            <p>{{ mb_substr($item->content, 0, 100 - 2, 'UTF-8') . '...' }}</p>
+                        </div>
+                        <div class="clearfix"> </div>
+                    </div>
+                @endforeach
                 <div class="card-footer text-right">
                     <a href="#" class="btn btn-link btn-right">Xem thêm...</a>
                 </div>
                 <div class="clearfix"> </div>
-            </div>  
+            </div>
 
         </div>
-        <!-- //team--> 
+        <!-- //team-->
     </div>
 
-    <!-- ---Cau hoi moi--- -->
+    {{-- Cau Hoi Moi --}}
     <div class="container">
         <div class="team agileits-w3layouts" id="team"><br><br>
             <h4 class="w3ls-inner-title">Câu hỏi mới</h4>
@@ -131,5 +108,5 @@
         </div>
     </div>
     <!-- ---/Cau hoi moi--- -->
-    </div> <!-- end body -->
+</div> <!-- end body -->
 @endsection

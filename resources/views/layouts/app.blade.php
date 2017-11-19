@@ -12,7 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/popuo-box.css') }}" rel="stylesheet">
     <link href="{{ asset('css/easy-responsive-tabs.css') }}" rel="stylesheet">
@@ -95,14 +95,14 @@
     </script>
     <script>
         $(document).ready(function(){
-            $(".dropdown").hover(            
+            $(".dropdown").hover(
                 function() {
                     $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
-                    $(this).toggleClass('open');        
+                    $(this).toggleClass('open');
                 },
                 function() {
                     $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
-                    $(this).toggleClass('open');       
+                    $(this).toggleClass('open');
                 }
                 );
         });
@@ -121,7 +121,7 @@
                 </div>
                 <div class="header-grid-left">
 
-                    <ul> 
+                    <ul>
                     <!-- Authentication Links -->
                         @guest
                         <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a class="login" href="{{ route('login') }}">Đăng nhập</a></li>
@@ -149,7 +149,7 @@
                 <div class="clearfix"> </div>
             </div>
             <div class="logo-nav">
-                
+
                 <div class="logo-nav-left1">
                     <nav class="navbar navbar-default">
                         <!-- Brand and toggle get grouped for better mobile display -->
@@ -174,18 +174,9 @@
                                 <li class="agileits dropdown">
                                     <a href="" data-toggle="dropdown" aria-expanded="true">Bệnh lý</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
-                                        <li><a href="{{ route("posts.index") }}">hô hấp</a></li>
-                                        <li><a href="packs.html">tiêu hóa và tụy</a></li>
-                                        <li><a href="pay.html">da và phần phụ</a></li>
-                                        <li><a href="products.html">tai mũi họng</a></li>
-                                        <li><a href="packs.html">bệnh do tác nhân vật lý</a></li>
-                                        <li><a href="pay.html">sinh lý nam nữ</a></li>
-                                        <li><a href="products.html">tim mạch</a></li>
-                                        <li><a href="packs.html">cơ xương khớp</a></li>
-                                        <li><a href="pay.html">nội tiết, đường máu</a></li>
-                                        <li><a href="products.html">truyền nhiễm</a></li>
-                                        <li><a href="packs.html">răng miệng</a></li>
-                                        <li><a href="pay.html">ngộ độc</a></li>
+                                        @foreach($type_of_diseases as $type_of_disease)
+                                            <li><a href="">{{ $type_of_disease->name }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li class="agileits dropdown">
@@ -199,18 +190,9 @@
                                 <li class="agileits dropdown">
                                     <a href="#" data-toggle="dropdown" aria-expanded="true">Bác sĩ</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
-                                        <li><a href="pay.html">khoa nhi</a></li>
-                                        <li><a href="pay.html">khoa tiêu hóa - gan mật</a></li>
-                                        <li><a href="pay.html">nha khoa</a></li>
-                                        <li><a href="pay.html">khoa tim mạch</a></li>
-                                        <li><a href="pay.html">khoa phụ sản</a></li>
-                                        <li><a href="pay.html">khoa niệu và nam khoa</a></li>
-                                        <li><a href="pay.html">khoa tai mũi họng</a></li>
-                                        <li><a href="pay.html">khoa nội thần kinh</a></li>
-                                        <li><a href="pay.html">khoa nội tổng quát</a></li>
-                                        <li><a href="pay.html">chuẩn đoán hình ảnh</a></li>
-                                        <li><a href="pay.html">khoa xương khớp</a></li>
-                                        <li><a href="pay.html">khoa nội tiết</a></li>
+                                        @foreach($fields as $field)
+                                        <li><a href="">{{ $field->name }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li><a href="blog.html">Diễn đàn</a></li>
@@ -229,7 +211,7 @@
        <div class="footer">
         <div class="container">
             <div class="w3ls-section w3_agileits-services" id="services">
-                <h4 class="w3ls-inner-title">hiệu thuốc xung quanh bạn</h4><br><br>  
+                <h4 class="w3ls-inner-title">hiệu thuốc xung quanh bạn</h4><br><br>
                 <div>
                     <div id="googleMap" style="width: auto; height: 300px;">Google Map</div>
                 </div>
@@ -238,9 +220,9 @@
 
         <div class=" footer-grid wthree_footer_copy container-fluid text-center w3_footer_grid_bottom contact">
             <ul>
-                <ul>            
+                <ul>
                     <div class="col-sm-3">
-                        <li><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;&nbsp;&nbsp;Địa chỉ</li> 
+                        <li><span class="glyphicon glyphicon-map-marker"></span>&nbsp;&nbsp;&nbsp;&nbsp;Địa chỉ</li>
                     </div>
 
                     <div class="col-sm-3">
@@ -248,11 +230,11 @@
                     </div>
 
                     <div class="col-sm-3">
-                        <li><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;&nbsp;website@healthcare.com</li> 
+                        <li><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;&nbsp;&nbsp;website@healthcare.com</li>
                     </div>
 
                     <div class="col-sm-3">
-                        <li><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;&nbsp;&nbsp;healthcare</li> 
+                        <li><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;&nbsp;&nbsp;healthcare</li>
                     </div>
                 </ul>
             </div>

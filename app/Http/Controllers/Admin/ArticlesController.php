@@ -57,9 +57,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        //
+        return view('admin.articles.edit')->with('article', $article);
     }
 
     /**
@@ -69,9 +69,11 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Article $article)
     {
-        //
+        $payload = $request->only('title', 'content');
+        $article->update($payload);
+        return redirect()->route('admin.articles.index');
     }
 
     /**
@@ -80,8 +82,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect()->route('admin.articles.delete');
     }
 }
