@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(10);
         return view("admin.posts.index")->with("posts", $posts);
     }
 
@@ -106,5 +106,16 @@ class PostController extends Controller
     {
         $post->delete();
         return redirect()->route("admin.posts.index");
+    }
+
+    public function search(Request $request)
+    {
+        if(empty($request->postSearch)) {
+            return redirect()->route('admin.posts.index');
+        } else {
+            $posts = Post::where('posts.title', 'like', $request->postSearch . '%')
+            ->paginate(10)->withPath('search?postSearch=' . $request->postSearch);
+            return view("admin.posts.index")->with("posts", $posts);
+        }
     }
 }

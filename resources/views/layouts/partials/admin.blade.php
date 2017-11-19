@@ -85,7 +85,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/charts.html">
+                            <a class="nav-link" href="{{ route('admin.articles.index') }}">
                                 <!-- <i class="fa fa-bar-chart"></i> -->
                                 <img src="/images/article.png" alt="">
                                 <span class="menu-title">Articles</span>

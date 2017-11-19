@@ -6811,6 +6811,14 @@ table.center-aligned-table tr {
     margin-left: -1px;
 }
 
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    background-color: #3097D1;
+    border-color: #3097D1;
+    cursor: default;
+}
+
 .breadcrumb>li, .pagination {
     display: inline-block;
 }

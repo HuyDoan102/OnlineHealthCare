@@ -9,11 +9,23 @@
                     <h5 class="card-title mb-4">
                         <span>Posts Management</span>
                     </h5>
-                    <p>
-                        <a href="{{ route("admin.posts.create") }}" class="btn btn-primary btn-sm">
-                            <i class="fa fa-plus-circle"></i>New
-                        </a>
-                    </p>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <a href="{{ route("admin.posts.create") }}" class="btn btn-primary btn-sm">
+                                <i class="fa fa-plus-circle"></i>New
+                            </a>
+                        </div>
+                        <form action="{{ route("admin.posts.search") }}" class="col-sm-6" method="GET">
+                            <div class="form-group row">
+                                <div class="col-sm-8">
+                                    <input type="text" name="postSearch" class="form-control form-control-sm">
+                                </div>
+                                <div class="col-sm-4">
+                                    <button class="btn btn-primary btn-sm" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="table-responsive">
                         <table class="table center-aligned-table">
                             <thead>
