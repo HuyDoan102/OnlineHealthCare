@@ -22,6 +22,7 @@ Route::get("/bmi", "BMIController@index")->name('bmi');
 
 Route::resource("feedbacks", "FeedbackController");
 
+
 $admin_config = [
     "prefix"     => "admin",
     "namespace"  => "Admin",
