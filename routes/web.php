@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource("articles", "ArticlesController");
 
 $admin_config = [
     "prefix"     => "admin",
