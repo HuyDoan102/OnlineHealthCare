@@ -4,11 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
-use App\User;
-use App\Role;
+use App\Article;
 
-class UsersController extends Controller
+class ArticlesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +15,8 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(10);
-        return view("admin.users.index")->with("users", $users);
+        $articles = Article::paginate(10);
+        return view('admin.articles.index', compact('articles'));
     }
 
     /**
@@ -28,7 +26,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        //
     }
 
     /**
@@ -48,8 +46,9 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show($id)
     {
+        //
     }
 
     /**
@@ -60,7 +59,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -81,20 +80,8 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        $user->delete();
-        return redirect()->route("admin.users.index");
-    }
-
-    public function search(Request $request)
-    {
-        if(empty($request->userSearch)) {
-            return redirect()->route('admin.users.index');
-        } else {
-            $users = User::where('users.name', 'like', $request->userSearch . '%')
-            ->paginate(10)->withPath('search?userSearch=' . $request->userSearch);
-            return view("admin.users.index")->with("users", $users);
-        }
+        //
     }
 }

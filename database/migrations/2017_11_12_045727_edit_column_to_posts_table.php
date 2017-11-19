@@ -15,8 +15,8 @@ class EditColumnToPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             // $table->dropColumn(['view', 'status']);
-            $table->string('view')->default(0);
-            $table->string('status')->default(0);
+            /*$table->string('view')->default(0);
+            $table->string('status')->default(0);*/
 
         });
     }

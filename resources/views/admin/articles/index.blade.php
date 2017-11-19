@@ -6,12 +6,12 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-block">
-                    <h5 class="card-title mb-4">Users Management</h5>
+                    <h5 class="card-title mb-4">Articles Management</h5>
                     <div class="row">
                         <div class="form-group col-sm-6">
-                            <a href="{{ route("admin.users.create") }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>New</a>
+                            <a href="{{ route("admin.articles.create") }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>New</a>
                         </div>
-                        <form action="{{ route("admin.users.search") }}" class="col-sm-6" method="GET">
+                        <form action="{{ route("admin.articles.search") }}" class="col-sm-6" method="GET">
                             <div class="form-group row">
                                 <div class="col-sm-8">
                                     <input type="text" name="userSearch" class="form-control form-control-sm">
@@ -27,53 +27,44 @@
                             <thead>
                                 <tr class="text-primary">
                                     <th>#</th>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Gender</th>
-                                    <th>Date of birth</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
-                                    <th>Role</th>
+                                    <th>Title</th>
+                                    <th>Content</th>
+                                    <th>Creator</th>
                                     <th width="80px">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $user)
+                                @foreach($articles as $article)
                                 <tr class="">
                                     @php
                                         $size = 30;
                                     @endphp
-                                    <td>{{ $user->id }}</td>
-                                    <td>{{ $user->name }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->gender == '1' ? 'male' : 'female' }}</td>
-                                    <td>{{ $user->date_of_birth }}</td>
-                                    <td>{{ $user->address }}</td>
-                                    <td>{{ $user->phone }}</td>
-                                    <td>{{ $user->role->name }}</td>
+                                    <td>{{ $article->id }}</td>
+                                    <td>{{ $article->title }}</td>
+                                    <td>{{ $article->content }}</td>
+                                    <td>{{ $article->user_id }}</td>
                                     <td>
                                         <a href="#" class="btn btn-primary btn-sm"
                                             data-toggle="modal" data-target="#modalShow"
-                                            data-id="{{ $user->id }}" data-name="{{ $user->name }}"
-                                            data-email="{{ $user->email }}" data-address="{{ $user->address }}"
-                                            data-phone="{{ $user->phone }}" data-role="{{ $user->role->name }}">
+                                            data-id="{{ $article->id }}" data-name="{{ $article->name }}"
+                                            data-content="{{ $article->content }}" data-creator="{{ $article->user_id }}">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="javascript:void(0)" url="{{ route( 'admin.users.destroy', [ 'user' => $user->id ] ) }}" class="delete btn btn-danger btn-sm"
+                                        {{-- <a href="javascript:void(0)" url="{{ route( 'admin.article.destroy', [ 'article' => $article->id ] ) }}" class="delete btn btn-danger btn-sm"
                                             data-toggle="modal" data-target="#modalDetele">
                                             <i class="fa fa-trash-o"></i>
-                                        </a>
+                                        </a> --}}
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
                         <div class="text-center">
-                            {{ $users->links() }}
+                            {{ $articles->links() }}
                         </div>
 
-                        @include("admin.users.delete")
-                        @include("admin.users.show")
+                        {{-- @include("admin.article.delete")
+                        @include("admin.article.show") --}}
 
                     </div>
                 </div>
