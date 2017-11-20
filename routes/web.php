@@ -38,5 +38,7 @@ Route::group($admin_config, function () {
     Route::resource("users", "UsersController");
     Route::get("articles/search", "ArticlesController@search")->name('articles.search');
     Route::resource("articles", "ArticlesController");
+    Route::get("feedbacks/search", "FeedbacksController@search")->name('feedbacks.search');
+    Route::resource("feedbacks", "FeedbacksController");
 });
 
