@@ -6,8 +6,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
 use App\Role;
+
 
 class RegisterController extends Controller
 {
@@ -39,6 +39,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        parent::__construct();
     }
 
     /**
@@ -80,6 +81,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
     public function showRegistrationForm()
     {
         $roles = Role::all();

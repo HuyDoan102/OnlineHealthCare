@@ -6844,3 +6844,22 @@ table.center-aligned-table tr {
     text-align: center;
 }
 
+.users {
+    color: #36af47;
+}
+
+.posts {
+    color: #2ca0f7;
+}
+
+.feedbacks {
+    color: #f79831;
+}
+
+.articles {
+    color: #ed1c24;
+}
+
+a:hover {
+    text-decoration: none;
+}

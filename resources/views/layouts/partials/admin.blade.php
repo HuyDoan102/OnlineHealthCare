@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/node_modules/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
     <link rel="stylesheet" href="/css/style.css"/>
-    <link rel="shortcut icon" href="/images/logo.png" />
+    <link rel="shortcut icon" href="/images/logoAdmin.png" />
     {{-- <script src="/node_modules/jquery/dist/jquery.min.js"></script> --}}
     {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -19,7 +19,7 @@
         <!--Navbar-->
         <nav class="navbar bg-primary-gradient col-lg-12 col-12 p-0 fixed-top navbar-inverse d-flex flex-row">
             <div class="bg-white text-center navbar-brand-wrapper">
-                <a class="navbar-brand brand-logo" href="#"><img src="/images/logo.png" /></a>
+                <a class="navbar-brand brand-logo" href="#"><img src="/images/logoAdmin.png" /></a>
                 <a class="navbar-brand brand-logo-mini" href="#"><img src="/images/logo_star_mini.jpg" alt=""></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center">
