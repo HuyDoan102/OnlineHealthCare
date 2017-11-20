@@ -7,6 +7,21 @@
             <div class="card">
                 <div class="card-block">
                     <h5 class="card-title mb-4">Users Management</h5>
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <a href="{{ route("admin.users.create") }}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i>New</a>
+                        </div>
+                        <form action="{{ route("admin.users.search") }}" class="col-sm-6" method="GET">
+                            <div class="form-group row">
+                                <div class="col-sm-8">
+                                    <input type="text" name="userSearch" class="form-control form-control-sm">
+                                </div>
+                                <div class="col-sm-4">
+                                    <button class="btn btn-primary btn-sm" type="submit">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                     <div class="table-responsive">
                         <table class="table center-aligned-table">
                             <thead>
@@ -19,13 +34,16 @@
                                     <th>Address</th>
                                     <th>Phone</th>
                                     <th>Role</th>
-                                    <th>Action</th>
+                                    <th width="80px">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($users as $index => $user)
+                                @foreach($users as $user)
                                 <tr class="">
-                                    <td>{{ ++$index }}</td>
+                                    @php
+                                        $size = 30;
+                                    @endphp
+                                    <td>{{ $user->id }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->gender == '1' ? 'male' : 'female' }}</td>
@@ -39,17 +57,20 @@
                                             data-id="{{ $user->id }}" data-name="{{ $user->name }}"
                                             data-email="{{ $user->email }}" data-address="{{ $user->address }}"
                                             data-phone="{{ $user->phone }}" data-role="{{ $user->role->name }}">
-                                            <i class="fa fa-eye"></i></a>
-
-                                            <a href=""javascript:void(0)" url="{{ route( 'admin.users.destroy', [ 'user' => $user->id ] ) }}"
-                                                class="delete btn btn-danger btn-sm"
-                                                data-toggle="modal" data-target="#modalDetele">
-                                                <i class="fa fa-trash-o"></i></a>
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a href="javascript:void(0)" url="{{ route( 'admin.users.destroy', [ 'user' => $user->id ] ) }}" class="delete btn btn-danger btn-sm"
+                                            data-toggle="modal" data-target="#modalDetele">
+                                            <i class="fa fa-trash-o"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="text-center">
+                            {{ $users->links() }}
+                        </div>
 
                         @include("admin.users.delete")
                         @include("admin.users.show")

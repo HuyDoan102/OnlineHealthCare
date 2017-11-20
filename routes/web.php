@@ -22,16 +22,23 @@ Route::get("/bmi", "BMIController@index")->name('bmi');
 
 Route::resource("feedbacks", "FeedbackController");
 
+
 $admin_config = [
     "prefix"     => "admin",
     "namespace"  => "Admin",
     "as"         => "admin.",
-    "middleware" => "admin"
+    "middleware" => "admin",
 ];
 
 Route::group($admin_config, function () {
     Route::resource("dashboard", "DashboardsController");
+    Route::get("posts/search", "PostController@search")->name('posts.search');
     Route::resource("posts", "PostController");
+    Route::get("users/search", "UsersController@search")->name('users.search');
     Route::resource("users", "UsersController");
+    Route::get("articles/search", "ArticlesController@search")->name('articles.search');
+    Route::resource("articles", "ArticlesController");
+    Route::get("feedbacks/search", "FeedbacksController@search")->name('feedbacks.search');
+    Route::resource("feedbacks", "FeedbacksController");
 });
 
