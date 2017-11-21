@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div id="body">
     <!-- banner -->
@@ -15,7 +14,7 @@
         <div class="carousel-inner" role="listbox">
             @foreach ($slides as $index => $slideItem)
                 <div class="item {{ $index == 0 ? 'active' : '' }}">
-                    <img src="img/{{ $slideItem->image }}" alt="Image">
+                    <img src="images/{{ $slideItem->image }}" alt="Image">
                     <div class="carousel-caption">
                         <h3>{{ $slideItem->title }}</h3>
                         <p>{{ mb_substr($slideItem->content, 0, 100, 'UTF-8') }}...</p>
@@ -42,7 +41,7 @@
             <div class="team-w3ls">
                 @foreach ($diseases as $item)
                     <div class="col-md-6 col-sm-6 col-xs-6 team-grid w3_agileits">
-                        <a href="{{ route("posts.show", $item->id) }}"><img class="col-md-3 img-w3l t1-wthree img-responsive" src="img/{{ $item->image }}" alt=""></a>
+                        <a href="{{ route("posts.show", $item->id) }}"><img class="col-md-3 img-w3l t1-wthree img-responsive" src="images/{{ $item->image }}" alt=""></a>
                         <div class="col-md-9 team-w3ls-txt">
                             <a href="{{ route("posts.show", $item->id) }}"><h5 class="h-t">{{$item->title }}</h5></a>
                             <p>{{ mb_substr($item->content, 0, 100 - 2, 'UTF-8') . '...' }}</p>
