@@ -24,7 +24,6 @@ Route::resource("feedbacks", "FeedbackController");
 
 Route::resource("articles", "ArticlesController");
 
-
 $admin_config = [
     "prefix"     => "admin",
     "namespace"  => "Admin",

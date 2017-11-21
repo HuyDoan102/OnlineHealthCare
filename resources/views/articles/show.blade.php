@@ -2,7 +2,6 @@
 @section('content')
 
 <div class="container">
-	<!-- //header Dien dan -->
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">		
 			<span class="agile-breadcrumbs"><a href="index.html">Trang chủ</a>&gt; <span>Diễn đàn</span></span>
@@ -12,15 +11,13 @@
 	<div class="w3ls-section blog-agile-main">
 		<h4 class="w3ls-inner-title text-center">Diễn đàn</h4>
 	</div>
-	<!-- //header Dien dan -->
 
 	<div class="w3ls-section single-page-agile-info">
-		<!-- /movie-browse-agile -->
 		<div class="show-top-grids-w3lagile">
 			<div class="single-left">
 				<div class="post-media">
 					<div class="blog-text">
-						<h3 class="h-t text-center">{{ $article->title }}</h3> {{-- hỏi cái $article là ở đâu , có phải đặt giống tên index.blade --}}
+						<h3 class="h-t text-center">{{ $article->title }}</h3> 
 						<div class="entry-meta">
 							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at }}</h6>
 							<div class="icons">
@@ -83,8 +80,8 @@
 								<textarea placeholder="Nội dung" ></textarea>
 								<button type="submit" class="btn-ch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gửi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 							</form>
-						</div><!-- Status Upload  -->
-					</div><!-- Widget Area -->
+						</div>
+					</div>
 				</div>
 			</div>
 			<div class="clearfix"> </div>
