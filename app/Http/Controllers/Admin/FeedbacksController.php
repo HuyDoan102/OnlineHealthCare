@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Feedbacks;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class FeedbacksController extends Controller
 {
@@ -97,13 +99,15 @@ class FeedbacksController extends Controller
         }
     }
 
-    public function createMail()
+    public function createMail(Feedbacks $feedback)
     {
-        return view('admin.feedbacks.sendMail');
+        return view('admin.feedbacks.sendMail', compact("feedback"));
     }
 
-    public function sendMail()
+    public function sendMail(Request $request)
     {
+        // dd($request->email);
+
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
             //Server settings
@@ -117,9 +121,9 @@ class FeedbacksController extends Controller
             $mail->Port = 587;                                    // TCP port to connect to
 
             //Recipients
-            $mail->setFrom('doanhuynguyenhong@gmail.com', 'huy');
-            $mail->addAddress('huy.nhd@neo-lab.vn', 'Huy');     // Add a recipient
-            $mail->addReplyTo('doanhuynguyenhong@gmail.com', 'huy');
+            $mail->setFrom('doanhuynguyenhong@gmail.com', 'Admin OHC');
+            $mail->addAddress($request->email, $request->email);     // Add a recipient
+            $mail->addReplyTo('doanhuynguyenhong@gmail.com', 'Admin OHC');
             // $mail->addCC('cc@example.com');
             // $mail->addBCC('bcc@example.com');
 
@@ -129,12 +133,12 @@ class FeedbacksController extends Controller
 
             //Content
             $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = 'Here is the subject';
-            $mail->Body    = '<b>Hello Son</b>';
+            $mail->Subject = 'Response' . $request->title;
+            $mail->Body    = $request->content;
             // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
             // dd($mail);
             $mail->send();
-            return redirect("/");
+            return redirect()->route("admin.feedbacks.index");
             // dd('Message has been sent');
         } catch (Exception $e) {
             echo 'Message could not be sent.';

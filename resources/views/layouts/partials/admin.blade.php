@@ -13,6 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="../js/maps.js"></script>
 
+
 </head>
 <body>
     <div class=" container-scroller">
@@ -141,5 +142,7 @@
 <script src="/js/hoverable-collapse.js"></script>
 <script src="/js/misc.js"></script>
 <script src="/js/chart.js"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script> CKEDITOR.replace('editor1'); </script>
 
 

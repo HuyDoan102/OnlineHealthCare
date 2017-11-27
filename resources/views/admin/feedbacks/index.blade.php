@@ -21,6 +21,7 @@
                             </div>
                         </form>
                     </div>
+
                     <div class="table-responsive">
                         <table class="table center-aligned-table">
                             <thead>
@@ -62,7 +63,7 @@
                                             <i class="fa fa-eye"></i>
                                         </a>
 
-                                        <a href="{{ route('admin.feedbacks.mail') }}" class="btn btn-primary btn-sm">
+                                        <a href="{{ route('admin.feedbacks.mail', $feedback->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-commenting-o" aria-hidden="true"></i>
                                         </a>
 

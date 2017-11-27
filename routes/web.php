@@ -17,8 +17,6 @@
     return view('admin.feedbacks.sendMail');
 });*/
 
-Route::get('/send', 'SendMailController@test')->name('send');
-
 Route::get('/','HomeController@index');
 Route::resource('posts', 'PostController');
 Auth::routes();
@@ -45,7 +43,7 @@ Route::group($admin_config, function () {
     Route::get("articles/search", "ArticlesController@search")->name('articles.search');
     Route::resource("articles", "ArticlesController");
     Route::get("feedbacks/search", "FeedbacksController@search")->name('feedbacks.search');
-    Route::get("feedbacks/mail", 'FeedbacksController@createMail')->name('feedbacks.mail');
+    Route::get("feedbacks/createmail/{feedback}", 'FeedbacksController@createMail')->name('feedbacks.mail');
     Route::post("feedbacks/send", "FeedbacksController@sendMail")->name('feedbacks.send');
     Route::resource("feedbacks", "FeedbacksController");
 });
