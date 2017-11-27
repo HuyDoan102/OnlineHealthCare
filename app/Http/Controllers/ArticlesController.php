@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Comment;
 
 class ArticlesController extends Controller
 {
@@ -14,7 +15,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+
+        $articles = Article::latest()->paginate(10);
         return view("articles.index", compact("articles"));
     }
 
@@ -45,9 +47,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        //
+        return view('articles.show',compact('article'));
     }
 
     /**
