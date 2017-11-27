@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="shortcut icon" href="/images/logoAdmin.png" />
-    {{-- <script src="/node_modules/jquery/dist/jquery.min.js"></script> --}}
-    {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> --}}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+    <script async defer src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="../js/maps.js"></script>
 
 </head>
 <body>
@@ -77,7 +77,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{ route('admin.feedbacks.index') }}">
                                 <!-- <i class="fa fa-table"></i> -->
                                 <img src="/images/feedback.jpg" alt="">
                                 <span class="menu-title">Feedbacks</span>
@@ -141,5 +141,5 @@
 <script src="/js/hoverable-collapse.js"></script>
 <script src="/js/misc.js"></script>
 <script src="/js/chart.js"></script>
-<script src="/js/maps.js"></script>
+
 

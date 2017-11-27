@@ -9,8 +9,10 @@
         "doctrine/dbal": "^2.5",
         "fideloper/proxy": "~3.3",
         "fzaninotto/faker": "^1.7",
+        "guzzlehttp/guzzle": "~5.3|~6.0",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "phpmailer/phpmailer": "^6.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
@@ -24,7 +26,10 @@
         ],
         "psr-4": {
             "App\\": "app/"
-        }
+        },
+        "PHPMAILER": [
+            "vendor/phpmailer/phpmailer/PHPMailerAutoload.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
