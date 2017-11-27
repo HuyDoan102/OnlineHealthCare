@@ -18,8 +18,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::latest()->get(); //hiển thị all trong database ra $posts
-        return view("posts.index")->with("posts", $posts);
+        $posts=Post::latest()->paginate(10);
+        return view("posts.index", compact('posts'));
     }
 
     /**

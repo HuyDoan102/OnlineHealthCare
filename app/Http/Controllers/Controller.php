@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use App\TypeOfDisease;
 use App\Field;
+use App\Comment;
+use App\User;
 
 class Controller extends BaseController
 {

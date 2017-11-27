@@ -116,7 +116,7 @@
             <div class="header-grid">
                 <div class="logo-nav-left">
                     <a href="{{ url('/') }}">
-                        <a href="index.php"><img class="img-responsive" src="/img/logo.png" alt="Logo" width="100" height="30"></a>
+                        <a href="index.php"><img class="img-responsive" src="/images/logo.png" alt="Logo" width="100" height="30"></a>
                     </a>
                 </div>
                 <div class="header-grid-left">
