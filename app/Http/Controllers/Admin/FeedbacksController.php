@@ -106,10 +106,9 @@ class FeedbacksController extends Controller
 
     public function sendMail(Request $request)
     {
-        // dd($request->email);
-
         $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
         try {
+            $mail->CharSet = 'UTF-8';
             //Server settings
             $mail->SMTPDebug = 2;                                 // Enable verbose debug output
             $mail->isSMTP();                                      // Set mailer to use SMTP
@@ -133,7 +132,7 @@ class FeedbacksController extends Controller
 
             //Content
             $mail->isHTML(true);                                  // Set email format to HTML
-            $mail->Subject = 'Response' . $request->title;
+            $mail->Subject = 'Response : ' . $request->title;
             $mail->Body    = $request->content;
             // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
             // dd($mail);
