@@ -65,6 +65,8 @@
         </div>
     </div>
 </div>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBnRBKMpB9btyU2yA1TQ5ic0QmXMYppTHs&callback=initMap" async defer>
-</script>
+
 @endsection
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqe88QFTLmLv83TD4XsxCDmbB0c_7UEKw&callback=initMap">
+</script>
