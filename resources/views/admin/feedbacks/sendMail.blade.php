@@ -31,7 +31,8 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="source">Email</label>
-                            <input type="email" name="email" class="form-control p-input" id="email" placeholder="Email">
+                            <input type="email" value="{{ $feedback->email }}" class="form-control p-input" id="email" placeholder="Email" disabled>
+                            <input type="hidden" name="email" value="{{ $feedback->email }}">
                         </div>
 
                         <div class="form-group">
