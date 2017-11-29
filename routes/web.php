@@ -31,8 +31,10 @@ $admin_config = [
     "middleware" => "admin",
 ];
 
+Route::resource('doctors', 'DoctorsController');
+
 Route::group($admin_config, function () {
-    Route::resource("dashboard", "DashboardsController");
+    Route::resource("dashboard/", "DashboardsController");
     Route::get("posts/search", "PostController@search")->name('posts.search');
     Route::resource("posts", "PostController");
     Route::get("users/search", "UsersController@search")->name('users.search');

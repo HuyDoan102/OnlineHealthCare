@@ -12,7 +12,7 @@
     <tbody>
       <div class="text-left">
         <br>
-        <a href="/">TRANG CHỦ</a>  >>  HÔ HẤP
+        <a href="/">TRANG CHỦ</a>  >> 
       </div><br>
       @foreach($posts as $post)
       <tr>
@@ -23,7 +23,7 @@
               <a href="{{ route('posts.show', ['post' => $post->id]) }}"><img src="/images/{{ $post->image }}" width="300" height="200"></a>
             </div>
             <div class="col-sm-8">
-              <h4 class="card-header"><a href="{{ route("posts.show", $post->id) }}">{{ $post->title }}</a></h4>
+              <h4 class="card-header"><a href="{{ route("posts.show", $post->id) }}">{{ $post->title }} </a></h4>
 
               {{ $post->created_at }}
               <div class="card-body" >

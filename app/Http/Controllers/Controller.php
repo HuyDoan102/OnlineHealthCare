@@ -9,8 +9,8 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use App\TypeOfDisease;
 use App\Field;
-use App\Comment;
-use App\User;
+use App\Post;
+use DB;
 
 class Controller extends BaseController
 {
@@ -18,7 +18,7 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $type_of_diseases = TypeOfDisease::all();
+    	$type_of_diseases = TypeOfDisease::all();
         $fields = Field::all();
         view()->share('type_of_diseases', $type_of_diseases);
         view()->share('fields', $fields);

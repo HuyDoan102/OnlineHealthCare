@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Comment;
+use DB;
 
 class ArticlesController extends Controller
 {
@@ -15,8 +16,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-
-        $articles = Article::latest()->paginate(10);
+        $articles = Article::with('comments')->with('user')->latest()->paginate(10);
         return view("articles.index", compact("articles"));
     }
 
@@ -38,7 +38,7 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

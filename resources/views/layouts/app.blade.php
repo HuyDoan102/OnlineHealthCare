@@ -172,30 +172,22 @@
                                     </ul>
                                 </li>
                                 <li class="agileits dropdown">
-                                    <a href="" data-toggle="dropdown" aria-expanded="true">Bệnh lý</a>
+                                    <a href="{{ route('posts.index')}}" aria-expanded="true">Bệnh lý</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
                                         @foreach($type_of_diseases as $type_of_disease)
-                                            <li><a href="">{{ $type_of_disease->name }}</a></li>
+                                            <li><a href="{{ route('posts.index', ['type_of_diseases' => $type_of_disease->id]) }}">{{ $type_of_disease->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
                                 <li class="agileits dropdown">
-                                    <a href="#" data-toggle="dropdown" aria-expanded="true">Mẹ và bé</a>
-                                    <ul class="dropdown-menu agile_short_dropdown">
-                                        <li><a href="pay.html">Nuôi con khỏe</a></li>
-                                        <li><a href="pay.html">Dinh dưỡng cho mẹ</a></li>
-                                        <li><a href="pay.html">Góc của mẹ</a></li>
-                                    </ul>
-                                </li>
-                                <li class="agileits dropdown">
-                                    <a href="#" data-toggle="dropdown" aria-expanded="true">Bác sĩ</a>
+                                    <a href="{{ route('doctors.index') }}" aria-expanded="true">Bác sĩ</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
                                         @foreach($fields as $field)
                                         <li><a href="">{{ $field->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="blog.html">Diễn đàn</a></li>
+                                <li><a href="{{ route("articles.index") }}">Diễn đàn</a></li>
                                 <li><a href="{{ route("feedbacks.index") }}">Liên hệ</a></li>
                             </ul>
                         </div>

@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
-use DB;
-class PostController extends Controller
+use App\User;
+
+class DoctorsController extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
     /**
      * Display a listing of the resource.
      *
@@ -18,8 +14,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts=Post::latest()->paginate(15);
-        return view("posts.index", compact('posts'));
+        $doctors = User::with('fields')->join('specialties', 'users.id', 'specialties.user_id')
+            ->join('fields', 'fields.id', 'specialties.field_id')->select('users.name as username', 'users.email as mail', 'fields.name as fieldsName', 'specialties.years_of_experience as kinhNghiem','users.phone as phone', 'users.id as id')
+            ->get();
+        return view('doctors.index', compact('doctors'));
     }
 
     /**
@@ -49,10 +47,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(User $doctor)
     {
-        return view("posts.show")->with("post",$post);//show theo id
+        return view('doctors.show', compact('doctor'));
     }
+
     /**
      * Show the form for editing the specified resource.
      *
