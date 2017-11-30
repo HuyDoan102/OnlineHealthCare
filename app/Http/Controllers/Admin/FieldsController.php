@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Article;
+use App\Fields;
 
-class ArticlesController extends Controller
+class FieldsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(10);
-        return view('admin.articles.index', compact('articles'));
+        $fields = Fields::all();
+        return view("admin.fields.index")->with("fields", $fields);
     }
 
     /**
@@ -46,9 +46,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        return view("admin.articles.show")->with("article", $article);
+        //
     }
 
     /**
@@ -57,9 +57,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Article $article)
+    public function edit($id)
     {
-        return view('admin.articles.edit')->with('article', $article);
+        //
     }
 
     /**
@@ -69,11 +69,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, $id)
     {
-        $payload = $request->only('title', 'content');
-        $article->update($payload);
-        return redirect()->route('admin.articles.index');
+        //
     }
 
     /**
@@ -82,9 +80,8 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        $article->delete();
-        return redirect()->route('admin.articles.delete');
+        //
     }
 }

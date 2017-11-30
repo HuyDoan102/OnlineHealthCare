@@ -7,6 +7,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-block">
+                    <a href="{{ route("admin.posts.index") }}"><i class="fa fa-arrow-left"></i> Back</a>
                     <h5 class="card-title mb-4">Pushlish Post</h5>
                     <form action="{{ route("admin.posts.update", $post->id) }}" class="forms-sample" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
