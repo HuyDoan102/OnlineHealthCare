@@ -51,6 +51,8 @@
 				<div class="widget-area no-padding blank">
 					<div class="status-upload">
 						<form>
+							<input type="text" placeholder="Email/Phone">
+							<div class="tops"></div>
 							<input type="text" placeholder="Tiêu đề">
 							<div class="tops"></div>
 							<textarea placeholder="Nội dung" ></textarea>

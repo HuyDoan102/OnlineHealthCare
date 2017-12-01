@@ -175,7 +175,7 @@
                                     <a href="{{ route('posts.index')}}" aria-expanded="true">Bệnh lý</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
                                         @foreach($type_of_diseases as $type_of_disease)
-                                            <li><a href="{{ route('posts.index', ['type_of_diseases' => $type_of_disease->id]) }}">{{ $type_of_disease->name }}</a></li>
+                                            <li><a href="#">{{ $type_of_disease->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>

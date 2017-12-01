@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\Event;
 use DB;
 class PostController extends Controller
 {
@@ -12,8 +13,7 @@ class PostController extends Controller
         parent::__construct();
     }
     /**
-     * Display a listing of the resource.
-     *
+     * Display a listing of th
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -31,7 +31,6 @@ class PostController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -51,6 +50,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        Event::fire('posts.view', $post);
         return view("posts.show")->with("post",$post);//show theo id
     }
     /**

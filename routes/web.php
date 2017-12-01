@@ -18,8 +18,12 @@
 });*/
 
 Route::get('/','HomeController@index');
-Route::resource('posts', 'PostController');
+
+Route::resource('posts', 'PostController')->middleware('filter');
+
+
 Auth::routes();
+
 
 Route::get("/bmi", "BMIController@index")->name('bmi');
 
