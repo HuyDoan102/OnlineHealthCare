@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Article;
-use App\Comment;
-use DB;
+use App\Http\Controllers\Controller;
+use App\Fields;
 
-class ArticlesController extends Controller
+class FieldsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::with('comments')->with('user')->latest()->paginate(10);
-        return view("articles.index", compact("articles"));
+        $fields = Fields::all();
+        return view("admin.fields.index")->with("fields", $fields);
     }
 
     /**
@@ -38,7 +37,7 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -47,9 +46,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show($id)
     {
-        return view('articles.show',compact('article'));
+        //
     }
 
     /**
@@ -81,9 +80,8 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        $article->delete();
-        return redirect()->route("admin.articles.index");
+        //
     }
 }

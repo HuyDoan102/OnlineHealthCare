@@ -7,6 +7,7 @@
 			<div class="text-left">
 				<a href="/">TRANG CHỦ</a>  >>  <a href="{{ route("posts.index") }}">BỆNH LÝ</a>  >>  {{ strtoupper($post->title) }}
 			</div><br>
+			
 			<div>
 				<span class="glyphicon glyphicon glyphicon-time">&nbsp;{{ $post->created_at }}</span>
 				<br>
@@ -22,6 +23,7 @@
 					</div>			
 					<div class="text-right"><h5><i>Theo: {{ $post->source }}</i></h5></div> 
 					<div class="clearfix"> </div>
+
 				</div>
 			</div>
 			<div class="clearfix"> </div>

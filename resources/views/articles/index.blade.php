@@ -5,9 +5,9 @@
 <div class="container">
 
 	<div class="w3layouts-breadcrumbs text-center">
-		<div class="container">		
+		<div class="container">
 			<span class="agile-breadcrumbs"><a href="index.html">Trang chủ</a> &gt;<span> Diễn đàn</span></span>
-		</div>		
+		</div>
 	</div>
 	<div class="w3ls-section blog-agile-main">
 		<h4 class="w3ls-inner-title text-center">Diễn đàn</h4>
@@ -26,7 +26,7 @@
 					<div class="post-media">
 						<a href="{{ route('articles.show', ['article' => $article->id]) }}"><h5 class="h-t">{{ $article->title }}</h5></a>
 						<div class="entry-meta">
-							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at }}</h6>
+							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at->diffForHumans() }}</h6>
 							<div class="icons">
 								<a href="#"><i class="fa fa-user"></i>ten nguoi gui</a>
 								<a href="#"><i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</a>
@@ -44,7 +44,7 @@
 						<div class="clearfix"> </div>
 					</div>
 					<div class="clearfix"> </div>
-				</div> 
+				</div>
 			</div>
 
 			<div role="tabpanel" class="tab-pane" id="question">

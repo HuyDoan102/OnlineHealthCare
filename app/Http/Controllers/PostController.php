@@ -6,19 +6,25 @@ use Illuminate\Http\Request;
 use App\Post;
 use Illuminate\Support\Facades\Event;
 use DB;
+use App\TypeOfDisease;
+
 class PostController extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
     /**
      * Display a listing of th
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts=Post::latest()->paginate(15);
+        $posts = Post::with('type_of_diseases')->latest();
+
+        if ($request->has('type')) {
+            $posts = $posts->whereHas('type_of_diseases', function ($query) use ($request) {
+                $query->where('id', $request->type);
+            });
+        }
+
+        $posts = $posts->paginate(10);
         return view("posts.index", compact('posts'));
     }
 

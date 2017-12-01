@@ -25,7 +25,7 @@
             <div class="col-sm-8">
               <h4 class="card-header"><a href="{{ route("posts.show", $post->id) }}">{{ $post->title }} </a></h4>
 
-              {{ $post->created_at }}
+              {{ $post->created_at->diffForHumans() }}
               <div class="card-body" >
                 {{mb_substr($post->content,0,100-2,'UTF-8').'...' }}
               </div>
