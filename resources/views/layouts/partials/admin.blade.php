@@ -94,7 +94,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/icons.html">
+                            <a class="nav-link" href="{{ route('admin.diseases.index') }}">
                                 <!-- <i class="fa fa-font"></i> -->
                                 <img src="/images/disease.png" alt="">
                                 <span class="menu-title">Diseases</span>

@@ -50,5 +50,7 @@ Route::group($admin_config, function () {
     Route::get("feedbacks/createmail/{feedback}", 'FeedbacksController@createMail')->name('feedbacks.mail');
     Route::post("feedbacks/send", "FeedbacksController@sendMail")->name('feedbacks.send');
     Route::resource("feedbacks", "FeedbacksController");
+    Route::get("diseases/search", "DiseasesController@search")->name('diseases.search');
+    Route::resource("diseases", "DiseasesController");
 });
 
