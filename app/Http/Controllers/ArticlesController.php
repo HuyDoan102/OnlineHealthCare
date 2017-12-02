@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Event;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Comment;
@@ -17,7 +18,8 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = Article::with('comments')->with('user')->latest()->paginate(10);
-        return view("articles.index", compact("articles"));
+        $articlesView = Article::limit(10)->orderBy('view', 'desc')->get();
+        return view("articles.index", compact("articles", "articlesView"));
     }
 
     /**
@@ -49,6 +51,7 @@ class ArticlesController extends Controller
      */
     public function show(Article $article)
     {
+        Event::fire('articles.view', $article);
         return view('articles.show',compact('article'));
     }
 
