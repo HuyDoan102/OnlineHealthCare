@@ -8,7 +8,7 @@ use App\TypeOfDisease;
 
 class Disease extends Model
 {
-    protected $table = "disaeses";
+    protected $table = "diseases";
     protected $primaryKey = "id";
 
     protected $fillable = [

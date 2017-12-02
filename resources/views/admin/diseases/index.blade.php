@@ -1,14 +1,13 @@
-@extends("layouts.partials.admin")
-
-@section("admin")
+@extends('layouts.partials.admin')
+@section('admin')
 <div class="content-wrapper">
     <div class="row mb-2">
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-block">
-                    <h5 class="card-title mb-4">Articles Management</h5>
+                    <h5 class="card-title mb-4">Diseases Management</h5>
                     <div class="row">
-                        <form action="{{ route("admin.articles.search") }}" class="col-sm-6" method="GET">
+                        <form action="{{ route("admin.diseases.search") }}" class="col-sm-6" method="GET">
                             <div class="form-group row">
                                 <div class="col-sm-8">
                                     <input type="text" name="userSearch" class="form-control form-control-sm">
@@ -24,30 +23,30 @@
                             <thead>
                                 <tr class="text-primary">
                                     <th>#</th>
-                                    <th>Title</th>
-                                    <th>Content</th>
-                                    <th>Creator</th>
+                                    <th>Name</th>
+                                    <th>Symptom</th>
+                                    <th>Type of disease</th>
                                     <th width="120px">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($articles as $article)
+                                @foreach($diseases as $disease)
                                 <tr class="">
                                     @php
                                     $size = 30;
                                     @endphp
-                                    <td>{{ $article->id }}</td>
-                                    <td>{{ $article->title }}</td>
-                                    <td>{{ $article->content }}</td>
-                                    <td>{{ $article->user->name }}</td>
+                                    <td>{{ $disease->id }}</td>
+                                    <td>{{ $disease->name }}</td>
+                                    <td>{{ $disease->symptom }}</td>
+                                    <td>{{ $disease->type_of_diseases->name }}</td>
                                     <td>
-                                        <a href="{{ route("admin.articles.show", $article->id) }}" class="btn btn-primary btn-sm">
+                                        <a href="{{ route("admin.diseases.show", $disease->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{ route("admin.articles.edit", $article->id) }}" class="btn btn-primary btn-sm">
+                                        <a href="{{ route("admin.diseases.edit", $disease->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-pencil-square-o"></i>
                                         </a>
-                                        <a href="javascript:void(0)" url="{{ route( 'admin.articles.destroy', [ 'article' => $article->id ] ) }}" class="delete btn btn-danger btn-sm"
+                                        <a href="javascript:void(0)" url="{{ route( 'admin.diseases.destroy', [ 'disease' => $disease->id ] ) }}" class="delete btn btn-danger btn-sm"
                                             data-toggle="modal" data-target="#deleteArticle">
                                             <i class="fa fa-trash-o"></i>
                                         </a>
@@ -56,9 +55,9 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        @include('admin.articles.delete')
+                        @include('admin.diseases.delete')
                         <div class="text-center">
-                            {{ $articles->links() }}
+                            {{ $diseases->links() }}
                         </div>
                     </div>
                 </div>
