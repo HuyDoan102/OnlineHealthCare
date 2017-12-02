@@ -49,9 +49,6 @@
                         <div class="clearfix"> </div>
                     </div>
                 @endforeach
-                <div class="card-footer text-right">
-                    <a href="#" class="btn btn-link btn-right">Xem thêm...</a>
-                </div>
                 <div class="clearfix"> </div>
             </div>
 
@@ -64,45 +61,24 @@
         <div class="team agileits-w3layouts" id="team"><br><br>
             <h4 class="w3ls-inner-title">Câu hỏi mới</h4>
             <div class="post-media">
+                @foreach($articles as $article)
                 <div class="blog-text">
-                    <a href="#"><h5 class="h-t">Tiêu đề câu hỏi</h5></a>
+                    <a href="#"><h5 class="h-t">{{ $article->title }}</h5></a>
                     <div class="entry-meta">
-                        <h6 class="blg"><i class="fa fa-clock-o"></i> Jan 25, 2017</h6>
+                        <h6 class="blg"><i class="fa fa-clock-o"></i>{{ $article->updated_at }}</h6>
                         <div class="icons">
-                            <a href="#"><i class="fa fa-user"></i> Admin</a>
-                            <a href="#"><i class="fa fa-comments-o"></i> 2</a>
+                            <a href="#"><i class="fa fa-user"></i></a>
+                            <a href="#"><i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</a>
                         </div>
                         <div class="clearfix"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non semper, inquam; Quo modo autem philosophus loquitur? Duo Reges: constructio interrete. Dici enim nihil potest verius. Hic ambiguo ludimur. An hoc usque quaque, aliter in vita? Bonum incolumis acies: misera caecitas. Favorite</p>
+                        <p>{{ mb_substr($article->content,0,100-2,'UTF-8').'...' }}</p>
                     </div>
                 </div>
-                <div class="blog-text">
-                    <a href="#"><h5 class="h-t">Tiêu đề câu hỏi</h5></a>
-                    <div class="entry-meta">
-                        <h6 class="blg"><i class="fa fa-clock-o"></i> Jan 25, 2017</h6>
-                        <div class="icons">
-                            <a href="#"><i class="fa fa-user"></i> Admin</a>
-                            <a href="#"><i class="fa fa-comments-o"></i> 2</a>
-                        </div>
-                        <div class="clearfix"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non semper, inquam; Quo modo autem philosophus loquitur? Duo Reges: constructio interrete. Dici enim nihil potest verius. Hic ambiguo ludimur. An hoc usque quaque, aliter in vita? Bonum incolumis acies: misera caecitas. Favorite</p>
-                    </div>
-                </div>
-                <div class="blog-text">
-                    <a href="#"><h5 class="h-t">Tiêu đề câu hỏi</h5></a>
-                    <div class="entry-meta">
-                        <h6 class="blg"><i class="fa fa-clock-o"></i> Jan 25, 2017</h6>
-                        <div class="icons">
-                            <a href="#"><i class="fa fa-user"></i> Admin</a>
-                            <a href="#"><i class="fa fa-comments-o"></i> 2</a>
-                        </div>
-                        <div class="clearfix"></div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non semper, inquam; Quo modo autem philosophus loquitur? Duo Reges: constructio interrete. Dici enim nihil potest verius. Hic ambiguo ludimur. An hoc usque quaque, aliter in vita? Bonum incolumis acies: misera caecitas. Favorite</p>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
             <div class="card-footer text-right">
-                <a href="#" class="btn btn-link btn-right">Xem thêm...</a>
+                <a href="{{ route('articles.index') }}" class="btn btn-link btn-right">Xem thêm</a>
             </div>
         </div>
     </div>

@@ -28,14 +28,12 @@
 						<div class="entry-meta">
 							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at->diffForHumans() }}</h6>
 							<div class="icons">
-								<a href="#"><i class="fa fa-user"></i>{{ $article->user_id }}</a>
-								<a href="#"><i class="fa fa-comments-o"></i>1</a>
+								<a href="#"><i class="fa fa-user"></i>ten nguoi gui</a>
+								<a href="#"><i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</a>
 							</div>
 							<div class="clearfix"></div>
 							<p>{{ mb_substr($article->content,0,300-2,'UTF-8'). '...' }}</p>
 						</div>
-
-
 					</div>
 					@endforeach
 
@@ -53,6 +51,8 @@
 				<div class="widget-area no-padding blank">
 					<div class="status-upload">
 						<form>
+							<input type="text" placeholder="Email/Phone">
+							<div class="tops"></div>
 							<input type="text" placeholder="Tiêu đề">
 							<div class="tops"></div>
 							<textarea placeholder="Nội dung" ></textarea>

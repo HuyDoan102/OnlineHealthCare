@@ -21,8 +21,8 @@
 						<div class="entry-meta">
 							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at }}</h6>
 							<div class="icons">
-								<a href="#"><i class="fa fa-user"></i> {{ $article->user_id }}</a>
-								<a href="#"><i class="fa fa-comments-o"></i> 3</a>
+								<a href="#"><i class="fa fa-user"></i> ten nguoi gui</a>
+								<a href="#"><i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</a>
 							</div>
 							<div class="clearfix"></div>
 							<p>{{ $article->content }}</p>
@@ -38,39 +38,19 @@
 
 				<div class="all-comments">
 					<div class="media-grids">
+						@foreach($article->comments as $comment)
 						<div class="media">
-							<h5>TOM BROWN</h5><br>
-							<h6 class="blg"><i class="fa fa-clock-o"></i> Jan 25, 2017</h6><br><br>
+							<h5>{{ $comment->user->name }}</h5><br>
+							<h6 class="blg"><i class="fa fa-clock-o"></i>{{ $comment->created_at }}</h6><br><br>
 							<div class="media-left">
 								<img src="images/m.png" title="One movies" alt=" ">
 							</div>
 							<div class="media-body">
-								<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id
-								ex pretium hendrerit</p>
+								<p>{{ $comment->comment }}</p>
 							</div>
 						</div><br>
-						<div class="media">
-							<h5>TOM BROWN</h5><br>
-							<h6 class="blg"><i class="fa fa-clock-o"></i> Jan 25, 2017</h6><br><br>
-							<div class="media-left">
-								<img src="images/m.png" title="One movies" alt=" ">
-							</div>
-							<div class="media-body">
-								<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id
-								ex pretium hendrerit</p>
-							</div>
-						</div><br>
-						<div class="media">
-							<h5>TOM BROWN</h5><br>
-							<h6 class="blg"><i class="fa fa-clock-o"></i> Jan 25, 2017</h6><br><br>
-							<div class="media-left">
-								<img src="images/m.png" title="One movies" alt=" ">
-							</div>
-							<div class="media-body">
-								<p>Maecenas ultricies rhoncus tincidunt maecenas imperdiet ipsum id ex pretium hendrerit maecenas imperdiet ipsum id
-								ex pretium hendrerit</p>
-							</div>
-						</div><br><hr>
+						@endforeach
+						<hr>
 					</div>
 
 					<h4>Bình luận:</h4>
