@@ -35,15 +35,11 @@
               <input type="text" placeholder="kg" name="txt_w" id="weight"><br><br>
             </div>
             <div class="col-md-12" method="POST">
-          <button type="button" onclick="cal()" class="btn btn-primary">Kết quả</button>
+          <button type="button" onclick="calculate()" class="btn btn-primary">Kết quả</button>
           
 
         </div>
-
-            BMI:<p id="result"> </p>
-
-
-
+            <p id="result"> </p>
           </form>
         </div><!-- Status Upload  -->
       </div><!-- Widget Area -->
@@ -79,26 +75,69 @@
 @endsection
 
 <script type="text/javascript">
-  function cal(){
-    var height = document.getElementById('height').value;
-    var weight = document.getElementById('weight').value;
-    
-    var temp = parseFloat((weight*1)/(height/100)/(height/100)).toFixed(2);
-    if(temp < 18.5)
-      document.getElementById('result').innerHTML = temp + "  Bạn bị thiếu cân";
-    else
-      if(temp >= 18.5 && temp <= 22.99)
-        document.getElementById('result').innerHTML = temp + "  Bạn bình thường";
-      else
-        if(temp >= 23 && temp <= 24.9)
-          document.getElementById('result').innerHTML = temp + "  Tiền béo phì";
-        else
-          if (temp >= 25 && temp <= 29.9)
-            document.getElementById('result').innerHTML = temp + "  Béo phì cấp độ I";
-          else
-            if(temp >= 30 && temp < 40)
-              document.getElementById('result').innerHTML = temp + "  Béo phì cấp độ II";
-            else
-              document.getElementById('result').innerHTML = temp + "  Béo phì cấp độ III";
-          }
-        </script>
+  function BMI(height, weight) {
+    var bmi = weight/(height*height);
+
+    if (bmi < 18.5) {
+      return -1;
+    }
+    if (bmi < 23) {
+      return 0;
+    }
+    if (bmi < 25) {
+      return 1;
+    }
+    if (bmi < 30) {
+      return 2;
+    }
+    if (bmi < 40) {
+      return 3;
+    }
+    return 4;
+  }
+
+  function calculate() {
+    var height = $('#height').val();
+    var weight = $('#weight').val();
+    var result = 'BMI: ';
+
+    height = parseFloat(height) / 100;
+    weight = parseFloat(weight);
+
+    var bmi = BMI(height, weight);
+
+    switch(bmi) {
+    case -1:
+      result += 'Bạn bị thiếu cân.';
+      break;
+    case 0:
+      result += 'Bạn bình thường.';
+      break;
+    case 1:
+      result += 'Tiền béo phì.';
+      break;
+    case 2:
+      result += 'Béo phì cấp độ I.';
+      break;
+    case 3:
+      result += 'Béo phì cấp độ II.';
+      break;
+    case 4:
+      result += 'Béo phì cấp độ III.';
+      break;
+    }    
+
+    var change = 0;
+    if (bmi < 0) {
+      while (BMI(height, weight + ++change) < 0);
+      result += " Bạn cần tăng " + change + " cân";
+    }
+
+    if (bmi > 0) {
+      while (BMI(height, weight - ++change) > 0);
+      result += " Bạn cần giảm " + change + " cân";
+    }
+
+    $('#result').html(result);
+  }
+</script>

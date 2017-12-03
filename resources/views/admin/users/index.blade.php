@@ -1,4 +1,4 @@
-@extends("layouts.partials.admin")
+    @extends("layouts.partials.admin")
 
 @section("admin")
 <div class="content-wrapper">

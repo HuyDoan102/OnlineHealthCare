@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Article;
-use App\Comment;
-use DB;
+use App\User;
 
-class ArticlesController extends Controller
+class DoctorsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,10 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::with('comments')->with('user')->latest()->paginate(10);
-        return view("articles.index", compact("articles"));
+        $doctors = User::with('fields')->join('specialties', 'users.id', 'specialties.user_id')
+            ->join('fields', 'fields.id', 'specialties.field_id')->select('users.name as username', 'users.email as mail', 'fields.name as fieldsName', 'specialties.years_of_experience as kinhNghiem','users.phone as phone', 'users.id as id')
+            ->get();
+        return view('doctors.index', compact('doctors'));
     }
 
     /**
@@ -38,7 +38,7 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -47,9 +47,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Article $article)
+    public function show(User $doctor)
     {
-        return view('articles.show',compact('article'));
+        return view('doctors.show', compact('doctor'));
     }
 
     /**
@@ -81,9 +81,8 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Article $article)
+    public function destroy($id)
     {
-        $article->delete();
-        return redirect()->route("admin.articles.index");
+        //
     }
 }

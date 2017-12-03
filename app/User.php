@@ -28,12 +28,12 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class, 'role_id');
+        return $this->belongsTo(Role::class, 'role_id'); //n - 1
     }
 
     public function fields()
     {
-        return $this->belongsToMany(Field::class, 'specialties','user_id', 'field_id');
+        return $this->belongsToMany(Field::class, 'specialties','user_id', 'field_id')->withPivot('years_of_experience', 'dipoma'); //n - n
     }
 
     public function comments()
