@@ -183,7 +183,7 @@
                                     <a href="{{ route('doctors.index') }}" aria-expanded="true">Bác sĩ</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
                                         @foreach($fields as $field)
-                                        <li><a href="">{{ $field->name }}</a></li>
+                                        <li><a href="{{ route('doctors.index', ['fieldType' => $field->id]) }}">{{ $field->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>

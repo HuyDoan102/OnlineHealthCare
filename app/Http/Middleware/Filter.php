@@ -24,37 +24,36 @@ class Filter
      */
     public function handle($request, Closure $next)
     {
-        $posts = $this->getViewedPosts();
+        $argument = $this->getViewedArgument();
 
-        if (!is_null($posts))
+        if (!is_null($argument))
         {
-            $posts = $this->cleanExpiredViews($posts);
-            $this->storePosts($posts);
+            $argument = $this->cleanExpiredViews($argument);
+            $this->storeArgument($argument);
         }
-
         return $next($request);
     }
 
-    private function getViewedPosts()
+    private function getViewedArgument()
     {
-        return $this->session->get('viewed_posts', null);
+        return $this->session->get('viewed_argument', null);
     }
 
-    private function cleanExpiredViews($posts)
+    private function cleanExpiredViews($argument)
     {
         $time = time();
 
-        // Let the views expire after 10'.
-        $throttleTime =600;
+        // Let the views expire after 8'.
+        $throttleTime =480;
 
-        return array_filter($posts, function ($timestamp) use ($time, $throttleTime)
+        return array_filter($argument, function ($timestamp) use ($time, $throttleTime)
         {
             return ($timestamp + $throttleTime) > $time;
         });
     }
 
-    private function storePosts($posts)
+    private function storeArgument($argument)
     {
-        $this->session->put('viewed_posts', $posts);
+        $this->session->put('viewed_argument', $argument);
     }
 }
