@@ -42,7 +42,7 @@
                             <tbody>
                                 @foreach($posts as $index => $post)
                                 <tr>
-                                    <th scope="row">{{ $index + 1 }}</th>
+                                    <th scope="row">{{ $post->id }}</th>
                                     <td><img class="image-post" src="/images/{{ $post->image }}" alt=""></td>
                                     @php
                                         $size = 10;

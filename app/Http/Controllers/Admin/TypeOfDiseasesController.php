@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\TypeOfDisease;
 
 class TypeOfDiseasesController extends Controller
 {
@@ -14,7 +15,8 @@ class TypeOfDiseasesController extends Controller
      */
     public function index()
     {
-        //
+        $typeofdiseases = TypeOfDisease::paginate(10);
+        return view('admin.typeofdiseases.index', compact("typeofdiseases"));
     }
 
     /**
