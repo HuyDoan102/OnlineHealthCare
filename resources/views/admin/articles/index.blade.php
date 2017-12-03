@@ -39,7 +39,7 @@
                                     <td>{{ $article->id }}</td>
                                     <td>{{ $article->title }}</td>
                                     <td>{{ $article->content }}</td>
-                                    <td>{{ $article->user->name }}</td>
+                                    <td>{{ $article->creator }}</td>
                                     <td>
                                         <a href="{{ route("admin.articles.show", $article->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-eye"></i>
