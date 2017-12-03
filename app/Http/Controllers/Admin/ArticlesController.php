@@ -26,7 +26,6 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -37,7 +36,9 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payload = $request->all();
+        dd($payload);
+        Article::create($payload);
     }
 
     /**
@@ -85,6 +86,6 @@ class ArticlesController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route('admin.articles.delete');
+        return redirect()->route('admin.articles.index');
     }
 }

@@ -13,13 +13,8 @@ class Article extends Model
     protected $primaryKey = "id";
 
     protected $fillable = [
-        'title', 'content', 'user_id'
+        'title', 'content', 'creator'
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
 
     public function comments()
     {

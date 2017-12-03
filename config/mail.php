@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'huy.nhd@neo-lab.vn'),
-        'name' => env('MAIL_FROM_NAME', 'huy'),
+        'address' => env('MAIL_FROM_ADDRESS', 'doanhuynguyenhong@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Admin OHC'),
     ],
 
     /*
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('huy.nhd@neo-lab.vn'),
+    'username' => env('MAIL_USERNAME'),
 
-    'password' => env('Huymilaso1'),
+    'password' => env('MAIL_PASSWORD'),
 
     /*
     |--------------------------------------------------------------------------
