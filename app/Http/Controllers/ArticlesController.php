@@ -17,7 +17,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        $articles = Article::with('comments')->with('user')->latest()->paginate(10);
+        $articles = Article::with('comments')->latest()->paginate(10);
         $articlesView = Article::limit(10)->orderBy('view', 'desc')->get();
         return view("articles.index", compact("articles", "articlesView"));
     }
@@ -40,7 +40,10 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-
+        $payload = $request->all();
+        $articlesQuestion = new Article();
+        $articlesQuestion->create($payload);
+        return redirect()->route("articles.index");
     }
 
     /**

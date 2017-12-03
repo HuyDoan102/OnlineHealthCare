@@ -72,12 +72,14 @@
 			<div role="tabpanel" class="tab-pane" id="question">
 				<div class="widget-area no-padding blank">
 					<div class="status-upload">
-						<form>
-							<input type="text" placeholder="Email/Phone">
+						<form action = "{{ route('articles.store') }}" method="POST">
+							{{ csrf_field() }}
+							<input type="hidden" name="view" value="0" required >
+							<input type="text" name="creator" placeholder="Email/Phone" required>
 							<div class="tops"></div>
-							<input type="text" placeholder="Tiêu đề">
+							<input type="text" name="title" placeholder="Tiêu đề" required>
 							<div class="tops"></div>
-							<textarea placeholder="Nội dung" ></textarea>
+							<textarea placeholder="Nội dung" name="content" required></textarea>
 							<button type="submit" class="btn-ch">Gửi thông tin đến bác sĩ</button>
 						</form>
 					</div>
