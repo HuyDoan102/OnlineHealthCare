@@ -26,11 +26,6 @@ class User extends Authenticatable
         'name', 'email', 'password','avatar', 'gender', 'date_of_birth', 'address', 'phone', 'role_id'
     ];
 
-    public function articles()
-    {
-        return $this->hasMany(Article::class, 'user_id', 'id'); //1 - n
-    }
-
     public function role()
     {
         return $this->belongsTo(Role::class, 'role_id'); //n - 1
