@@ -27,6 +27,7 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
         Event::listen('posts.view', 'App\Http\Middleware\ViewPostHandler');
+        Event::listen('articles.view', 'App\Http\Middleware\ViewArticleHandler');
         
     }
 }
