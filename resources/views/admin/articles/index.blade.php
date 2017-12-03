@@ -11,7 +11,7 @@
                         <form action="{{ route("admin.articles.search") }}" class="col-sm-6" method="GET">
                             <div class="form-group row">
                                 <div class="col-sm-8">
-                                    <input type="text" name="userSearch" class="form-control form-control-sm">
+                                    <input type="text" name="articleSearch" class="form-control form-control-sm">
                                 </div>
                                 <div class="col-sm-4">
                                     <button class="btn btn-primary btn-sm" type="submit">Search</button>
