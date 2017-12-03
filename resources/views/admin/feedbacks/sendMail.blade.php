@@ -7,6 +7,7 @@
             <div class="card">
                 <div class="card-block">
                     <div class="card-block">
+                        <a href="{{ route("admin.feedbacks.index") }}"><i class="fa fa-arrow-left"></i> Back</a>
                         <h5 class="card-title mb-4">Content Feedback</h5>
                         <div class="form-group">
                             <label for="source">Email</label>

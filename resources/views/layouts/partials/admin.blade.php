@@ -131,18 +131,19 @@
         </div>
     </div>
 
+    <script src="/node_modules/tether/dist/js/tether.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/node_modules/chart.js/dist/Chart.min.js"></script>
+    <script src="/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>`
+    <script src="/js/off-canvas.js"></script>
+    <script src="/js/hoverable-collapse.js"></script>
+    <script src="/js/misc.js"></script>
+    <script src="/js/chart.js"></script>
+    <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+    <script> CKEDITOR.replace('editor1'); </script>
+
 </body>
 </html>
 
-<script src="/node_modules/tether/dist/js/tether.min.js"></script>
-<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/node_modules/chart.js/dist/Chart.min.js"></script>
-<script src="/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>`
-<script src="/js/off-canvas.js"></script>
-<script src="/js/hoverable-collapse.js"></script>
-<script src="/js/misc.js"></script>
-<script src="/js/chart.js"></script>
-<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-<script> CKEDITOR.replace('editor1'); </script>
 
 

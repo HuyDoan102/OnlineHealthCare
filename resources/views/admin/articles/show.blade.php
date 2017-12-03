@@ -29,7 +29,7 @@
                         <div class="form-group row">
                             <label for="title" class="col-sm-2 col-form-label">Creator</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="source" value="{{ $article->user->name }}" name="source" disabled></input>
+                                <input class="form-control" id="source" value="{{ $article->creator }}" name="source" disabled></input>
                             </div>
                         </div>
                     </div>

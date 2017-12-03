@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Post;
+use App\Disease;
 
 class TypeOfDisease extends Model
 {
@@ -14,6 +15,11 @@ class TypeOfDisease extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function diseases()
+    {
+        return $this->hasMany(Disease::class, 'id', 'type_of_diseases_id');
+    }
 
     public function posts()
     {
