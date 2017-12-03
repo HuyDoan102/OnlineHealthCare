@@ -7,6 +7,7 @@
         <div class="col-lg-12">
             <div class="card col-lg-12">
                 <div class="card-block">
+                    <a href="{{ route("admin.posts.index") }}"><i class="fa fa-arrow-left"></i> Back</a>
                     <h5 class="card-title mb-4">Update Aritcle</h5>
                     <form action="{{ route("admin.articles.update", $article->id) }}" class="forms-sample" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
@@ -17,8 +18,8 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea type="text" name="content" class="form-control p-input" value="{{ $article->content }}" id="content">
-
+                            <textarea type="text" name="content" class="form-control p-input" id="content">
+                                {{ $article->content }}
                             </textarea>
                         </div>
                         <div class="form-group">

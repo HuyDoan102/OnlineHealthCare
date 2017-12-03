@@ -66,11 +66,7 @@
                                         {{ $post->status == 0 ? "not approval" : "approval" }}
                                     </td>
                                     <td>
-                                        <a href="#" class="btn btn-primary btn-sm"
-                                            data-toggle="modal" data-target="#modalShow" data-id="{{ $post->id }}"
-                                            data-title="{{ $post->title }}" data-content="{{ $post->content }}"
-                                            data-source="{{ $post->source }}" data-created_at="{{ $post->created_at }}"
-                                            data-status="{{ $post->status }}" data-view="{{ $post->view }}">
+                                        <a href="{{ route("admin.posts.show", $post->id) }}" class="btn btn-primary btn-sm">
                                             <i class="fa fa-eye"></i>
                                         </a>
                                         <a href="{{ route("admin.posts.edit", $post->id) }}" class="btn btn-primary btn-sm">
@@ -85,7 +81,6 @@
                                 </tr>
                                 @endforeach
                                 @include("admin.posts.delete")
-                                @include("admin.posts.show")
                             </tbody>
                         </table>
                     </div>
