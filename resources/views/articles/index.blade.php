@@ -28,9 +28,8 @@
 						<div class="entry-meta">
 							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at->diffForHumans() }}</h6>
 							<div class="icons">
-								<a href="#"><i class="fa fa-user"></i>ten nguoi gui</a>
-								<a href="#"><i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</a>
-								 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>{{ $article->view }}</a>
+								<i class="fa fa-user"></i>{{ $article->creator }}
+								<i class="fa fa-comments-o"></i>{{ $article->comments->count() }}
 							</div>
 							<div class="clearfix"></div>
 							<p>{{ mb_substr($article->content,0,300-2,'UTF-8'). '...' }}</p>
@@ -56,9 +55,8 @@
 						<div class="entry-meta">
 							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at->diffForHumans() }}</h6>
 							<div class="icons">
-								<a href="#"><i class="fa fa-user"></i>ten nguoi gui</a>
-								<a href="#"><i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</a>
-								 <a href="#"><i class="fa fa-eye" aria-hidden="true"></i>{{ $article->view }}</a>
+								<i class="fa fa-user"></i>{{ $article->creator }}
+								<i class="fa fa-comments-o"></i>{{ $article->comments->count() }}
 							</div>
 							<div class="clearfix"></div>
 							<p>{{ mb_substr($article->content,0,300-2,'UTF-8'). '...' }}</p>
@@ -80,7 +78,7 @@
 							<input type="text" name="title" placeholder="Tiêu đề" required>
 							<div class="tops"></div>
 							<textarea placeholder="Nội dung" name="content" required></textarea>
-							<button type="submit" class="btn-ch">Gửi thông tin đến bác sĩ</button>
+							<button type="submit" onclick="myFunction()" class="btn-ch">Gửi thông tin đến bác sĩ</button>
 						</form>
 					</div>
 				</div>
@@ -91,3 +89,8 @@
 </div>
 
 @endsection
+<script type="text/javascript">
+	function myFunction() {
+		alert("Gửi Câu Hỏi Thành Công");
+	}
+</script>
