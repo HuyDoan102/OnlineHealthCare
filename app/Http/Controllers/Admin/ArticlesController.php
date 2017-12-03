@@ -26,7 +26,6 @@ class ArticlesController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -37,7 +36,9 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payload = $request->all();
+        dd($payload);
+        Article::create($payload);
     }
 
     /**
@@ -46,9 +47,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        //
+        return view("admin.articles.show")->with("article", $article);
     }
 
     /**
@@ -85,6 +86,6 @@ class ArticlesController extends Controller
     public function destroy(Article $article)
     {
         $article->delete();
-        return redirect()->route('admin.articles.delete');
+        return redirect()->route('admin.articles.index');
     }
 }

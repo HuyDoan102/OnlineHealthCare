@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Event;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Comment;
+use DB;
 
 class ArticlesController extends Controller
 {
@@ -15,9 +17,9 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-
-        $articles = Article::latest()->paginate(10);
-        return view("articles.index", compact("articles"));
+        $articles = Article::with('comments')->latest()->paginate(10);
+        $articlesView = Article::limit(10)->orderBy('view', 'desc')->get();
+        return view("articles.index", compact("articles", "articlesView"));
     }
 
     /**
@@ -38,7 +40,10 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payload = $request->all();
+        $articlesQuestion = new Article();
+        $articlesQuestion->create($payload);
+        return redirect()->route("articles.index");
     }
 
     /**
@@ -49,6 +54,7 @@ class ArticlesController extends Controller
      */
     public function show(Article $article)
     {
+        Event::fire('articles.view', $article);
         return view('articles.show',compact('article'));
     }
 
@@ -81,8 +87,9 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect()->route("admin.articles.index");
     }
 }

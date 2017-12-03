@@ -4,21 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use Illuminate\Support\Facades\Event;
+use DB;
+use App\TypeOfDisease;
 
 class PostController extends Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
     /**
-     * Display a listing of the resource.
-     *
+     * Display a listing of th
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $posts=Post::latest()->paginate(10);
+        $posts = Post::with('type_of_diseases')->latest();
+
+        if ($request->has('type')) {
+            $posts = $posts->whereHas('type_of_diseases', function ($query) use ($request) {
+                $query->where('id', $request->type);
+            });
+        }
+
+        $posts = $posts->paginate(10);
         return view("posts.index", compact('posts'));
     }
 
@@ -31,7 +37,6 @@ class PostController extends Controller
     {
         //
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -51,6 +56,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        Event::fire('posts.view', $post);
         return view("posts.show")->with("post",$post);//show theo id
     }
     /**

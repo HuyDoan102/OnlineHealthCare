@@ -26,19 +26,14 @@ class User extends Authenticatable
         'name', 'email', 'password','avatar', 'gender', 'date_of_birth', 'address', 'phone', 'role_id'
     ];
 
-    public function articles()
-    {
-        return $this->hasMany(Article::class, 'user_id', 'id');
-    }
-
     public function role()
     {
-        return $this->belongsTo(Role::class, 'role_id');
+        return $this->belongsTo(Role::class, 'role_id'); //n - 1
     }
 
     public function fields()
     {
-        return $this->belongsToMany(Field::class, 'specialties','user_id', 'field_id');
+        return $this->belongsToMany(Field::class, 'specialties','user_id', 'field_id')->withPivot('years_of_experience', 'dipoma'); //n - n
     }
 
     public function comments()

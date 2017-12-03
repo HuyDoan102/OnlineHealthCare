@@ -6,6 +6,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-block">
+                    <a href="{{ route("admin.posts.index") }}"><i class="fa fa-arrow-left"></i> Back</a>
                     <h5 class="card-title mb-4">Pushlish Post</h5>
                     <form action="{{ route("admin.posts.store") }}" class="forms-sample" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
@@ -25,6 +26,9 @@
                             <label for="image">Image</label>
                             <input type="file" name="image" class="form-control-file" id="image" aria-describedby="fileHelp">
                             <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for=""></label>
                         </div>
                         <div class="col-12">
                             <button type="submit" class="btn btn-primary">Submit</button>

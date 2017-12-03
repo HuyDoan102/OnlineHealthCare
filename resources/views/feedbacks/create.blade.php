@@ -32,7 +32,7 @@
 					<div class="col-md-12">
 						<textarea name="content" placeholder="Nội dung" required></textarea>
 					</div>
-					<button type="submit" class="btn-ch">Gửi liên hệ</button>
+					<button type="submit" onclick="myFunction()" class="btn-ch">Gửi liên hệ</button>
 				</form>
 			</div><!-- Status Upload  -->
 		</div><!-- Widget Area -->
@@ -40,3 +40,9 @@
 	<!-- ---/Dat cau hoi--- -->
 
 @endsection
+
+<script type="text/javascript">
+	function myFunction() {
+		alert("Gửi Câu Hỏi Thành Công");
+	}
+</script>
