@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <!-- Modal content-->
-                <h2 class="title-modal">User</h2>
+                <h2 class="title-modal">Feedback</h2>
 
                 <form action="" class="formdelete" method="POST" style="display: none;">
                     {{ csrf_field() }}
@@ -14,7 +14,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Ok</button>
+                        <button type="submit" class="btn btn-danger">Ok</button>
                     </div>
                 </form>
 

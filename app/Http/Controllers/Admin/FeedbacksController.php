@@ -93,7 +93,7 @@ class FeedbacksController extends Controller
         if(empty($request->feedbackSearch)) {
             return redirect()->route('admin.feedbacks.index');
         } else {
-            $feedbacks = Feedbacks::where('feedbacks.title', 'like', $request->feedbackSearch . '%')
+            $feedbacks = Feedbacks::where('feedbacks.title', 'like', '%' . $request->feedbackSearch . '%')
             ->paginate(10)->withPath('search?feedbackSearch=' . $request->feedbackSearch);
             return view("admin.feedbacks.index")->with("feedbacks", $feedbacks);
         }

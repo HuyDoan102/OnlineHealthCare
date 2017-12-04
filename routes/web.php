@@ -27,7 +27,7 @@ Route::get("/bmi", "BMIController@index")->name('bmi');
 
 Route::resource("feedbacks", "FeedbackController");
 
-Route::resource("articles", "ArticlesController");
+Route::resource("articles", "ArticlesController")->middleware('filter');
 
 $admin_config = [
     "prefix"     => "admin",

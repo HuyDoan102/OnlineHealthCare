@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\User;
 use App\Comment;
 
 class Article extends Model
@@ -13,7 +12,7 @@ class Article extends Model
     protected $primaryKey = "id";
 
     protected $fillable = [
-        'title', 'content', 'creator'
+        'title', 'content', 'creator','view'
     ];
 
     public function comments()

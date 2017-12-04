@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Disease;
+use App\TypeOfDisease;
 
 class DiseasesController extends Controller
 {
@@ -26,7 +27,8 @@ class DiseasesController extends Controller
      */
     public function create()
     {
-        //
+        $typeDisease = TypeOfDisease::all();
+        return view("admin.diseases.create", compact("typeDisease"));
     }
 
     /**
@@ -35,9 +37,11 @@ class DiseasesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Disease $disease)
     {
-        //
+        $payload = $request->all();
+        $disease->create($payload);
+        return redirect()->route("admin.diseases.index");
     }
 
     /**
@@ -57,9 +61,10 @@ class DiseasesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Disease $disease)
     {
-        //
+        $typeDisease = TypeOfDisease::all();
+        return view("admin.diseases.edit", compact("disease", "typeDisease"));
     }
 
     /**
@@ -69,9 +74,11 @@ class DiseasesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Disease $disease)
     {
-        //
+        $payload = $request->all();
+        $disease->update($payload);
+        return redirect()->route("admin.diseases.index");
     }
 
     /**
@@ -80,8 +87,20 @@ class DiseasesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Disease $disease)
     {
-        //
+        $disease->delete();
+        return redirect()->route("admin.diseases.index");
+    }
+
+    public function search(Request $request)
+    {
+        if(empty($request->diseaseSearch)) {
+            return redirect()->route('admin.diseases.index');
+        } else {
+            $diseases = Disease::where('diseases.name', 'like', '%' . $request->diseaseSearch . '%')
+            ->paginate(10)->withPath('search?diseaseSearch=' . $request->diseaseSearch);
+            return view("admin.diseases.index")->with("diseases", $diseases);
+        }
     }
 }
