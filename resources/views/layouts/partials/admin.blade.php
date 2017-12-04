@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
     <link rel="stylesheet" href="/css/style.css"/>
     <link rel="shortcut icon" href="/images/logoAdmin.png" />
+    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
 
     <script async defer src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="../js/maps.js"></script>
-
+    <script src="{{ asset('js/maps.js') }}"></script>
 
 </head>
 <body>
@@ -102,7 +102,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/typography.html">
+                            <a class="nav-link" href="">
                                 <!-- <i class="fa fa-bold"></i> -->
                                 <img src="/images/field.jpg" alt="">
                                 <span class="menu-title">Fields</span>
@@ -110,7 +110,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="pages/typography.html">
+                            <a class="nav-link" href="{{ route('admin.typeofdiseases.index') }}">
                                 <!-- <i class="fa fa-bold"></i> -->
                                 <img src="/images/category.png" alt="">
                                 <span class="menu-title">Type of Diseases</span>
@@ -141,6 +141,7 @@
     <script src="/js/chart.js"></script>
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <script> CKEDITOR.replace('editor1'); </script>
+    @yield ('scripts')
 
 </body>
 </html>
