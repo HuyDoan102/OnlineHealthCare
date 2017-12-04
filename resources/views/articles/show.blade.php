@@ -56,7 +56,7 @@
 					<div class="widget-area no-padding blank">
 						<div class="status-upload">
 							<form>
-								<textarea placeholder="Nội dung" ></textarea>
+								<textarea placeholder="Nội dung" name = "comment"></textarea>
 								<button type="submit" class="btn-ch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gửi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 							</form>
 						</div>
