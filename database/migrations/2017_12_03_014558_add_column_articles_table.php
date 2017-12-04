@@ -14,8 +14,8 @@ class AddColumnArticlesTable extends Migration
     public function up()
     {
         Schema::table('articles', function (Blueprint $table) {
-            $table->dropColumn('email');
-            $table->string('creator');
+            $table->dropColumn('user_id');
+            // $table->string('creator');
         });
     }
 

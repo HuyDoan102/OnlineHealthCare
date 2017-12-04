@@ -10,32 +10,7 @@
 
 			<div>
 				<span class="glyphicon glyphicon glyphicon-time">&nbsp;{{ $post->created_at }}</span>
-<<<<<<< HEAD
-				<h2 class="card-header text-center"> {{ $post->title }}</h2>
-			</div>
 
-			<div class="card-body">
-
-				<div class="col-sm-4">
-					<img src="../images/{{$post->image}}" width="400" height="300">
-				</div>
-
-				<div class="col-sm-8">
-					{{ $post->content }}
-				</div>
-			</div>
-	</div>
-	<hr>
-		<div class="container" id="post2">
-			<h4><strong>Bệnh lý liên quan</strong></h4><br>
-			<div class="row">
-				<div class="col-sm-6">
-					<h4 class="card-header"><a href="#">Tiêu đề bài viết</h4></a>
-					<div class="card-body">
-						<p class="card-text">Nội dung bài viết</p>
-					</div>
-				</div>
-=======
 				<br>
 				<span class="glyphicon glyphicon-eye-open">&nbsp;{{ $post->view }}</span>
 				
@@ -49,7 +24,6 @@
 					</div>			
 					<div class="text-right"><h5><i>Theo: {{ $post->source }}</i></h5></div> 
 					<div class="clearfix"> </div>
->>>>>>> dev
 
 				</div>
 			</div>
