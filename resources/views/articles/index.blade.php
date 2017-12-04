@@ -26,7 +26,7 @@
 					<div class="post-media">
 						<a href="{{ route('articles.show', ['article' => $article->id]) }}"><h5 class="h-t">{{ $article->title }}</h5></a>
 						<div class="entry-meta">
-							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at->diffForHumans() }}</h6>
+							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->created_at->diffForHumans() }}</h6>
 							<div class="icons">
 								<i class="fa fa-user"></i>{{ $article->creator }}
 								<i class="fa fa-comments-o"></i>{{ $article->comments->count() }}
