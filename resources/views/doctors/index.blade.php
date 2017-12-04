@@ -3,7 +3,9 @@
 
 <div class="container">
 	<div class="w3layouts-breadcrumbs text-center">
-		<span class="agile-breadcrumbs"><a href="index.html">Trang chủ</a> &gt; <a href="#">Bác Sĩ</a> &gt; <span>Khoa nhi</span></span>
+		<div class="container">
+			<span class="agile-breadcrumbs"><a href="/">Trang Chủ</a>&gt;<span> Bác Sĩ</span></span>
+		</div>
 	</div>
 	<div class="w3ls-section blog-agile-main">
 		<h4 class="w3ls-inner-title text-center">Bác Sĩ</h4>

@@ -10,7 +10,7 @@
 		<!-- //header Dat cau hoi -->
 		<div class="w3layouts-breadcrumbs text-center">
 			<div class="container">		
-				<span class="agile-breadcrumbs"><a href="index.html">Trang chủ</a> &gt;<span> Liên hệ</span></span>
+				<span class="agile-breadcrumbs"><a href="/">Trang Chủ</a> &gt;<span> Liên Hệ</span></span>
 			</div>		
 		</div>
 

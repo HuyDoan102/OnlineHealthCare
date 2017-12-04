@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-
-<div class="container">
+<div class ="container">
 	<div class="w3layouts-breadcrumbs text-center">
-		<div class="container">		
-			<span class="agile-breadcrumbs"><a href="index.html">Trang chủ</a>&gt; <span>Diễn đàn</span></span>
-		</div>		
-	</div>
+			<div class="container">
+				<span class="agile-breadcrumbs"><a href="/">Trang Chủ</a>&gt;
+					<a href="{{ route('articles.index') }}">Diễn Đàn</a>&gt; {{ ucwords($article->title) }}</span>
+			</div>
+	</div><br>
 
 	<div class="w3ls-section blog-agile-main">
 		<h4 class="w3ls-inner-title text-center">Diễn đàn</h4>

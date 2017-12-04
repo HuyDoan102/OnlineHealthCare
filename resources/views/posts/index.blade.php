@@ -10,9 +10,10 @@
       </tr>
     </thead>
     <tbody>
-      <div class="text-left">
-        <br>
-        <a href="/">TRANG CHỦ</a>  >> 
+      <div class="w3layouts-breadcrumbs text-center">
+        <div class="container">
+          <span class="agile-breadcrumbs"><a href="/">Trang Chủ</a>&gt;<span>Bệnh Lý</span></span>
+        </div>
       </div><br>
       @foreach($posts as $post)
       @if($post->status == 1)

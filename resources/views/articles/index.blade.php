@@ -6,7 +6,7 @@
 
 	<div class="w3layouts-breadcrumbs text-center">
 		<div class="container">
-			<span class="agile-breadcrumbs"><a href="index.html">Trang chủ</a> &gt;<span> Diễn đàn</span></span>
+			<span class="agile-breadcrumbs"><a href="/">Trang Chủ</a>&gt;<span> Diễn Đàn</span></span>
 		</div>
 	</div>
 	<div class="w3ls-section blog-agile-main">
