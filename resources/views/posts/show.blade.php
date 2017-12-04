@@ -8,10 +8,7 @@
 				<a href="/">TRANG CHỦ</a>  >>  <a href="{{ route("posts.index") }}">BỆNH LÝ</a>  >>  {{ strtoupper($post->title) }}
 			</div><br>
 			<div>
-				<span class="glyphicon glyphicon glyphicon-time">&nbsp;{{ $post->created_at }}</span>
-				<br>
-				<span class="glyphicon glyphicon-eye-open">&nbsp;{{ $post->view }}</span>
-				
+				<span class="glyphicon glyphicon glyphicon-time">&nbsp;{{ $post->created_at->diffForHumans() }}</span>				
 			</div>
 			<div class="blog-left">
 				<div class="team-grid w3_agileits">

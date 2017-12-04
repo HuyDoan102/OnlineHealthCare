@@ -19,7 +19,7 @@
 					<div class="blog-text">
 						<h3 class="h-t text-center">{{ $article->title }}</h3> 
 						<div class="entry-meta">
-							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at }}</h6>
+							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at->diffForHumans() }}</h6>
 							<div class="icons">
 								<a href="#"><i class="fa fa-user"></i> ten nguoi gui</a>
 								<a href="#"><i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</a>
