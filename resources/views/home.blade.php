@@ -82,6 +82,5 @@
             </div>
         </div>
     </div>
-    <!-- ---/Cau hoi moi--- -->
-</div> <!-- end body -->
+</div>
 @endsection

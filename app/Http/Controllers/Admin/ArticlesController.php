@@ -88,4 +88,15 @@ class ArticlesController extends Controller
         $article->delete();
         return redirect()->route('admin.articles.index');
     }
+
+    public function search(Request $request)
+    {
+        if(empty($request->articleSearch)) {
+            return redirect()->route('admin.articles.index');
+        } else {
+            $articles = Article::where('articles.title', 'like', '%' . $request->articleSearch . '%')
+            ->paginate(10)->withPath('search?articleSearch=' . $request->articleSearch);
+            return view("admin.articles.index")->with("articles", $articles);
+        }
+    }
 }

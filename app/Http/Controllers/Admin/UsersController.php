@@ -92,7 +92,7 @@ class UsersController extends Controller
         if(empty($request->userSearch)) {
             return redirect()->route('admin.users.index');
         } else {
-            $users = User::where('users.name', 'like', $request->userSearch . '%')
+            $users = User::where('users.name', 'like', '%' . $request->userSearch . '%')
             ->paginate(10)->withPath('search?userSearch=' . $request->userSearch);
             return view("admin.users.index")->with("users", $users);
         }
