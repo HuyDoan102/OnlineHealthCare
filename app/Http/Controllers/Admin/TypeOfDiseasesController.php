@@ -26,7 +26,7 @@ class TypeOfDiseasesController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.typeofdiseases.create');
     }
 
     /**
@@ -37,7 +37,10 @@ class TypeOfDiseasesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $payload = $request->all();
+        $typeofdiseases = new TypeOfDisease();
+        $typeofdiseases->create($payload);
+        return redirect()->route("admin.typeofdiseases.index");
     }
 
     /**
@@ -57,9 +60,9 @@ class TypeOfDiseasesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(TypeOfDisease $typeofdisease)
     {
-        //
+        return view("admin.typeofdiseases.edit", compact("typeofdisease"));
     }
 
     /**
@@ -69,9 +72,11 @@ class TypeOfDiseasesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, TypeOfDisease $typeofdisease)
     {
-        //
+        $payload = $request->all();
+        $typeofdisease->update($payload);
+        return redirect()->route('admin.typeofdiseases.index');
     }
 
     /**
@@ -80,8 +85,20 @@ class TypeOfDiseasesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TypeOfDisease $typeofdisease)
     {
-        //
+        $typeofdisease->delete();
+        return redirect()->route("admin.typeofdiseases.index");
+    }
+
+    public function search(Request $request)
+    {
+        if(empty($request->typeofdiseaseSearch)) {
+            return redirect()->route('admin.typeofdiseases.index');
+        } else {
+            $typeofdiseases = TypeOfDisease::where('type_of_diseases.name', 'like', '%' . $request->typeofdiseaseSearch . '%')
+            ->paginate(10)->withPath('search?typeofdiseaseSearch=' . $request->typeofdiseaseSearch);
+            return view("admin.typeofdiseases.index")->with("typeofdiseases", $typeofdiseases);
+        }
     }
 }
