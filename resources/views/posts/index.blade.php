@@ -15,11 +15,12 @@
         <a href="/">TRANG CHỦ</a>  >> 
       </div><br>
       @foreach($posts as $post)
+      @if($post->status == 1)
       <tr>
         <div class="container">
 
           <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-4"> 
               <a href="{{ route('posts.show', ['post' => $post->id]) }}"><img src="/images/{{ $post->image }}" width="300" height="200"></a>
             </div>
             <div class="col-sm-8">
@@ -33,6 +34,7 @@
           </div><br>
         </div>
       </tr>
+      @endif
       @endforeach
 
       <div class="container text-center">
