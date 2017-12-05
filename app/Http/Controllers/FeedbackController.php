@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Feedbacks;
+use Session;
 
 class FeedbackController extends Controller
 {
@@ -36,9 +36,14 @@ class FeedbackController extends Controller
      */
     public function store(Request $request)
     {
-        $payload = $request->all();
+        $payload = $this->validate($request, [
+            'title' => 'required|min:5|max:100',
+            'email' => 'required|max:200',
+            'content' => 'required|min:5|max:3000'
+        ]);
         $feedbacks = new Feedbacks();
         $feedbacks->create($payload);
+        Session::flash('message', "Gửi Feedback thành công" );
         return redirect()->route("feedbacks.index");
 
     }

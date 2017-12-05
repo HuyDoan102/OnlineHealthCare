@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Http\Request;
+use Session;
 use App\Article;
 use App\Comment;
 use DB;
@@ -40,9 +41,15 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        $payload = $request->all();
+        $payload = $this->validate($request, [
+            'view'=> 'required|max:255',
+            'creator' => 'required|min:5|max:255',
+            'content' => 'required|min:5|max:3000',
+            'title' => 'required|min:5|max:255'
+        ]);
         $articlesQuestion = new Article();
         $articlesQuestion->create($payload);
+        Session::flash('message', 'Gửi câu hỏi thành công');
         return redirect()->route("articles.index");
     }
 
