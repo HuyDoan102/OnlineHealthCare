@@ -54,5 +54,7 @@ Route::group($admin_config, function () {
     Route::resource("diseases", "DiseasesController");
     Route::get("typeofdiseases/search", "TypeOfDiseasesController@search")->name('typeofdiseases.search');
     Route::resource("typeofdiseases", "TypeOfDiseasesController");
+    Route::get("fields/search", "FieldsController@search")->name('fields.search');
+    Route::resource("fields", "FieldsController");
 });
 

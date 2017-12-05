@@ -102,7 +102,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="">
+                            <a class="nav-link" href="{{ route('admin.fields.index') }}">
                                 <!-- <i class="fa fa-bold"></i> -->
                                 <img src="/images/field.jpg" alt="">
                                 <span class="menu-title">Fields</span>
