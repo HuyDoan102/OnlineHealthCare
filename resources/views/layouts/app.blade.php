@@ -22,7 +22,9 @@
     <script src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
     {{-- jquery --}}
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqe88QFTLmLv83TD4XsxCDmbB0c_7UEKw&callback=initMap">
+    </script>
+
     <script type="text/javascript">
         var gmap = new google.maps.LatLng(10.765974,106.689422);
         var marker;
@@ -111,7 +113,7 @@
 <body>
 
     <div id="app">
-       <div class="header">
+     <div class="header">
         <div class="container-fluid">
             <div class="header-grid">
                 <div class="logo-nav-left">
@@ -122,7 +124,7 @@
                 <div class="header-grid-left">
 
                     <ul>
-                    <!-- Authentication Links -->
+                        <!-- Authentication Links -->
                         @guest
                         <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a class="login" href="{{ route('login') }}">Đăng nhập</a></li>
                         <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a class="login reg" href="{{ route('register') }}">Đăng ký</a></li>
@@ -175,7 +177,7 @@
                                     <a href="{{ route('posts.index')}}" aria-expanded="true">Bệnh lý</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
                                         @foreach($type_of_diseases as $type_of_disease)
-                                            <li><a href="{{ route("posts.index", ['type' => $type_of_disease->id]) }}">{{ $type_of_disease->name }}</a></li>
+                                        <li><a href="{{ route("posts.index", ['type' => $type_of_disease->id]) }}">{{ $type_of_disease->name }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>
@@ -198,9 +200,9 @@
         </div>
     </div><!-- end header -->
 
-        @yield('content')
+    @yield('content')
 
-       <div class="footer">
+    <div class="footer">
         <div class="container">
             <div class="w3ls-section w3_agileits-services" id="services">
                 <h4 class="w3ls-inner-title">hiệu thuốc xung quanh bạn</h4><br><br>
@@ -232,18 +234,18 @@
             </div>
         </div>
     </div>
-<!-- Scripts -->
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
-<script>
-  $(function() {
-    $( "#datepicker" ).datepicker({
-        dateFormat: 'yy-mm-dd',
-        changeMonth: true,
-        changeYear: true
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <script>
+      $(function() {
+        $( "#datepicker" ).datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true
+        });
     });
-});
 </script>
 
 

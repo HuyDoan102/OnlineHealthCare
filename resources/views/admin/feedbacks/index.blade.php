@@ -36,7 +36,7 @@
                             <tbody>
                                 @foreach($feedbacks as $index => $feedback)
                                 <tr>
-                                    <th scope="row">{{ $index + 1 }}</th>
+                                    <th scope="row">{{ $feedback->id}}</th>
                                     <td>{{ $feedback->email }}</td>
                                     @php
                                         $size = 10;

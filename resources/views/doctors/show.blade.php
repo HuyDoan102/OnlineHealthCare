@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-
-<div class="w3layouts-breadcrumbs text-center">
-		<!-- //header Bac si -->
-		<div class="container">		
-			<span class="agile-breadcrumbs"><a href="index.html">Trang chủ</a> &gt; <a href="#">Bác sĩ</a> &gt; <span>Khoa Nhi</span></span>
-		</div>		
-	</div>
+<div class = "container">
+	<div class="w3layouts-breadcrumbs text-center">
+			<div class="container">
+				<span class="agile-breadcrumbs"><a href="/">Trang Chủ</a>&gt;
+					<a href="{{ route('doctors.index') }}">Bác Sĩ</a>&gt; {{ ucwords($doctor->name) }}</span>
+			</div>
+	</div><br>
 	<!-- //header Bac si -->
 
 	<!-- //Bac si -->
@@ -139,5 +139,5 @@
 			</ul>
 		</div>
 	</div>
-
+</div>
 @endsection

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Post;
 
@@ -58,8 +58,13 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        Event::fire('posts.view', $post);
-        return view("posts.show")->with("post",$post);//show theo id
+        if($post->status == 1){
+            Event::fire('posts.view', $post);
+            return view("posts.show")->with("post",$post);//show theo id
+        }
+        else{
+            return 'Page no action.';
+        }
     }
     /**
      * Show the form for editing the specified resource.
