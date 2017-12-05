@@ -33,7 +33,6 @@
 		<div class="team-w3ls-txt">
 			<img class="col-md-3 img-w3l img-responsive" src="/images/{{ $relatedPost->image }}" alt="">
 			<a href="{{  route('posts.show',  $relatedPost->id) }}"><h5 class="h-t">{{ $relatedPost->title }}</h5></a>
-			{{ $relatedPost->created_at }}
 			<p>{{ mb_substr($relatedPost->content,0,70-2,'UTF-8').'...' }}</p>
 		</div>	
 		<div class="clearfix"> </div>

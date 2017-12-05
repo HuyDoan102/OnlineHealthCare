@@ -28,6 +28,6 @@ class Post extends Model
     		->where('post_id', '<>', $this->id)
     		->pluck('post_id')
     		->toArray();
-    	return Post::whereIn('id', $post_ids)->limit(6)->orderBy('created_at', 'desc')->get();
+    	return Post::whereIn('id', $post_ids)->limit(6)->orderBy('view', 'desc')->get();
     }
 }
