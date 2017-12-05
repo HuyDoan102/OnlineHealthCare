@@ -116,7 +116,7 @@
             <div class="header-grid">
                 <div class="logo-nav-left">
                     <a href="{{ url('/') }}">
-                        <a href="index.php"><img class="img-responsive" src="/images/logo.png" alt="Logo" width="100" height="30"></a>
+                        <a href="index.php"><img class="img-responsive" src="/images/logo.png" alt="Logo" width="200" height="35"></a>
                     </a>
                 </div>
                 <div class="header-grid-left">
@@ -162,8 +162,8 @@
                             </button>
                         </div>
                         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="/">Trang chủ</a></li>
+                            <ul class="nav navbar-nav active">
+                                <li><a href="/">Trang chủ</a></li>
                                 <li class="agileits dropdown">
                                     <a href="#" data-toggle="dropdown" aria-expanded="true">Chuẩn đoán</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
