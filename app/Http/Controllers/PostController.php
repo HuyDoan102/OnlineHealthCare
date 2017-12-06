@@ -25,7 +25,6 @@ class PostController extends Controller
                 $query->where('id', $request->type);
             });
         }
-
         $posts = $posts->paginate(10);
         return view("posts.index", compact('posts'));
     }
@@ -60,7 +59,9 @@ class PostController extends Controller
     {
         if($post->status == 1){
             Event::fire('posts.view', $post);
-            return view("posts.show")->with("post",$post);//show theo id
+            $relatedPosts = $post->relatedPosts();
+            // dd($relatedPosts);
+            return view("posts.show", compact('post', 'relatedPosts'));//show theo id
         }
         else{
             return 'Page no action.';

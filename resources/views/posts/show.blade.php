@@ -28,7 +28,7 @@
 	<hr>
 	<h5 class="h-t">Bệnh lý liên quan</h5>
 	@foreach($relatedPosts as $relatedPost)
-	{{-- @if($relatedPost->status == 1) --}}
+	@if($relatedPost->status == 1)
 	<div class="col-md-6 col-sm-6 col-xs-6 team-grid w3_agileits">
 		<div class="team-w3ls-txt">
 			<img class="col-md-3 img-w3l img-responsive" src="/images/{{ $relatedPost->image }}" alt="">
@@ -37,7 +37,7 @@
 		</div>	
 		<div class="clearfix"> </div>
 	</div>
-	{{-- @endif --}}
+	@endif
 	@endforeach
 	<div class="clearfix"> </div>
 </div>
