@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Role;
+use App\Field;
 
 class UsersController extends Controller
 {
@@ -28,7 +29,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        $fields = Field::all();
+        return view('admin.users.create', compact("fields"));
     }
 
     /**
@@ -39,7 +41,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request->all();
     }
 
     /**
