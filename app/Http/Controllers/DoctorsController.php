@@ -56,7 +56,8 @@ class DoctorsController extends Controller
      */
     public function show(User $doctor)
     {
-        return view('doctors.show', compact('doctor'));
+        $relatedDoctors = $doctor->relatedDoctor();
+        return view('doctors.show', compact('doctor', 'relatedDoctors'));
     }
 
     /**
