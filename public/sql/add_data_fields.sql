@@ -1,0 +1,13 @@
+SELECT * FROM ohc.fields;
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (1, 'HÔ HẤP', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (2, 'TIÊU HÓA VÀ TỤY', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (3, 'DA VÀ PHẦN PHỤ', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (4, 'TAI MŨI HỌNG', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (5, 'BỆNH DO TÁC NHÂN VẬT LÝ', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (7, 'SINH LÝ NAM NỮ', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (8, 'TIM MẠCH', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (9, 'CƠ XƯƠNG KHỚP', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (10, 'NỘI TIẾT, ĐƯỜNG MÁU', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (11, 'TRUYỀN NHIỄM', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (12, 'RĂNG MIỆNG', NOW(), NOW());
+INSERT INTO fields (id, name, created_at, updated_at) VALUE (13, 'NGỘ ĐỘC', NOW(), NOW());
