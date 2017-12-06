@@ -117,10 +117,26 @@
         <div class="container-fluid">
             <div class="header-grid">
                 <div class="logo-nav-left">
-                    <a href="{{ url('/') }}">
-                        <a href="index.php"><img class="img-responsive" src="/images/logo.png" alt="Logo" width="200" height="35"></a>
-                    </a>
+                    <a href="{{ url('/') }}"><img class="img-responsive" src="/images/logo.png" alt="Logo" width="200" height="35"></a>
                 </div>
+
+                <!-- Search Form -->
+                <div class="col-md-4 col-md-offset-2">
+                    <form role="form">
+                        <!-- Search Field -->
+                        <div class="row">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <input class="form-control" type="text" name="search" placeholder="Tìm kiếm" required/>
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
                 <div class="header-grid-left">
 
                     <ul>

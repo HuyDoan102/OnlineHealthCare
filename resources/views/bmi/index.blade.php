@@ -13,32 +13,6 @@
     </div>
   </div>
   <!-- //header BMI -->
-  <div class="container">
-    <div class="col-md-6">
-      <div class="widget-area no-padding blank">
-        <div class="status-upload">
-          <form>
-            <div class="col-md-12">
-              <div class="text-left bmi"><h4>Chiều cao:</h4></div><br>
-              <input type="text" placeholder="cm" name="txt_h" id="height" onkeypress="return keypress(event);"><br><br>
-            </div>
-            <div class="col-md-12">
-              <div class="text-left bmi"><h4><br>Cân nặng:</h4></div>
-              <input type="text" placeholder="kg" name="txt_w" id="weight" onkeypress="return keypress(event);"><br><br>
-            </div>
-            <div class="col-md-12" method="POST">
-
-          <button type="button" onclick="calculate()" class="btn btn-primary">Kết quả</button>
-          
-
-        </div>
-            <p id="result"> </p>
-
-          </form>
-        </div><!-- Status Upload  -->
-      </div><!-- Widget Area -->
-    </div>
-  </div>
 
   <div class="w3l-main-contact">
     <div class="container">

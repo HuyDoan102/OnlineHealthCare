@@ -5,7 +5,8 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-block">
-                    <h1>We are maintenance</h1>
+                    <h1>Pushlish Doctor</h1>
+
                 </div>
             </div>
         </div>

@@ -3,24 +3,10 @@
 @section("content")
 
 <div class="container">
-<<<<<<< HEAD
-		<div class="w3ls-section blog-agile-main">
-			<div class="text-left">
-				<a href="/">TRANG CHỦ</a>  >>  <a href="{{ route("posts.index") }}">BỆNH LÝ</a>  >>  {{ strtoupper($post->title) }}
-			</div><br>
-
-			<div>
-				<span class="glyphicon glyphicon glyphicon-time">&nbsp;{{ $post->created_at }}</span>
-
-				<br>
-				<span class="glyphicon glyphicon-eye-open">&nbsp;{{ $post->view }}</span>
-				
-=======
 		<div class="w3layouts-breadcrumbs text-center">
 			<div class="container">
 				<span class="agile-breadcrumbs"><a href="/">Trang Chủ</a>&gt;
 					<a href="{{ route('posts.index') }}">Bệnh Lý</a>&gt; {{ ucwords($post->title) }}</span>
->>>>>>> dev
 			</div>
 		</div><br>
 		<div>
