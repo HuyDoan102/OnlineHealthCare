@@ -27,23 +27,18 @@
 		<div class="clearfix"> </div>
 	<hr>
 	<h5 class="h-t">Bệnh lý liên quan</h5>
+	@foreach($relatedPosts as $relatedPost)
+	{{-- @if($relatedPost->status == 1) --}}
 	<div class="col-md-6 col-sm-6 col-xs-6 team-grid w3_agileits">
 		<div class="team-w3ls-txt">
-			<a href="#"><h5 class="h-t">Tiêu đề bài viết</h5></a>
-			<p>Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis.</p>
+			<img class="col-md-3 img-w3l img-responsive" src="/images/{{ $relatedPost->image }}" alt="">
+			<a href="{{  route('posts.show',  $relatedPost->id) }}"><h5 class="h-t">{{ $relatedPost->title }}</h5></a>
+			<p>{{ mb_substr($relatedPost->content,0,70-2,'UTF-8').'...' }}</p>
 		</div>	
 		<div class="clearfix"> </div>
 	</div>
-	<div class="col-md-6 col-sm-6 col-xs-6 team-grid w3_agileits">
-		<div class="team-w3ls-txt">
-			<a href="#"><h5 class="h-t">Tiêu đề bài viết</h5></a>
-			<p>Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis. Lorem ipsum dolor sit amet.Cras rutrum iaculis enim, non convallis felis mattis.</p>
-		</div>	
-		<div class="clearfix"> </div>
-	</div>
-	<div class="card-footer text-right">
-		<a href="#" class="btn btn-link btn-right">Xem thêm...</a>
-	</div>
+	{{-- @endif --}}
+	@endforeach
 	<div class="clearfix"> </div>
 </div>
 

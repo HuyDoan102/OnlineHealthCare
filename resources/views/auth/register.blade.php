@@ -55,7 +55,6 @@
             <div class="form-group{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
               <label for="date_of_birth" class="col-md-4 control-label">Ngày sinh</label>
               <div class="col-md-6">
-                {{-- <input id="datepicker" type="text" class="form-control" name="date_of_birth" value="{{ old('date_of_birth') }}" required> --}}
                 <input type="date" id="bday" name="date_of_birth" class="form-control" value="{{ old('date_of_birth') }}" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
                 @if ($errors->has('date_of_birth'))
                 <span class="help-block">
