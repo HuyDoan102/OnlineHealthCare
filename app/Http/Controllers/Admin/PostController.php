@@ -115,7 +115,7 @@ class PostController extends Controller
         if(empty($request->postSearch)) {
             return redirect()->route('admin.posts.index');
         } else {
-            $posts = Post::where('posts.title', 'like', $request->postSearch . '%')
+            $posts = Post::where('posts.title', 'like', '%' . $request->postSearch . '%')
             ->paginate(10)->withPath('search?postSearch=' . $request->postSearch);
             return view("admin.posts.index")->with("posts", $posts);
         }

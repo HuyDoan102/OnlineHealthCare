@@ -3,14 +3,16 @@
 
 <div class="container">
 	<div class="w3layouts-breadcrumbs text-center">
-		<span class="agile-breadcrumbs"><a href="index.html">Trang chủ</a> &gt; <a href="#">Bác Sĩ</a> &gt; <span>Khoa nhi</span></span>
+		<div class="container">
+			<span class="agile-breadcrumbs"><a href="/">Trang Chủ</a>&gt;<span> Bác Sĩ</span></span>
+		</div>
 	</div>
 	<div class="w3ls-section blog-agile-main">
 		<h4 class="w3ls-inner-title text-center">Bác Sĩ</h4>
 		<div class="blog-left">
 			@foreach($doctors as $doctor)
 			<div class="team-grid w3_agileits">
-				<img class="col-md-3 img-w3l t1-wthree img-responsive" src="images/benh1.jpg" alt="">
+				<img class="col-md-3 img-w3l t1-wthree img-responsive" src="/images/{{ $doctor->image }}">
 				<div class="col-md-9 team-w3ls-txt">
 					<a href="{{ route('doctors.show', ['doctor' => $doctor->id] ) }}"><h5 class="h-t">{{ $doctor->username }}</h5></a>
 					<div id="detail-doctor">
@@ -60,7 +62,12 @@
 				<div class="clearfix"> </div>
 			</div>
 			@endforeach
-		</div>	
+		</div>
+		<div class="container text-center">
+        <ul class="pagination">
+          {{ $doctors->links() }}
+        </ul>
+      </div>	
 	</div>
 </div>
 @endsection

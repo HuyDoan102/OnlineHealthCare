@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Fields;
+use App\Field;
 
 class FieldsController extends Controller
 {
@@ -15,7 +15,7 @@ class FieldsController extends Controller
      */
     public function index()
     {
-        $fields = Fields::all();
+        $fields = Field::paginate(10);
         return view("admin.fields.index")->with("fields", $fields);
     }
 
@@ -26,7 +26,7 @@ class FieldsController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.fields.create');
     }
 
     /**
@@ -35,9 +35,11 @@ class FieldsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Field $field)
     {
-        //
+        $payload = $request->all();
+        $field->create($payload);
+        return redirect()->route('admin.fields.index');
     }
 
     /**
@@ -57,9 +59,9 @@ class FieldsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Field $field)
     {
-        //
+        return view('admin.fields.edit', compact("field"));
     }
 
     /**
@@ -69,9 +71,11 @@ class FieldsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Field $field)
     {
-        //
+        $payload = $request->all();
+        $field->update($payload);
+        return redirect()->route("admin.fields.index");
     }
 
     /**
@@ -80,8 +84,20 @@ class FieldsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Field $field)
     {
-        //
+        $field->delete();
+        return redirect()->route('admin.fields.index');
+    }
+
+    public function search(Request $request)
+    {
+        if(empty($request->fieldSearch)) {
+            return redirect()->route('admin.fields.index');
+        } else {
+            $fields = Field::where('fields.name', 'like', '%' . $request->fieldSearch . '%')
+            ->paginate(10)->withPath('search?fieldSearch=' . $request->fieldSearch);
+            return view("admin.fields.index")->with("fields", $fields);
+        }
     }
 }

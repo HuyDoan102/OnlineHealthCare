@@ -1,17 +1,16 @@
 @extends('layouts.app')
 @section('content')
-
-<div class="container">
+<div class ="container">
 	<div class="w3layouts-breadcrumbs text-center">
-		<div class="container">		
-			<span class="agile-breadcrumbs"><a href="index.html">Trang chủ</a>&gt; <span>Diễn đàn</span></span>
-		</div>		
-	</div>
+			<div class="container">
+				<span class="agile-breadcrumbs"><a href="/">Trang Chủ</a>&gt;
+					<a href="{{ route('articles.index') }}">Diễn Đàn</a>&gt; {{ ucwords($article->title) }}</span>
+			</div>
+	</div><br>
 
 	<div class="w3ls-section blog-agile-main">
 		<h4 class="w3ls-inner-title text-center">Diễn đàn</h4>
 	</div>
-
 	<div class="w3ls-section single-page-agile-info">
 		<div class="show-top-grids-w3lagile">
 			<div class="single-left">
@@ -19,7 +18,7 @@
 					<div class="blog-text">
 						<h3 class="h-t text-center">{{ $article->title }}</h3> 
 						<div class="entry-meta">
-							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->updated_at }}</h6>
+							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->created_at->diffForHumans() }}</h6>
 							<div class="icons">
 								<a href="#"><i class="fa fa-user"></i> ten nguoi gui</a>
 								<a href="#"><i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</a>
@@ -57,7 +56,7 @@
 					<div class="widget-area no-padding blank">
 						<div class="status-upload">
 							<form>
-								<textarea placeholder="Nội dung" ></textarea>
+								<textarea placeholder="Nội dung" name = "comment"></textarea>
 								<button type="submit" class="btn-ch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gửi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 							</form>
 						</div>

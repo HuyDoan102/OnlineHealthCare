@@ -65,10 +65,10 @@
                 <div class="blog-text">
                     <a href="#"><h5 class="h-t">{{ $article->title }}</h5></a>
                     <div class="entry-meta">
-                        <h6 class="blg"><i class="fa fa-clock-o"></i>{{ $article->updated_at }}</h6>
+                        <h6 class="blg"><i class="fa fa-clock-o"></i>{{ $article->updated_at->diffForHumans() }}</h6>
                         <div class="icons">
-                            <a href="#"><i class="fa fa-user"></i></a>
-                            <a href="#"><i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</a>
+                            <i class="fa fa-user"></i>{{ $article->creator }}
+                            <i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</i>
                         </div>
                         <div class="clearfix"></div>
                         <p>{{ mb_substr($article->content,0,100-2,'UTF-8').'...' }}</p>
@@ -82,6 +82,5 @@
             </div>
         </div>
     </div>
-    <!-- ---/Cau hoi moi--- -->
-</div> <!-- end body -->
+</div>
 @endsection

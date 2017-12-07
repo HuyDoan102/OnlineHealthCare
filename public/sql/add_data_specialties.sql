@@ -1,2 +1,12 @@
 SELECT * FROM ohc.specialties;
-INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE ('', '', '', '', '', '')
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (1, 1, 30, 'Thạc sĩ', NOW(), NOW());
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (2, 1, 20, 'Thạc sĩ', NOW(), NOW());
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (3, 1, 15, 'Thạc sĩ', NOW(), NOW());
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (4, 1, 20, 'Thạc sĩ', NOW(), NOW());
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (5, 1, 10, 'Thạc sĩ', NOW(), NOW());
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (6, 2, 15, 'Thạc sĩ', NOW(), NOW());
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (7, 2, 10, 'Thạc sĩ', NOW(), NOW());
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (8, 2, 15, 'Thạc sĩ', NOW(), NOW());
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (9, 3, 20, 'Thạc sĩ', NOW(), NOW());
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (10, 3, 20, 'Thạc sĩ', NOW(), NOW());
+INSERT INTO specialties (user_id, field_id, years_of_experience, dipoma, created_at, updated_at) VALUE (11, 3, 10, 'Thạc sĩ', NOW(), NOW());
