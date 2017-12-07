@@ -6863,3 +6863,6 @@ table.center-aligned-table tr {
 a:hover {
     text-decoration: none;
 }
+
+.logo-p {
+  padding-bottom: 10px  }

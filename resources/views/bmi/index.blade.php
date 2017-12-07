@@ -13,11 +13,6 @@
     </div>
   </div>
   <!-- //header BMI -->
-  <div class="container">
-    <div class="team agileits-w3layouts"><br><br>
-      <h4 class="w3ls-inner-title text-center">Tính BMI</h4>
-    </div>
-  </div>
 
   <div class="w3l-main-contact">
     <div class="container">
@@ -75,6 +70,7 @@
 @endsection
 
 <script type="text/javascript">
+
   function BMI(height, weight) {
     var bmi = weight/(height*height);
 

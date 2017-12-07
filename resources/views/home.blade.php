@@ -16,8 +16,8 @@
                 <div class="item {{ $index == 0 ? 'active' : '' }}">
                     <img src="images/{{ $slide->image }}" alt="Image">
                     <div class="carousel-caption">
-                        <h3>{{ $slide->title }}</h3>
-                        <p>{{ mb_substr($slide->content, 0, 100, 'UTF-8') }}...</p>
+                        <h3>{{ $slide->title }}</h3><br>
+                        <p>{{ mb_substr($slide->content, 0, 100, 'UTF-8') }}...</p><br>
                     </div>
                 </div>
             @endforeach
