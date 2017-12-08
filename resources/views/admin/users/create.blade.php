@@ -5,6 +5,7 @@
     <div class="col-lg-12">
       <div class="card">
         <div class="card-block">
+          <a href="{{ route("admin.users.index") }}"><i class="fa fa-arrow-left"></i> Back</a>
           <h1>Pushlish Doctor</h1>
           <form action="{{ route('admin.users.store') }}" method="POST">
             {{ csrf_field() }}

@@ -49,7 +49,7 @@
                                     </a>
 
                                     <a href="{{ route('admin.fields.edit', $field->id) }}" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 
                                         <a href="javascript:void(0)" url="{{ route( 'admin.fields.destroy', [ 'field' => $field->id ] ) }}" class="delete btn btn-danger btn-sm"
                                             data-toggle="modal" data-target="#fieldDetele"

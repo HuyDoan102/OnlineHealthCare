@@ -49,7 +49,7 @@
                                         </a>
 
                                         <a href="{{ route('admin.typeofdiseases.edit', $typeofdisease->id) }}" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         </a>
 
                                         <a href="javascript:void(0)" url="{{ route( 'admin.typeofdiseases.destroy', [ 'typeofdisease' => $typeofdisease->id ] ) }}" class="delete btn btn-danger btn-sm"

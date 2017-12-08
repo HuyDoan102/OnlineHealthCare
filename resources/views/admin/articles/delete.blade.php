@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <!-- Modal content-->
-                <h2 class="title-modal">Articles</h2>
+                <h2 class="title-modal">Article</h2>
 
                 <form action="" class="formdelete" method="POST" style="display: none;">
                     {{ csrf_field() }}
