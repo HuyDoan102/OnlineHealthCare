@@ -14,7 +14,7 @@
         <div class="carousel-inner" role="listbox">
             @foreach ($slides as $index => $slide)
                 <div class="item {{ $index == 0 ? 'active' : '' }}">
-                    <img src="images/{{ $slide->image }}" alt="Image">
+                    <a href="{{ route('posts.show', $slide->id) }}"><img src="images/{{ $slide->image }}" alt="Image"></a> 
                     <div class="carousel-caption">
                         <h3>{{ $slide->title }}</h3><br>
                         <p>{{ mb_substr($slide->content, 0, 100, 'UTF-8') }}...</p><br>
