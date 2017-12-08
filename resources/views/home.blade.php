@@ -63,7 +63,7 @@
             <div class="post-media">
                 @foreach($articles as $article)
                 <div class="blog-text">
-                    <a href="#"><h5 class="h-t">{{ $article->title }}</h5></a>
+                    <a href="{{ route('articles.show', $article->id) }}"><h5 class="h-t">{{ $article->title }}</h5></a>
                     <div class="entry-meta">
                         <h6 class="blg"><i class="fa fa-clock-o"></i>{{ $article->updated_at->diffForHumans() }}</h6>
                         <div class="icons">
