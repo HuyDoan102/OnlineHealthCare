@@ -69,15 +69,18 @@
 		</div><hr>
 
 		<h5 class="h-t">Bác sĩ cùng chuyên ngành</h5>
+		@foreach($relatedDoctors as $relatedDoctor)
 		<div class="col-md-6 col-sm-6 col-xs-6 team-grid w3_agileits">
+			<img class="col-md-3 img-w3l t1-wthree img-responsive" src="/images/{{ $relatedDoctor->avatar }}" alt="">
 			<div class="team-w3ls-txt">
-				<a href="#"><h5 class="h-t">Tên bác sĩ</h5></a>
+				<a href="{{ route('doctors.show', $relatedDoctor->id) }}"><h5 class="h-t">{{ $relatedDoctor->name }}</h5></a>
 				<div id="detail-doctor">
 					<ul>
-						<li><h5>Học vị chuyên môn:<h5><br></li>
-						<li><h5>Nơi công tác:<h5><br></li>
-						<li><h5>Email:<h5><br></li>
-						<li><h5>Số điện thoại:<h5><br></li>
+						@foreach($relatedDoctor->fields as $field)
+						<li><h5>Nam kinh nghiem: {{ $field->pivot->years_of_experience }}<h5><br></li>
+							@endforeach
+						<li><h5>Email: {{ $relatedDoctor->email }}<h5><br></li>
+						<li><h5>Số điện thoại: {{ $relatedDoctor->phone }}<h5><br></li>
 					</ul>
 				</div>
 			</div>	
@@ -85,26 +88,7 @@
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-		<div class="col-md-6 col-sm-6 col-xs-6 team-grid w3_agileits">
-			<div class="team-w3ls-txt">
-				<a href="#"><h5 class="h-t">Tên bác sĩ</h5></a>
-				<div id="detail-doctor">
-					<ul>
-						<li><h5>Học vị chuyên môn:<h5><br></li>
-						<li><h5>Nơi công tác:<h5><br></li>
-						<li><h5>Email:<h5><br></li>
-						<li><h5>Số điện thoại:<h5><br></li>
-					</ul>
-				</div>
-			</div>	
-			<div class="button-right">
-				
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-		<div class="card-footer text-right">
-			<a href="#" class="btn btn-link btn-right">Xem thêm</a>
-		</div>
+		@endforeach
 	</div>
 	<!-- //Bac si -->								
 	<!-- ------------------------------- -->

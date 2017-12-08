@@ -9,6 +9,7 @@ use App\Article;
 use App\Role;
 use App\Field;
 use App\Comment;
+use App\Specialtie;
 
 class User extends Authenticatable
 {
@@ -25,6 +26,16 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','avatar', 'gender', 'date_of_birth', 'address', 'phone', 'role_id'
     ];
+
+    public function relatedDoctor()
+    {
+        $field_ids = $this->fields->pluck('id')->toArray();
+        $doctor_ids = Specialtie::whereIn('field_id', $field_ids)
+            ->where('user_id', '<>', $this->id)
+            ->pluck('user_id')
+            ->toArray();
+        return User::whereIn('id', $doctor_ids)->limit(4)->orderBy('created_at', 'desc')->get();
+    }
 
     public function role()
     {
