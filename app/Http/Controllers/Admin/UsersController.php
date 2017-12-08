@@ -41,7 +41,26 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        \DB::transaction(function () use ($request) {
+            $userData = $request->only([
+                'name', 'email', 'date_of_birth', 'phone', 'gender', 'address', 'password', 'role_id',
+            ]);
+            $userData['password'] = bcrypt($userData['password']);
+            $user = User::create($userData);
+
+            $fields = $request->fields;
+
+            foreach ($fields as $field) {
+                if (!empty($field['checked'])) {
+                    $user->fields()->attach($field['field_id'], [
+                        'diploma' => $field['diploma'],
+                        'years_of_experience' => $field['years_of_experience']
+                    ]);
+                }
+            }
+        });
+
+        return redirect()->route("admin.users.index");
     }
 
     /**

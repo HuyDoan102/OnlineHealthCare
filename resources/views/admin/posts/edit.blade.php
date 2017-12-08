@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea name="content" class="form-control p-input" id="content" rows="3">{{ $post->content }}</textarea>
+                            <textarea name="content" class="form-control p-input" id="content" rows="10">{{ $post->content }}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="content">Status</label>
