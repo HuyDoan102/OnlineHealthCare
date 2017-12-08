@@ -6,23 +6,26 @@
   <title>Online Health Care</title>
   <link rel="stylesheet" href="{{ asset('node_modules/font-awesome/css/font-awesome.min.css') }}" />
   <link rel="stylesheet" href="{{ asset('node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css') }}" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
   <link rel="shortcut icon" href="{{ asset('images/logoAdmin.png') }}" />
   <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="/node_modules/tether/dist/js/tether.min.js"></script>
   <script src="{{ asset('node_modules/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0O6PscWjtS3m6PnfCSdi13Kvkxn18rIo&libraries=places"></script>
+  <script src="{{ asset('js/maps.js') }}"></script>
   <script>
     $(document).ready(function(){
       $(".dropdown").hover(
         function() {
-          $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+          $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
           $(this).toggleClass('open');
-        }),
+        },
         function() {
           $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
           $(this).toggleClass('open');
-        };
+        });
     });
   </script>
 
@@ -46,18 +49,15 @@
           <li class="nav-item">
             <a class="nav-link profile-pic" href="#"><img class="rounded-circle" src="{{ asset('images/avatar.jpg') }}" alt=""></a>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 {{ Auth::user()->name }} <span class="caret"></span>
               </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="{{ route('admin.dashboard.index') }}">Admin</a>
-                </li>
-                <li>
+
+              <ul  class="dropdown-menu" role="menu">
+                <li id="formlogout">
                   <a href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">Logout</a>
-
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                   </form>
@@ -155,7 +155,6 @@
   </div>
 
   <script src="{{ asset('node_modules/jquery/dist/jquery.min.js') }}"></script>
-  <script src="{{ asset('node_modules/tether/dist/js/tether.min.js') }}"></script>
 
   <script src="{{ asset('node_modules/chart.js/dist/Chart.min.js') }}"></script>
   <script src="{{ asset('node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js') }}"></script>`
@@ -163,9 +162,11 @@
   <script src="{{ asset('js/hoverable-collapse.js') }}"></script>
   <script src="{{ asset('js/misc.js') }}"></script>
   <script src="{{ asset('js/chart.js') }}"></script>
-  <script src="{{ asset('js/maps.js') }}"></script>
   <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
   <script> CKEDITOR.replace('editor1'); </script>
+  <script>
+    initMap();
+  </script>
   @yield ('scripts')
 
 </body>
