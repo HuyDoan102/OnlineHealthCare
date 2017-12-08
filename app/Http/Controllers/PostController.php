@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use App\Post;
+
 use Illuminate\Support\Facades\Event;
 use DB;
+
 use App\TypeOfDisease;
 
 class PostController extends Controller
