@@ -20,8 +20,8 @@
 						<div class="entry-meta">
 							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->created_at->diffForHumans() }}</h6>
 							<div class="icons">
-								<a href="#"><i class="fa fa-user"></i> ten nguoi gui</a>
-								<a href="#"><i class="fa fa-comments-o"></i>{{ $article->comments->count() }}</a>
+								<i class="fa fa-user"></i>{{ $article->creator }}
+								<i class="fa fa-comments-o"></i>{{ $article->comments->count() }}
 							</div>
 							<div class="clearfix"></div>
 							<p>{{ $article->content }}</p>
