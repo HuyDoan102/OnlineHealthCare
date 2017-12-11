@@ -15,6 +15,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    const ADMIN_ID = 1;
+
     /**
      * The attributes that are mass assignable.
      *
@@ -50,6 +52,11 @@ class User extends Authenticatable
     public function comments()
     {
         return $this->hasMany(Comment::class, 'user_id', 'id');
+    }
+
+    public function isAdmin()
+    {
+        return $this->role->id == static::ADMIN_ID;
     }
 
     /**
