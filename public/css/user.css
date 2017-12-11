@@ -511,7 +511,7 @@ input[type="submit"],
 }
 li.active{
 	background:#fff;
-	
+
 }
 li.active a{
 	color: #006eb7 !important;
@@ -1738,7 +1738,7 @@ label.header span {
   outline: none;
   border: 1px solid #c5c0c0;
   font-family: 'Open Sans', sans-serif;
-  background: #f5f5f5;	
+  background: #f5f5f5;
   float:left;
 }
 .agile_form input[type="email"] {
@@ -1815,7 +1815,7 @@ label.header span {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   letter-spacing: 1px;
-} 
+}
 .panel-title a.pa_italic.collapsed {
   background: #fff;
   color: #333;
@@ -1840,7 +1840,7 @@ label.header span {
 }
 .panel-default > .panel-heading {
   color: #212121;
-  background-color: #fff; 
+  background-color: #fff;
 }
 .panel-body {
   padding:0;
@@ -1849,7 +1849,7 @@ label.header span {
   color: #999;
   border-top-color: transparent;
   -webkit-box-shadow: 0px 0px 1px #aaa;
-  -moz-box-shadow: 0px 0px 1px #aaa; 
+  -moz-box-shadow: 0px 0px 1px #aaa;
   box-shadow: 0px 0px 1px #aaa;
   background: url(../images/c1.jpg) no-repeat center;
   background-size: cover;
@@ -1861,7 +1861,7 @@ a.pa_italic label {
 a.pa_italic:focus {
   outline: none;
   text-decoration: none;
-} 
+}
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #fff;
 }
@@ -1953,7 +1953,7 @@ a.pa_italic:focus {
 }
 .panel-body-bb .w3three-contact-left {
   background: rgba(0, 0, 0, 0.58);
-  float:none;    
+  float:none;
   width:auto;
 }
 .panel-body.panel_text.panel-body-bb {
@@ -2042,20 +2042,20 @@ p.tab-bot {
 /*-- team --*/
 .list-inline> li:nth-child(1) {
   margin: 0;
-} 
+}
 .list-inline> li {
   margin: 1.7em 0 0;
   display: block;
   padding: 0;
 }
-.list-inline> li a{ 
-  display: block; 
+.list-inline> li a{
+  display: block;
 }
 .team-w3text h4 {
   color: #4362ca;
-  font-size: 1.5em; 
-  text-transform: capitalize; 
-} 
+  font-size: 1.5em;
+  text-transform: capitalize;
+}
 .team-w3text p {
   margin-top: 1em;
   letter-spacing: 6px;
@@ -2065,7 +2065,7 @@ p.tab-bot {
 }
 .list-inline> li a img {
   width: 37%;
-} 
+}
 .desoSlide-wrapper {
   position: relative;
   text-align: center;
@@ -2104,13 +2104,13 @@ p.tab-bot {
 .desoSlide-wrapper:hover .desoSlide-overlay {
 	left: 0% !important;
 }
-.desoSlide-overlay  ul li{ 
-	display:block;	
-} 
+.desoSlide-overlay  ul li{
+	display:block;
+}
 .desoSlide-overlay  ul li a {
   display: block;
   padding: 1em;
-  -moz-opacity: 0.7; 
+  -moz-opacity: 0.7;
   opacity: 0.7;
 }
 .desoSlide-overlay  ul li a:hover {
@@ -2125,7 +2125,7 @@ p.tab-bot {
   font-size: 0.9em;
   color: #fff;
   margin-top: .5em;
-} 
+}
 /*-- //team --*/
 /*--/model--*/
 .forgot a:hover {
@@ -2482,7 +2482,7 @@ h4.widget-title {
   color: #222;
   font-weight: 400;
   display: inline-block;
-  margin-top: 1em; 
+  margin-top: 1em;
   text-decoration: none;
   border: 1px solid #D6D4D4;
   border-radius: 4px;
@@ -2501,7 +2501,7 @@ h4.widget-title {
 }
 /* //blog */
 /* team */
-/*-- team --*/  
+/*-- team --*/
 .team.agileits-w3layouts {
   background: #fff;
 }
@@ -2568,7 +2568,7 @@ p.w3l {
 }
 .quotes {
   float: left;
-  width:15%;	
+  width:15%;
 }
 .de_testi_by p {
   color: #fff;
@@ -2583,7 +2583,7 @@ p.w3l {
   border-left: 4px double #fff;
   padding: 0 0 0 3em;
 }
-/* //client / 
+/* //client /
 /* Features */
 
 .w3ls-features h3.heading {
@@ -2618,7 +2618,7 @@ p.w3l {
 .feature-main.fm-right .feature-txt {
   text-align: left;
   margin: 3em 0 0 5em;
-} 
+}
 .feature-txt h4 {
   text-transform: capitalize;
   font-size: 1.3em;
@@ -2750,7 +2750,7 @@ p.privacy-para {
 }
 @media screen and (max-width: 1366px){}
 @media screen and (max-width: 1280px){
-	
+
 }
 @media screen and (max-width: 1080px){
 	h2.wthree-title {
@@ -2787,7 +2787,7 @@ h4.info {
 @media screen and (max-width: 1050px){
 	.logo-nav-left1 ul li a {
 		padding: 1em 1.1em;
-	}		
+	}
 	.agileits-banner-info h3 {
 		color: #fff;
 		font-size: 3.8em;
@@ -3451,7 +3451,7 @@ h6.blg{
 @media screen and (max-width: 320px){
 	.w3layouts-banner-top, .w3layouts-banner-top1, .w3layouts-banner-top2, .w3layouts-banner-top3 {
 		min-height: 210px;
-	}	
+	}
 	h4.wthree {
 		font-size: 0.9em;
 	}
@@ -3527,6 +3527,12 @@ h6.blg{
 /* Hide the carousel text when the screen is less than 500 pixels wide */
 @media (max-width: 500px) {
   .carousel-caption {
-    display: none; 
+    display: none;
   }
+}
+
+.avatar {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
 }

@@ -7,7 +7,16 @@
             <div class="card">
                 <div class="card-block">
                     <a href="{{ route("admin.typeofdiseases.index") }}"><i class="fa fa-arrow-left"></i> Back</a>
-                    <h5 class="card-title mb-4">Pushlish type of disease</h5>
+                    <h5 class="card-title mb-4">Pushlish type of diseases</h5>
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <form action="{{ route("admin.typeofdiseases.store") }}" class="forms-sample" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="form-group">

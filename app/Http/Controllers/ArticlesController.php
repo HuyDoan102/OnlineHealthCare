@@ -65,6 +65,14 @@ class ArticlesController extends Controller
         return view('articles.show',compact('article'));
     }
 
+    public function addComment(Request $request)
+    {
+        $payload = $request->only(['user_id', 'article_id', 'comment']);
+        $comment = Comment::create($payload);
+        return redirect()->route('articles.show', $request->article_id);
+
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

@@ -8,7 +8,7 @@
             <div class="card col-lg-12">
                 <div class="card-block">
                     <a href="{{ route("admin.articles.index") }}"><i class="fa fa-arrow-left"></i> Back</a>
-                    <h5 class="card-title mb-4">Update Aritcle</h5>
+                    <h5 class="card-title mb-4">Update Article</h5>
                     <form action="{{ route("admin.articles.update", $article->id) }}" class="forms-sample" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field("PUT") }}
