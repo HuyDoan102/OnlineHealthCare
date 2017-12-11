@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Disease;
 use App\TypeOfDisease;
+use App\Http\Requests\DiseaseRequest;
 
 class DiseasesController extends Controller
 {
@@ -37,7 +38,7 @@ class DiseasesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Disease $disease)
+    public function store(DiseaseRequest $request, Disease $disease)
     {
         $payload = $request->all();
         $disease->create($payload);
@@ -74,7 +75,7 @@ class DiseasesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Disease $disease)
+    public function update(DiseaseRequest $request, Disease $disease)
     {
         $payload = $request->all();
         $disease->update($payload);

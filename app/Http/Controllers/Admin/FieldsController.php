@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Field;
+use App\Http\Requests\FieldRequest;
 
 class FieldsController extends Controller
 {
@@ -35,7 +36,7 @@ class FieldsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Field $field)
+    public function store(FieldRequest $request, Field $field)
     {
         $payload = $request->all();
         $field->create($payload);
@@ -71,7 +72,7 @@ class FieldsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Field $field)
+    public function update(FieldRequest $request, Field $field)
     {
         $payload = $request->all();
         $field->update($payload);

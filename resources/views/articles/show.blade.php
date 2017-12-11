@@ -16,7 +16,7 @@
 			<div class="single-left">
 				<div class="post-media">
 					<div class="blog-text">
-						<h3 class="h-t text-center">{{ $article->title }}</h3> 
+						<h3 class="h-t text-center">{{ $article->title }}</h3>
 						<div class="entry-meta">
 							<h6 class="blg"><i class="fa fa-clock-o"></i> {{ $article->created_at->diffForHumans() }}</h6>
 							<div class="icons">
@@ -40,9 +40,13 @@
 						@foreach($article->comments as $comment)
 						<div class="media">
 							<h5>{{ $comment->user->name }}</h5><br>
-							<h6 class="blg"><i class="fa fa-clock-o"></i>{{ $comment->created_at }}</h6><br><br>
+							<div class="row">
+              <div class="col-sm-11">
+                <h6 class="blg"><i class="fa fa-clock-o"></i>{{ $comment->created_at }}</h6><br><br>
+              </div>
+              </div>
 							<div class="media-left">
-								<img src="images/m.png" title="One movies" alt=" ">
+								<img class="avatar" src="/images/{{ $comment->user->avatar }}" title="One movies" alt=" ">
 							</div>
 							<div class="media-body">
 								<p>{{ $comment->comment }}</p>
@@ -55,7 +59,10 @@
 					<h4>Bình luận:</h4>
 					<div class="widget-area no-padding blank">
 						<div class="status-upload">
-							<form>
+							<form action="{{ route('article.addComment') }}" method="POST">
+                {{ csrf_field() }}
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="article_id" value="{{ $article->id }}">
 								<textarea placeholder="Nội dung" name = "comment"></textarea>
 								<button type="submit" class="btn-ch">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gửi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 							</form>

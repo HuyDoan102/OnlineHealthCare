@@ -27,6 +27,7 @@ Route::get("/bmi", "BMIController@index")->name('bmi');
 
 Route::resource("feedbacks", "FeedbackController");
 
+Route::post('article/comment', 'ArticlesController@addComment')->name('article.addComment');
 Route::resource("articles", "ArticlesController")->middleware('filter');
 
 $admin_config = [
@@ -37,6 +38,7 @@ $admin_config = [
 ];
 
 Route::resource('doctors', 'DoctorsController');
+
 
 Route::group($admin_config, function () {
     Route::resource("dashboard", "DashboardsController");

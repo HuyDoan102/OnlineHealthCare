@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Role;
 use App\Field;
+use App\Http\Requests\UserRequest;
 
 class UsersController extends Controller
 {
@@ -39,7 +40,7 @@ class UsersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
         \DB::transaction(function () use ($request) {
             $userData = $request->only([

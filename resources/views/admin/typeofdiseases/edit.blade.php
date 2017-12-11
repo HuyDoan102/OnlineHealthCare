@@ -8,6 +8,15 @@
                 <div class="card-block">
                     <a href="{{ route("admin.typeofdiseases.index") }}"><i class="fa fa-arrow-left"></i> Back</a>
                     <h5 class="card-title mb-4">Update type of diseases</h5>
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                     <form action="{{ route("admin.typeofdiseases.update", $typeofdisease->id) }}" class="forms-sample" method="POST" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         {{ method_field("PUT") }}
