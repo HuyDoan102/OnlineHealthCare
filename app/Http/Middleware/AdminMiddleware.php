@@ -16,7 +16,7 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (strpos("Admin", Auth::user()->role->name) >= 0) {
+        if (Auth::user()->role->name == "Admin") {
             return $next($request);
         }
         return redirect()->route("home");

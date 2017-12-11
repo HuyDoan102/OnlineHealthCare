@@ -22,7 +22,7 @@
                         <div class="form-group row">
                             <label for="title" class="col-sm-2 col-form-label">Content</label>
                             <div class="col-sm-10">
-                                <input class="form-control" id="content" value="{{ $post->content }}" name="content" disabled></input>
+                                <textarea class="form-control" rows="10" id="content" name="content" disabled>{{ $post->content }}</textarea>
                             </div>
                         </div>
 

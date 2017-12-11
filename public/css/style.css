@@ -1,20 +1,12 @@
-/*!
- * Bootstrap v4.0.0-alpha.6 (https://getbootstrap.com)
- * Copyright 2011-2017 The Bootstrap Authors
- * Copyright 2011-2017 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i");
 html {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0; }
-
 
 article,
 aside,
@@ -6860,7 +6852,7 @@ table.center-aligned-table tr {
     color: #ed1c24;
 }
 
-a:hover {
+a {
     text-decoration: none;
 }
 

@@ -25,9 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $articles = Article::limit(4)->offset(3)->orderBy('updated_at', 'desc')->get();
-        $slides = Post::limit(3)->orderBy('updated_at', 'desc')->get();
-        $diseases = Post::limit(6)->offset(1)->orderBy('updated_at', 'desc')->get();
+        $articles = Article::limit(6)->orderBy('updated_at', 'desc')->get();
+        $slides = Post::limit(3)->orderBy('view', 'desc')->get();
+        $diseases = Post::limit(6)->orderBy('updated_at', 'desc')->get();
         return view('home', compact('slides', 'diseases', 'articles'));
     }
 }
