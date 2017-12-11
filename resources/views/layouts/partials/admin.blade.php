@@ -17,7 +17,6 @@
   <script src="{{ asset('js/maps.js') }}"></script>
   <script>
     $(document).ready(function(){
-      $(".dropdown").hover(
         function() {
           $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
           $(this).toggleClass('open');
@@ -25,7 +24,7 @@
         function() {
           $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
           $(this).toggleClass('open');
-        });
+        };
     });
   </script>
 
@@ -52,8 +51,9 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 {{ Auth::user()->name }} <span class="caret"></span>
               </a>
-
               <ul  class="dropdown-menu" role="menu">
+                <li><a href="/">Homepage</a></li>
+                <li><a href="{{ route('admin.dashboard.index') }}">Admin</a></li>
                 <li id="formlogout">
                   <a href="{{ route('logout') }}"
                   onclick="event.preventDefault();

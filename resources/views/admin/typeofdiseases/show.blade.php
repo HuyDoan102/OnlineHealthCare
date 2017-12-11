@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-body">
                 <!-- Modal content-->
-                <h2 class="title-modal">Type of disease</h2>
+                <h2 class="title-modal">Type of diseases</h2>
                 <form action="" method="post">
                     <input type="hidden" class="form-control" id="id" name="id">
                     <div class="modal-body">
