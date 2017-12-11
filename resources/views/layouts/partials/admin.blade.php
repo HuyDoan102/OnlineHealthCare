@@ -35,7 +35,7 @@
     <!--Navbar-->
     <nav class="navbar bg-primary-gradient col-lg-12 col-12 p-0 fixed-top navbar-inverse d-flex flex-row">
       <div class="bg-white text-center navbar-brand-wrapper">
-        <a class="navbar-brand brand-logo" href="#"><img src="{{ asset('images/logoAdmin.png') }}" /></a>
+        <a class="navbar-brand brand-logo" href="/"><img src="{{ asset('images/logoAdmin.png') }}" /></a>
         <a class="navbar-brand brand-logo-mini" href="#"><img src="{{ asset('images/logo_star_mini.jpg') }}" alt=""></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -80,7 +80,7 @@
         <nav class="bg-white sidebar sidebar-fixed sidebar-offcanvas" id="sidebar">
           <div class="user-info">
             <img src="/images/avatar.jpg" alt="">
-            <p class="name">Huy, Doan</p>
+            <p class="name">{{ Auth::user()->name }} </p>
             <p class="designation">Admin</p>
             <span class="online"></span>
           </div>
