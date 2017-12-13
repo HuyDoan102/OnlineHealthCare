@@ -16,14 +16,15 @@ class DoctorsController extends Controller
      */
     public function index(Request $request)
     {
-        $doctors = User::with('fields')->join('specialties', 'users.id', 'specialties.user_id')
-        ->join('fields', 'fields.id', 'specialties.field_id')->select('users.name as username', 'users.email as mail', 'fields.name as fieldsName', 'specialties.years_of_experience as kinhNghiem','users.phone as phone', 'users.id as id', 'users.avatar as image');
+        $doctors = User::join('specialties', 'users.id', 'specialties.user_id')
+        ->join('fields', 'fields.id', 'specialties.field_id')
+        ->select('users.name as username', 'users.email as mail', 'fields.name as fieldsName', 'specialties.years_of_experience as kinhNghiem','users.phone as phone', 'users.id as id', 'users.avatar as image')
+        ->paginate(10);
         if ($request->has('fieldType')) {
             $doctors = $doctors->whereHas('fields', function ($query) use ($request) {
                 $query->where('id', $request->fieldType);
             });
         }
-        $doctors = $doctors->paginate(10);
         return view('doctors.index', compact('doctors'));
     }
 
