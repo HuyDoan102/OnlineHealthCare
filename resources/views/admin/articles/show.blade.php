@@ -22,7 +22,7 @@
                         <div class="form-group row">
                             <label for="title" class="col-sm-2 col-form-label">Content</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" id="content" name="content" disabled>{{ $article->content }}</textarea>
+                                <textarea class="form-control" rows="15" id="content" name="content" disabled>{{ $article->content }}</textarea>
                             </div>
                         </div>
 

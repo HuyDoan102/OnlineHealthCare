@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea type="text" name="content" class="form-control p-input" id="content">
+                            <textarea type="text" name="content" rows="15" class="form-control p-input" id="content">
                                 {{ $article->content }}
                             </textarea>
                         </div>

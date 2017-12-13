@@ -100,4 +100,15 @@ class PostController extends Controller
     {
         //
     }
+
+    public function search(Request $request)
+    {
+        if(empty($request->searchPost)) {
+            return redirect()->route('posts.index');
+        } else {
+            $posts = Post::where('posts.title', 'like', '%' . $request->searchPost . '%')
+            ->paginate(10)->withPath('search?searchPost=' . $request->searchPost);
+            return view("posts.index")->with("posts", $posts);
+        }
+    }
 }
