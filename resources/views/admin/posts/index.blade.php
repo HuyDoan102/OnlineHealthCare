@@ -80,9 +80,12 @@
                                     </td>
                                 </tr>
                                 @endforeach
-                                @include("admin.posts.delete")
                             </tbody>
                         </table>
+                        @include("admin.posts.delete")
+                        <div class="text-center">
+                          {{ $posts->links() }}
+                        </div>
                     </div>
                 </div>
             </div>
