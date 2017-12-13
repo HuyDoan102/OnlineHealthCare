@@ -91,12 +91,44 @@
     }
     return 4;
   }
+  
+  function check(height, weight){
+    if(height == "" || weight == "")
+      return 1;
+    if(isNaN(height) || isWhiteSpace(height))
+      return 2;
+    if(isNaN(weight) || isWhiteSpace(weight))
+      return 3; 
+    if(height < 20 || height > 300)
+      return 4;
+    if(weight < 1 || weight > 300 )
+      return 5;
+    return 6;
+  }
 
   function calculate() {
-    var height = $('#height').val();
-    var weight = $('#weight').val();
-    var result = 'BMI: ';
+   var height = $('#height').val().trim();
+   var weight = $('#weight').val().trim();
+   var result = 'BMI: ';
+   var Check = check(height, weight);
 
+   switch(Check){
+    case 1:
+    alert("Chiều cao hoặc cân nặng chưa có giá trị"); 
+    break;
+    case 2:
+    alert("Chiều cao phải là số")
+    break;
+    case 3:
+    alert("Cân nặng phải là số")
+    break;
+    case 4:
+    alert("Chiều cao không được < 20 hoặc > 300");
+    break;
+    case 5:
+    alert("Cân Nặng không được < 0 hoặc > 300");
+    break;
+    case 6:
     height = parseFloat(height) / 100;
     weight = parseFloat(weight);
 
@@ -135,5 +167,7 @@
     }
 
     $('#result').html(result);
+    break;
   }
+}
 </script>
