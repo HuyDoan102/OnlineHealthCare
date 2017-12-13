@@ -5,3 +5,9 @@ INSERT INTO detail_posts (post_id, type_of_diseases_id, created_at, updated_at) 
 INSERT INTO detail_posts (post_id, type_of_diseases_id, created_at, updated_at) VALUE (4, 5, now(), now());
 INSERT INTO detail_posts (post_id, type_of_diseases_id, created_at, updated_at) VALUE (5, 8, now(), now());
 INSERT INTO detail_posts (post_id, type_of_diseases_id, created_at, updated_at) VALUE (6, 9, now(), now());
+INSERT INTO detail_posts (post_id, type_of_diseases_id, created_at, updated_at) VALUE (7, 5, now(), now());
+INSERT INTO detail_posts (post_id, type_of_diseases_id, created_at, updated_at) VALUE (8, 12, now(), now());
+INSERT INTO detail_posts (post_id, type_of_diseases_id, created_at, updated_at) VALUE (9, 4, now(), now());
+INSERT INTO detail_posts (post_id, type_of_diseases_id, created_at, updated_at) VALUE (10, 6, now(), now());
+INSERT INTO detail_posts (post_id, type_of_diseases_id, created_at, updated_at) VALUE (11, 3, now(), now());
+INSERT INTO detail_posts (post_id, type_of_diseases_id, created_at, updated_at) VALUE (12, 5, now(), now());
