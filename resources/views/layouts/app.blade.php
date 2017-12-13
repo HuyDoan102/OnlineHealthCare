@@ -54,12 +54,12 @@
 
                 <!-- Search Form -->
                 <div class="col-md-4 col-md-offset-2">
-                    <form role="form">
+                    <form role="form" action="{{ route("posts.search") }}" method="GET">
                         <!-- Search Field -->
                         <div class="row">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input class="form-control" type="text" name="search" placeholder="Tìm kiếm" required/>
+                                    <input class="form-control" type="text" name="searchPost" placeholder="Tìm kiếm" required/>
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                                     </span>
@@ -117,7 +117,7 @@
                                     <li><a href="{{ route('admin.dashboard.index') }}">Trang Admin</a></li>
                                 @endif
                                 <li><a href="/">Trang chủ</a></li>
-                                <li class="agileits dropdown">
+                                <li class="agileits dropdown1">
                                     <a href="#" data-toggle="dropdown" aria-expanded="true">Chuẩn đoán</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
                                         <li><a href="{{ route("bmi") }}">tính bmi</a></li>

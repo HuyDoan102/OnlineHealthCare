@@ -17,6 +17,7 @@
 
 Route::get('/','HomeController@index')->name('home');
 
+Route::get("posts/search", "PostController@search")->name('posts.search');
 Route::resource('posts', 'PostController')->middleware('filter');
 
 
@@ -26,7 +27,6 @@ Auth::routes();
 Route::get("/bmi", "BMIController@index")->name('bmi');
 
 Route::resource("feedbacks", "FeedbackController");
-
 Route::post('article/comment', 'ArticlesController@addComment')->name('article.addComment');
 Route::resource("articles", "ArticlesController")->middleware('filter');
 

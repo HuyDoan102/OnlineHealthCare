@@ -56,15 +56,6 @@ class PostController extends Controller
                 }
             }
         });
-        /*$post = new Post();
-        $photoName = time() . '.' . $request->image->getClientOriginalExtension(); //set photo time.đuôi_ảnh
-        $request->image->move(public_path('/images'), $photoName);
-        $post->title = $request->title;
-        $post->content = $request->content;
-        $post->source = $request->source;
-        $post->image = $photoName;
-        $post->save();*/
-
         return redirect()->route("admin.posts.index");
     }
 
