@@ -17,7 +17,7 @@ class CreateSpecialtiesTable extends Migration
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('field_id');
             $table->integer('years_of_experience');
-            $table->text('dipoma');
+            $table->string('diploma');
             $table->timestamps();
         });
     }
