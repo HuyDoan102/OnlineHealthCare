@@ -44,9 +44,11 @@ class UsersController extends Controller
     {
         \DB::transaction(function () use ($request) {
             $userData = $request->only([
-                'name', 'email', 'date_of_birth', 'phone', 'gender', 'address', 'password', 'role_id',
+                'name', 'email', 'date_of_birth', 'phone', 'gender', 'address', 'password', 'role_id', 'avatar',
             ]);
             $userData['password'] = bcrypt($userData['password']);
+            $userData['avatar'] = time() . '.' . $request->avatar->getClientOriginalExtension();
+            $request->avatar->move(public_path('/images'), $userData['avatar']);
             $user = User::create($userData);
 
             $fields = $request->fields;

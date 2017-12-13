@@ -53,7 +53,7 @@
 							</tbody>
 						</table>
 					</div>
-				</div> 	
+				</div>
 				<div class="clearfix"> </div>
 			</div>
 			@endforeach
@@ -62,7 +62,7 @@
         <ul class="pagination">
           {{ $doctors->links() }}
         </ul>
-      </div>	
+      </div>
 	</div>
 </div>
 @endsection
