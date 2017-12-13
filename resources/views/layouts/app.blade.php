@@ -29,16 +29,14 @@
 
     <script>
         $(document).ready(function(){
-            $(".dropdown").hover(
-                function() {
-                    $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
-                    $(this).toggleClass('open');
-                },
-                function() {
-                    $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
-                    $(this).toggleClass('open');
-                }
-                );
+          function() {
+              $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+              $(this).toggleClass('open');
+          },
+          function() {
+              $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+              $(this).toggleClass('open');
+          };
         });
     </script>
 </head>
@@ -113,6 +111,9 @@
                         </div>
                         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                             <ul class="nav navbar-nav active">
+                                @if (Auth::check() && Auth::user()->isAdmin())
+                                    <li><a href="{{ route('admin.dashboard.index') }}">Trang Admin</a></li>
+                                @endif
                                 <li><a href="/">Trang chủ</a></li>
                                 <li class="agileits dropdown">
                                     <a href="#" data-toggle="dropdown" aria-expanded="true">Chuẩn đoán</a>

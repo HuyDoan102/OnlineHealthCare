@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\TypeOfDisease;
 use App\Field;
 use App\Post;
+use App\User;
 use DB;
 
 class Controller extends BaseController

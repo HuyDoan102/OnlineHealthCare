@@ -7,6 +7,15 @@
         <div class="card-block">
           <a href="{{ route("admin.users.index") }}"><i class="fa fa-arrow-left"></i> Back</a>
           <h1>Pushlish Doctor</h1>
+          @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          @endif
           <form action="{{ route('admin.users.store') }}" method="POST">
             {{ csrf_field() }}
             <input type="hidden" name="role_id" value="2">
@@ -62,19 +71,19 @@
                 </thead>
                 <tbody>
                   @foreach ($fields as $index => $field)
-                    <tr>
-                      <input type="hidden" name="fields[{{ $index }}][field_id]" value="{{ $field->id }}">
-                      <td>
-                        <input type="checkbox" name="fields[{{ $index }}][checked]">
-                      </td>
-                      <td>{{ $field->name }}</td>
-                      <td>
-                        <input type="text" class="form-control" name="fields[{{ $index }}][diploma]">
-                      </td>
-                      <td>
-                        <input type="number" class="form-control" name="fields[{{ $index }}][years_of_experience]">
-                      </td>
-                    </tr>
+                  <tr>
+                    <input type="hidden" name="fields[{{ $index }}][field_id]" value="{{ $field->id }}">
+                    <td>
+                      <input type="checkbox" name="fields[{{ $index }}][checked]">
+                    </td>
+                    <td>{{ $field->name }}</td>
+                    <td>
+                      <input type="text" class="form-control" name="fields[{{ $index }}][diploma]">
+                    </td>
+                    <td>
+                      <input type="number" class="form-control" name="fields[{{ $index }}][years_of_experience]">
+                    </td>
+                  </tr>
                   @endforeach
                 </tbody>
               </table>

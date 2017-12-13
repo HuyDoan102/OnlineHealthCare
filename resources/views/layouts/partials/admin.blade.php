@@ -17,7 +17,6 @@
   <script src="{{ asset('js/maps.js') }}"></script>
   <script>
     $(document).ready(function(){
-      $(".dropdown").hover(
         function() {
           $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
           $(this).toggleClass('open');
@@ -25,7 +24,7 @@
         function() {
           $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
           $(this).toggleClass('open');
-        });
+        };
     });
   </script>
 
@@ -35,7 +34,7 @@
     <!--Navbar-->
     <nav class="navbar bg-primary-gradient col-lg-12 col-12 p-0 fixed-top navbar-inverse d-flex flex-row">
       <div class="bg-white text-center navbar-brand-wrapper">
-        <a class="navbar-brand brand-logo" href="#"><img src="{{ asset('images/logoAdmin.png') }}" /></a>
+        <a class="navbar-brand brand-logo" href="/"><img src="{{ asset('images/logoAdmin.png') }}" /></a>
         <a class="navbar-brand brand-logo-mini" href="#"><img src="{{ asset('images/logo_star_mini.jpg') }}" alt=""></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -52,8 +51,9 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                 {{ Auth::user()->name }} <span class="caret"></span>
               </a>
-
               <ul  class="dropdown-menu" role="menu">
+                <li><a href="/">Homepage</a></li>
+                <li><a href="{{ route('admin.dashboard.index') }}">Admin</a></li>
                 <li id="formlogout">
                   <a href="{{ route('logout') }}"
                   onclick="event.preventDefault();
@@ -80,7 +80,7 @@
         <nav class="bg-white sidebar sidebar-fixed sidebar-offcanvas" id="sidebar">
           <div class="user-info">
             <img src="/images/avatar.jpg" alt="">
-            <p class="name">Huy, Doan</p>
+            <p class="name">{{ Auth::user()->name }} </p>
             <p class="designation">Admin</p>
             <span class="online"></span>
           </div>

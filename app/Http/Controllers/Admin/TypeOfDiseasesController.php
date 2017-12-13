@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\TypeOfDisease;
+use App\Http\Requests\TypeOfDiseaseRequest;
 
 class TypeOfDiseasesController extends Controller
 {
@@ -35,7 +36,7 @@ class TypeOfDiseasesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TypeOfDiseaseRequest $request)
     {
         $payload = $request->all();
         $typeofdiseases = new TypeOfDisease();
@@ -72,7 +73,7 @@ class TypeOfDiseasesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TypeOfDisease $typeofdisease)
+    public function update(TypeOfDiseaseRequest $request, TypeOfDisease $typeofdisease)
     {
         $payload = $request->all();
         $typeofdisease->update($payload);
