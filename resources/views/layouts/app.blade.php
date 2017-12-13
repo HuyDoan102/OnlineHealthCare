@@ -59,7 +59,7 @@
                         <div class="row">
                             <div class="form-group">
                                 <div class="input-group">
-                                    <input class="form-control" type="text" name="searchPost" placeholder="Tìm kiếm" required/>
+                                    <input class="form-control" type="text" name="searchPost" placeholder="Tìm kiếm"/>
                                     <span class="input-group-btn">
                                         <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                                     </span>

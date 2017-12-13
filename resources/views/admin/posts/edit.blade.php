@@ -31,7 +31,30 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea name="content" class="form-control p-input" id="content" rows="10">{{ $post->content }}</textarea>
+                            <textarea name="content" class="form-control p-input" id="content" rows="15">{{ $post->content }}</textarea>
+                        </div>
+                        <div class="form-group">
+                          <div class="form-group table">
+                            <table>
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Name</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                @foreach ($type_of_diseases as $index => $type_of_disease)
+                                  <tr>
+                                    <td>
+                                      <input type="checkbox" name="type_of_diseases[{{ $index }}][checked]" {{ in_array($type_of_disease->id, $checkedTypes) ? 'checked' : '' }}>
+                                    </td>
+                                    <input type="hidden" name="type_of_diseases[{{ $index }}][type_of_disease_id]" value="{{ $type_of_disease->id }}">
+                                    <td>{{ $type_of_disease->name }}</td>
+                                  </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
+                          </div>
                         </div>
                         <div class="form-group">
                             <label for="content">Status</label>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use App\Post;
 use App\Http\Requests\PostRequest;
+use App\DetailPost;
 
 class PostController extends Controller
 {
@@ -80,7 +81,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit')->with('post', $post);
+        $checkedTypes = $post->type_of_diseases()->pluck('id')->toArray();
+        return view('admin.posts.edit',compact('checkedTypes', 'post'));
     }
 
     /**
@@ -92,18 +94,28 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
-        $oldImage = $post->image;
-        $payload = $request->only(['title', 'content', 'source', 'status']);
+        // dd($post->image);
+        \DB::transaction(function () use ($request, $post) {
+            $oldImage = $post->image;
+            $payload = $request->only(['title', 'content', 'source', 'status']);
 
-        if ($request->hasFile('image')) {
-            if (file_exists(public_path('/images/' . $oldImage))) {
-                unlink(public_path('/images/' . $oldImage));
+            if ($request->hasFile('image')) {
+                if (file_exists(public_path('/images/' . $oldImage))) {
+                    unlink(public_path('/images/' . $oldImage));
+                }
+                $photoName = time() . '.' . $request->image->getClientOriginalExtension(); //set photo time.đuôi_ảnh
+                $request->image->move(public_path('/images'), $photoName);
+                $payload["image"] = $photoName;
             }
-            $photoName = time() . '.' . $request->image->getClientOriginalExtension(); //set photo time.đuôi_ảnh
-            $request->image->move(public_path('/images'), $photoName);
-            $payload["image"] = $photoName;
-        }
-        $post->update($payload);
+            $post->update($payload);
+            $ids = [];
+            foreach ($request->type_of_diseases as $type) {
+                if (!empty($type['checked'])) {
+                    $ids[] = $type['type_of_disease_id'];
+                }
+            }
+            $post->type_of_diseases()->sync($ids);
+        });
         return redirect()->route('admin.posts.index');
     }
 
