@@ -40,7 +40,6 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        // dd($request->all());
         \DB::transaction(function () use ($request) {
             $postData = $request->only([
                 'title', 'content', 'source', 'image'

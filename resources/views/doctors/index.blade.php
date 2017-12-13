@@ -54,11 +54,6 @@
 						</table>
 					</div>
 				</div>
-				<div class="button-right">
-					<div class="agile_form" method="POST">
-						<button type="button" class="btn btn-default">Liên hệ</button>
-					</div>
-				</div>  	
 				<div class="clearfix"> </div>
 			</div>
 			@endforeach
@@ -67,7 +62,7 @@
         <ul class="pagination">
           {{ $doctors->links() }}
         </ul>
-      </div>	
+      </div>
 	</div>
 </div>
 @endsection

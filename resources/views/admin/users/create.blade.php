@@ -16,7 +16,7 @@
             </ul>
           </div>
           @endif
-          <form action="{{ route('admin.users.store') }}" method="POST">
+          <form action="{{ route('admin.users.store') }}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <input type="hidden" name="role_id" value="2">
             <div class="form-group row">
@@ -57,6 +57,11 @@
                 <label for="password" class="col-md-4 control-label">Password</label>
                 <input id="password" type="password" class="form-control" name="password" placeholder="Password...">
               </div>
+              <div class="col-md-6">
+                <label for="image">Image</label>
+                <input type="file" name="avatar" class="form-control-file" id="avatar" aria-describedby="fileHelp">
+                <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+              </div>
             </div>
 
             <div class="form-group table">
@@ -88,6 +93,7 @@
                 </tbody>
               </table>
             </div>
+
             <div class="form-group">
               <button class="btn btn-primary" type="submit">SUBMIT</button>
             </div>
