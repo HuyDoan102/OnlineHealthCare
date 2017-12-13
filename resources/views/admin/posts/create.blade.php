@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
               <label for="content">Content</label>
-              <textarea name="content" class="form-control p-input" id="content" rows="3" placeholder="Content"></textarea>
+              <textarea name="content" class="form-control p-input" id="content" rows="15" placeholder="Content"></textarea>
             </div>
             <div class="form-group">
               <div class="form-group table">
