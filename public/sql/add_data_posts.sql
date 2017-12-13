@@ -174,3 +174,25 @@ Ngoài ra, thịt bò hơi có mùi gây, hoi. Nếu bày cả hai món ăn như
 Không chế biến thịt bò cùng các loại rau như hẹ, củ kiệu, gừng tươi hay uống kèm rượu trắng
 
 Thịt bò có vị ngọt, tính ôn, có tác dụng bổ khí, trợ hỏa. Trong khi đó các loại rau như rau hẹ, củ kiệu gừng tươi đều là những loại thực phẩm đại cay, đại ôn. Do đó, nếu ăn cùng uống lẫn thì đông y cho rằng chẳng khác nào lửa đổ dầu thêm, làm cho người ta sinh nhiệt, động hỏa, dễ dẫn tới viêm răng lợi.', 'suckhoe.vn', 'thit-bo-xuong-khop.png', 0, 1, NOW(), NOW());
+INSERT INTO posts (id, title, content, source, image, view, status, created_at, updated_at) VALUE (6, 'Giới thiệu 8 món ăn hỗ trợ điều trị tai biến mạch máu não', 'Tai biến mạch máu não theo Y học cổ truyền thuộc phạm trù trúng phong. Ngoài việc điều trị bằng Y học hiện đại hoặc Y học cổ truyền, các bài thuốc chữa trị bằng ăn uống cũng có tác dụng hỗ trợ giúp bệnh nhân nhanh chóng hồi phục, qua khỏi cơn nguy hiểm, giảm bớt biến chứng, di chứng.
+Bài 1: Dùng 50g con trai, 50g con hàu cho 100g gạo tẻ vào nước trai, hàu nấu thành cháo, ăn mỗi ngày 2 lần. Điều trị có hiệu quả chứng huyết áp tăng tai biến mạch máu não nhức đầu chóng mặt gan dương thịnh. Chú ý những người mắc chứng hư hàn không được dùng.
+
+Bài 2: hoa cúc bỏ cuống, sấy khô, tán nhỏ. Mỗi lần dùng 100g gạo tẻ nấu cháo, khi cháo chín, cho 15g bột hoa cúc vào quấy đều, đun sôi vài phút là được, ăn vào hai bữa sáng, chiều. Hoặc có thể lấy mầm cây cúc tươi rửa sạch, thái nhỏ, cho vào 100g gạo tẻ, nấu thành cháo để ăn cũng được.
+
+Món cháo này phù hợp với những người mắc chứng trúng phong, huyết áp tăng, nhức đầu, chóng mặt. Chú ý những người cao tuổi, tỳ hư, đái đường không được dùng.
+
+Bài 3: Nhân quả đào 12g thảo quyết minh 12g, tất cả sắc kỹ, cho vào ít mật ong quấy đều. Bài thuốc có tác dụng chữa chứng tăng huyết áp, tắc mạch máu não. Muốn sử dụng bài này cần được khám và chẩn đoán đầy đủ. Không được dùng bài thuốc này cho người bị xuất huyết não
+
+Bài 4: Hoàng kỳ 15g bạch thược sao vàng và quế mỗi thứ 15g gừng tươi 15g, sắc kỹ, lấy nước bỏ bã. Lấy 100g gạo tẻ, 4 quả táo tầu, nước vừa đủ nấu thành cháo. Khi cháo chín, cho nước thuốc vào quấy đều, mỗi ngày ăn 1 lần.
+
+Chữa di chứng sau tai biến mạch máu não (sau khi trúng phong, khí huyết đều hư liệt nửa người chân tay teo mềm không hoạt động được, lưỡi thâm, bựa lưỡi trắng mạch vi hoạt…). Điều trị liên tục sẽ có hiệu quả, những người huyết áp không cao xuất huyết não đã dừng, khám chẩn đoán tắc mạch não có thể dùng bài thuốc này.
+
+Bài 5: Hoàng kỳ 10g, táo tầu 10 quả, đương qui 10g, kỷ tử 10g, thịt lợn nạc 100g thái lát. Tất cả cho vào ninh nhừ, cho ít gia vị, ăn thịt uống nước
+
+Bài thuốc này có tác dụng bổ hư trợ dương, tăng cường khí huyết, sinh huyết. Thích hợp với người bị di chứng sau tai biến mạch máu não như teo chân tay, tê liệt, bán thân bất toại… Chú ý những người mắc chứng ngoại cảm nóng gan dương đều thịnh thì không được dùng bài thuốc này.
+
+Bài 6: Kỷ tử 30g mạch môn đông 30g, sắc lấy nước uống thay nước chè, uống hết trong ngày. Chữa trị các chứng sau trúng phong như nhức đầu chóng mặt, nhìn không rõ, huyết áp tăng, mặt đỏ phừng phừng. Chú ý những người mắc bệnh chứng hư hàn, ỉa lỏng không được dùng bài thuốc này.
+
+Bài 7: Thiên ma 100g, não lợn một bộ làm sạch cho vào bát, đổ nước vừa đủ, hấp cách thủy. Mỗi ngày hoặc cách ngày ăn 1 lần chữa bán thân bất toại do tai biến mạch não.
+
+Bài 8: Vừng đen hòa với đường: Mỗi lần dùng 2 thìa vừng đen đã rang chín, hòa một ít đường trắng, quấy đều, uống với nước sôi, có tác dụng sinh huyết, giãn cơ bắp, chữa bán thân bất toại.', 'suckhoe.vn', 'taibien.jpg', 0, 1, NOW(), NOW());
