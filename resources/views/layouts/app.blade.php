@@ -29,14 +29,16 @@
 
     <script>
         $(document).ready(function(){
-          function() {
-              $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
-              $(this).toggleClass('open');
-          },
-          function() {
-              $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
-              $(this).toggleClass('open');
-          };
+          $(".dropdown1").hover(
+              function() {
+                  $('.dropdown-menu', this).stop( true, true ).slideDown("fast");
+                  $(this).toggleClass('open');
+              },
+              function() {
+                  $('.dropdown-menu', this).stop( true, true ).slideUp("fast");
+                  $(this).toggleClass('open');
+              }
+            );
         });
     </script>
 </head>
@@ -122,7 +124,7 @@
                                         <li><a href="app.html">chuẩn đoán</a></li>
                                     </ul>
                                 </li>
-                                <li class="agileits dropdown">
+                                <li class="agileits dropdown1">
                                     <a href="{{ route('posts.index')}}" aria-expanded="true">Bệnh lý</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
                                         @foreach($type_of_diseases as $type_of_disease)
@@ -130,7 +132,7 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li class="agileits dropdown">
+                                <li class="agileits dropdown1">
                                     <a href="{{ route('doctors.index') }}" aria-expanded="true">Bác sĩ</a>
                                     <ul class="dropdown-menu agile_short_dropdown">
                                         @foreach($fields as $field)
