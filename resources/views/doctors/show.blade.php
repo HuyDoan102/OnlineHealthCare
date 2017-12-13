@@ -61,12 +61,7 @@
 			</div>
 			<div class="clearfix"> </div>
 		</div>
-		<div class="button-right">
-			<div class="agile_form" method="POST">
-				<button type="button" class="btn btn-default">Liên hệ</button>
-			</div>
-			<div class="clearfix"> </div>
-		</div><hr>
+		<hr>
 
 		<h5 class="h-t">Bác sĩ cùng chuyên ngành</h5>
 		@foreach($relatedDoctors as $relatedDoctor)

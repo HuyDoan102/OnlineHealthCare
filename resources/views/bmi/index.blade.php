@@ -22,11 +22,11 @@
             <form>
               <div class="col-md-12">
                 <div class="text-left bmi"><h4>Chiều cao:</h4></div><br>
-                <input type="text" placeholder="cm" name="txt_h" id="height"><br><br>
+                <input type="text" onkeypress="isNumber(event)" placeholder="cm" name="txt_h" id="height"><br><br>
               </div>
               <div class="col-md-12">
                 <div class="text-left bmi"><h4><br>Cân nặng:</h4></div>
-                <input type="text" placeholder="kg" name="txt_w" id="weight"><br><br>
+                <input type="text" onkeypress="isNumber(event)" placeholder="kg" name="txt_w" id="weight"><br><br>
               </div>
               <div class="col-md-12" method="POST">
                 <button type="button" onclick="calculate()" class="btn btn-primary">Kết quả</button>
@@ -91,19 +91,24 @@
     }
     return 4;
   }
-  
+
   function check(height, weight){
     if(height == "" || weight == "")
       return 1;
-    if(isNaN(height) || isWhiteSpace(height))
-      return 2;
-    if(isNaN(weight) || isWhiteSpace(weight))
-      return 3; 
     if(height < 20 || height > 300)
-      return 4;
+      return 2;
     if(weight < 1 || weight > 300 )
-      return 5;
-    return 6;
+      return 3;
+    return 4;
+  }
+
+  function isNumber(event) {
+    if (event.key === 'Backspace') {
+      return ;
+    }
+    if (!$.isNumeric(event.key)) {
+      event.preventDefault();
+    }
   }
 
   function calculate() {
@@ -117,18 +122,12 @@
     alert("Chiều cao hoặc cân nặng chưa có giá trị"); 
     break;
     case 2:
-    alert("Chiều cao phải là số")
-    break;
-    case 3:
-    alert("Cân nặng phải là số")
-    break;
-    case 4:
     alert("Chiều cao không được < 20 hoặc > 300");
     break;
-    case 5:
+    case 3:
     alert("Cân Nặng không được < 0 hoặc > 300");
     break;
-    case 6:
+    case 4:
     height = parseFloat(height) / 100;
     weight = parseFloat(weight);
 
