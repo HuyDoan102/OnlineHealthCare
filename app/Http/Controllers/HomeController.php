@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Post;
+use App\Article;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        parent::__construct();
     }
 
     /**
@@ -23,6 +25,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $articles = Article::limit(6)->orderBy('updated_at', 'desc')->get();
+        $slides = Post::limit(3)->orderBy('view', 'desc')->get();
+        $diseases = Post::limit(6)->orderBy('updated_at', 'desc')->get();
+        return view('home', compact('slides', 'diseases', 'articles'));
     }
 }

@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Role;
 
 class RegisterController extends Controller
 {
@@ -27,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -37,6 +38,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        parent::__construct();
     }
 
     /**
@@ -51,6 +53,11 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'gender' => 'required|in:1,0',
+            'date_of_birth' => 'required|date|before:-5 years',
+            'address' => 'required|string|max:255',
+            'phone' => 'required|string|max:12',
+            'role_id' => 'required|string|max:255'
         ]);
     }
 
@@ -65,7 +72,18 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'gender' => $data['gender'],
+            'date_of_birth' => $data['date_of_birth'],
+            'address' => $data['address'],
+            'phone' => $data['phone'],
+            'role_id' => $data['role_id'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        $roles = Role::all();
+        return view('auth.register')->with("roles", $roles);
     }
 }

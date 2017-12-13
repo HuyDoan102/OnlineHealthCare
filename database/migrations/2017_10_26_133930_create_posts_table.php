@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->text('content');
             $table->string('source');
+            $table->string('image')->nullable($value = true);
+            $table->Integer('view');
             $table->tinyInteger('status');
             $table->timestamps();
         });
